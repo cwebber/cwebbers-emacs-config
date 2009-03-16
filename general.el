@@ -1,0 +1,324 @@
+;; ------
+;; Place backups in ~/.backups/ directory, like a civilized program.
+;; ------
+(if (file-directory-p "~/.backup")
+    (setq backup-directory-alist '(("." . "~/.backup")))
+  (message "Directory does not exist: ~/.backup"))
+(setq backup-by-copying t    ; Don't delink hardlinks
+      delete-old-versions t  ; Clean up the backups
+      version-control t      ; Use version numbers on backups,
+      kept-new-versions 3    ; keep some new versions
+      kept-old-versions 2)   ; and some old ones, too
+;; ---------
+
+;; ---------
+;; Make debian/ubuntu work nicely with cvs emacs
+;; ---------
+(let ((startup-file "/usr/share/emacs/site-lisp/debian-startup.el"))
+  (if (and (or (not (fboundp 'debian-startup))
+               (not (boundp  'debian-emacs-flavor)))
+           (file-readable-p startup-file))
+      (progn
+        (load-file startup-file)
+        (setq debian-emacs-flavor 'emacs21)
+        (debian-startup debian-emacs-flavor)
+        (mapcar '(lambda (f)
+                   (and (not (string= (substring f -3) "/.."))
+                        (file-directory-p f) 
+                        (add-to-list 'load-path f)))
+                (directory-files "/usr/share/emacs/site-lisp" t)))))
+
+;; ---------
+;; Generic keybindings
+;; ---------
+
+; (please move more here soon)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-c fd") 'find-dired)
+
+(global-set-key (kbd "C-<right>") 'next-buffer)
+(global-set-key (kbd "C-<left>") 'previous-buffer)
+
+; These should be made more local when I figure out how
+
+;; Life-hack keybindings
+
+(global-set-key (kbd "C-c lc") 'calendar)
+(global-set-key (kbd "C-c lp") 'plan)
+
+
+;; ------
+;; General config BS
+;; ------
+
+;; Mail stuff
+(setq user-mail-address "cwebber@dustycloud.org")
+(setq user-full-name "Christopher Allan Webber")
+(setq mail-source-movemail-program "/usr/bin/movemail")
+
+(when (not window-system)
+  ;;allow you to see the region when in console mode
+  (setq transient-mark-mode t))
+
+;; Shell stuff
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(setq shell-file-name "/bin/bash")
+(setq explicit-shell-file-name "/bin/bash")
+
+(setq ispell-alternate-dictionary "/etc/dictionaries-common/words")
+
+(setq diary-file "~/records/diary")
+(setq tex-dvi-view-command
+          (if (eq window-system 'x) "xdvi" "dvi2tty * | cat -s"))
+
+; tab auto-completion cycling is evil.
+(setq pcomplete-cycle-completions nil)
+
+;; Make sure that pressing middle mouse button pastes right at point,
+;; not where the mouse cursor is.
+(setq mouse-yank-at-point t)
+
+;; Don't show my password when I'm entering it, kthx.
+(add-hook 'comint-output-filter-functions
+           'comint-watch-for-password-prompt)
+
+
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(setq inhibit-splash-screen t)
+
+;; ------
+;; Require misc stuff
+;; ------
+(require 'nxml-mode)
+(require 'python)
+(require 'ruby-mode)
+(require 'epa-file)
+(epa-file-enable)
+
+
+;; ------
+;; Initialize some things
+;; ------
+
+(display-time)
+(server-start)
+
+;; Mouse scrolling
+(mwheel-install)
+
+;; Shift-arrowkey based movement
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; ------
+;; Terminal / window specific stuff
+;; ------
+
+;; Don't minimize my emacs! Honestly wtf
+(when window-system
+  (progn
+    (global-unset-key (kbd "C-z"))
+    (setq scroll-bar-mode nil)
+    (tool-bar-mode nil)
+    (menu-bar-mode nil)
+    ;(set-face-font 'default "-Misc-Fixed-Medium-R-Normal--13-120-75-75-C-70-ISO8859-1")
+    (set-default-font "mono-10")))
+
+
+;; ---------
+;; Custom funcs
+;; ---------
+
+(defun other-window-backward (&optional n)
+  "Select Nth previous window."
+  (interactive "P")
+  (other-window (- (prefix-numeric-value n))))
+
+(defun warn-if-symlink ()
+  (if (file-symlink-p buffer-file-name)
+      ;progn here to execute both as part of else statement together
+      (message "File is a symlink")))
+
+(add-hook 'find-file-hooks 'warn-if-symlink)
+
+
+;; creating a scratch buffer command
+(defun create-scratch-buffer nil
+  "create a scratch buffer"
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode)
+  (insert ";; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+"))
+
+
+;; If the *scratch* buffer is killed, recreate it automatically
+;; FROM: Morten Welind
+;;http://www.geocrawler.com/archives/3/338/1994/6/0/1877802/
+(save-excursion
+  (set-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode)
+  (make-local-variable 'kill-buffer-query-functions)
+  (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer))
+
+(defun kill-scratch-buffer ()
+  ;; The next line is just in case someone calls this manually
+  (set-buffer (get-buffer-create "*scratch*"))
+  ;; Kill the current (*scratch*) buffer
+  (remove-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
+  (kill-buffer (current-buffer))
+  ;; Make a brand new *scratch* buffer
+  (set-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode)
+  (make-local-variable 'kill-buffer-query-functions)
+  (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
+  ;; Since we killed it, don't let caller do that.
+  nil)
+
+;; Highlight previous (or current?) line
+(defun pg-uline (ulinechar)
+  "Underline the current or the previous line with ULINECHAR"
+  (interactive "cUnderline with:")
+  (if (looking-at "^$")
+      (next-line -1))
+  (end-of-line)  
+  (let ((linelen (current-column)))
+    (insert "\n")
+    (while (> linelen 0)
+      (setq linelen (1- linelen))
+      (insert ulinechar)))
+  (insert "\n"))
+
+(global-set-key (kbd "C-c u") 'pg-uline)
+
+
+;; Swapping buffers!  Can't live without this
+
+(setq cwebber/swapping-buffer nil)
+(setq cwebber/swapping-window nil)
+
+(defun cwebber/swap-buffers-in-windows ()
+  "Swap buffers between two windows"
+  (interactive)
+  (if (and cwebber/swapping-window
+           cwebber/swapping-buffer)
+      (let ((this-buffer (current-buffer))
+            (this-window (selected-window)))
+        (if (and (window-live-p cwebber/swapping-window)
+                 (buffer-live-p cwebber/swapping-buffer))
+            (progn (switch-to-buffer cwebber/swapping-buffer)
+                   (select-window cwebber/swapping-window)
+                   (switch-to-buffer this-buffer)
+                   (select-window this-window)
+                   (message "Swapped buffers."))
+          (message "Old buffer/window killed.  Aborting."))
+        (setq cwebber/swapping-buffer nil)
+        (setq cwebber/swapping-window nil))
+    (progn
+      (setq cwebber/swapping-buffer (current-buffer))
+      (setq cwebber/swapping-window (selected-window))
+      (message "Buffer and window marked for swapping."))))
+
+(global-set-key (kbd "C-c p") 'cwebber/swap-buffers-in-windows)
+
+
+;; other stuff
+
+(defun add-spaces-to-region (beginning end numspaces)
+  "Add spaces to a whole region of text"
+  (interactive "r\nnNumber of spaces: ")
+  (save-excursion
+    (goto-char beginning)
+    (beginning-of-line)
+    (while (< (point) end)
+      (let ((bol-point 0)
+            (eol-point 0))
+        (save-excursion
+          (end-of-line)
+          (setq eol-point (point))
+          (beginning-of-line)
+          (setq bol-point (point)))
+        (if (not (equal bol-point eol-point))
+            (progn
+              (beginning-of-line)
+              (dotimes (i numspaces)
+                (insert " ")))))
+      (forward-line)
+      (beginning-of-line))))
+
+(defun rename-buffer-with-directory (&optional arg)
+  "Useful for when you're dealing with multiple files with the
+  same name in different directories.  No more file.txt<2>!
+
+  Running this will append the previous directory to the end of
+  the filename.  So for example, if you opened the emacs
+  ChangeLog (living in the emacs/ directory), you'll get
+  'ChangeLog(emacs/)'.  Using a prefix arg will give you number
+  of subdirectories, if you need it.
+
+  If you are accessing a file over Tramp, it will add 'host:' to
+  the parenthesis.. so if you were accessing
+  /ssh:example.org:/home/foobar/emacs/ChangeLog, you'd get:
+  'ChangeLog(example.org:emacs/)'"
+  (interactive "^p")
+  (let ((dir-name nil)
+        (split-path (eshell-split-path
+                         (file-name-directory (buffer-file-name))))
+        (tramp-data (condition-case nil
+                        (tramp-dissect-file-name (buffer-file-name))
+                      (error nil))))
+    (setq dir-name
+          (apply 'concat (nthcdr (- (length split-path) arg) split-path)))
+    (rename-buffer
+     (concat (file-name-nondirectory (buffer-file-name))
+             (if tramp-data
+               (concat
+                "(" (aref tramp-data 2) ":" dir-name ")")
+               (concat "(" dir-name ")"))))))
+
+
+(defun insert-virtualenv-load-line (virtualenv-dir)
+  (interactive "DVirtualenv directory: ")
+  (let ((activate-file (expand-file-name (concat virtualenv-dir "./bin/activate_this.py"))))
+    (if (file-exists-p activate-file)
+        (insert
+         (concat "execfile('" activate-file
+                 "', dict(__file__='" activate-file "'))"))
+      (error "No ./bin/activate_this.py in that virtualenv (maybe update virtualenv?)"))))
+  
+
+(global-set-key (kbd "C-c r") 'rename-buffer-with-directory)
+
+(defun blender-style ()
+  (interactive)
+  (c-set-style "bsd")
+  (setq indent-tabs-mode t) 
+  (setq tab-width 4)
+  (setq c-basic-offset 4))
+
+
+;; En1arg3 y0ur w1|\|dow!!!
+(defun undo-or-shrink-horizontally ()
+  "Either undo or shrink horizontally, depending on whether we're
+in X or in a terminal"
+  (interactive)
+  (if (window-system)
+      (shrink-window-horizontally)
+    (undo)))
+
+(global-set-key (kbd "C-=") 'enlarge-window)
+(global-set-key (kbd "C--") 'shrink-window)
+(global-set-key (kbd "C-+") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-_") 'undo-or-shrink-horizontally)
+
+
+;; ---------
+;; Load some custom stuff
+;; ---------
+
+(load-file "~/elisp/diet.el")
