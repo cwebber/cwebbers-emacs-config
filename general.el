@@ -88,6 +88,8 @@
 (put 'upcase-region 'disabled nil)
 (setq inhibit-splash-screen t)
 
+(setq column-number-mode 1)
+
 ;; ------
 ;; Require misc stuff
 ;; ------
