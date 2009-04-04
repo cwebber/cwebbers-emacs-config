@@ -47,14 +47,14 @@ isn't."
        (planner-medium-priority-task-face ((t (:foreground "green"))))
        (planner-low-priority-task-face ((t (:foreground "blue"))))
        (planner-canceled-task-face ((t (:foreground "gray" :strike-through t))))
-       (org-todo ((t (:foreground "red2" :weight "bold"))))
-       (org-done ((t (:foreground "SpringGreen3" :weight "bold"))))
+       (org-todo ((t (:foreground "red2" :bold t))))
+       (org-done ((t (:foreground "SpringGreen3" :bold t))))
        (org-special-keyword ((t (:foreground "sienna"))))
 ;       (py-pseudo-keyword-face ((t (:foreground: 
        (erc-input-face ((t (:foreground "brown"))))
-       (erc-notice-face ((t (:foreground "SlateBlue" :weight "bold"))))
-       (erc-current-nick-face ((t (:foreground "DarkTurquoise" :weight "bold"))))
-       (erc-prompt-face ((t (:foreground "Black" :weight "bold" :background "lightBlue2"))))
+       (erc-notice-face ((t (:foreground "SlateBlue" :bold t))))
+       (erc-current-nick-face ((t (:foreground "DarkTurquoise" :bold t))))
+       (erc-prompt-face ((t (:foreground "Black" :bold t :background "lightBlue2"))))
        (planner-note-headline-face ((t (:bold t :foreground "azure3"))))))))
 
 
@@ -106,10 +106,19 @@ isn't."
 
 (my-theme-set-default)
 (global-set-key [f12] 'my-theme-cycle)
-;(global-set-key [f11] 'my-refresh-current-theme)
+(global-set-key [f11] 'my-refresh-current-theme)
 (setq color-theme-is-cumulative t)
 
 (add-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
+;; (remove-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
+
+;; (defadvice make-frame (after possibly-load-color-theme)
+;;   "Load the color theme if we are in x, but not if in a terminal"
+;;   (message "Hello thar")
+;;   (message ad-return-value)
+;;   (cwebber/load-primary-theme))
+
+;; (ad-activate 'make-frame)
 
 
 ;;;; And now, set faces
