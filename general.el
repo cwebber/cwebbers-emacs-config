@@ -1,4 +1,14 @@
 ;; ------
+;; Require misc stuff
+;; ------
+(require 'nxml-mode)
+(require 'python)
+(require 'ruby-mode)
+(require 'epa-file)
+(require 'ibuffer)
+(epa-file-enable)
+
+;; ------
 ;; Place backups in ~/.backups/ directory, like a civilized program.
 ;; ------
 (if (file-directory-p "~/.backup")
@@ -33,7 +43,7 @@
 ;; ---------
 
 ; (please move more here soon)
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c fd") 'find-dired)
 
 (global-set-key (kbd "C-<right>") 'next-buffer)
@@ -89,16 +99,6 @@
 (setq inhibit-splash-screen t)
 
 (setq column-number-mode 1)
-
-;; ------
-;; Require misc stuff
-;; ------
-(require 'nxml-mode)
-(require 'python)
-(require 'ruby-mode)
-(require 'epa-file)
-(epa-file-enable)
-
 
 ;; ------
 ;; Initialize some things
