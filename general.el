@@ -61,6 +61,8 @@
 ;; General config BS
 ;; ------
 
+(setq max-specpdl-size 9000)
+
 ;; Mail stuff
 (setq user-mail-address "cwebber@dustycloud.org")
 (setq user-full-name "Christopher Allan Webber")
