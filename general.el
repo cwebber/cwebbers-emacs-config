@@ -77,7 +77,7 @@
 
 (setq ispell-alternate-dictionary "/etc/dictionaries-common/words")
 
-(setq diary-file "~/records/diary")
+(setq diary-file "~/org/diary")
 (setq tex-dvi-view-command
           (if (eq window-system 'x) "xdvi" "dvi2tty * | cat -s"))
 
