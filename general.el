@@ -24,19 +24,19 @@
 ;; ---------
 ;; Make debian/ubuntu work nicely with cvs emacs
 ;; ---------
-(let ((startup-file "/usr/share/emacs/site-lisp/debian-startup.el"))
-  (if (and (or (not (fboundp 'debian-startup))
-               (not (boundp  'debian-emacs-flavor)))
-           (file-readable-p startup-file))
-      (progn
-        (load-file startup-file)
-        (setq debian-emacs-flavor 'emacs21)
-        (debian-startup debian-emacs-flavor)
-        (mapcar '(lambda (f)
-                   (and (not (string= (substring f -3) "/.."))
-                        (file-directory-p f) 
-                        (add-to-list 'load-path f)))
-                (directory-files "/usr/share/emacs/site-lisp" t)))))
+;; (let ((startup-file "/usr/share/emacs/site-lisp/debian-startup.el"))
+;;   (if (and (or (not (fboundp 'debian-startup))
+;;                (not (boundp  'debian-emacs-flavor)))
+;;            (file-readable-p startup-file))
+;;       (progn
+;;         (load-file startup-file)
+;;         (setq debian-emacs-flavor 'emacs22)
+;;         (debian-startup debian-emacs-flavor)
+;;         (mapcar '(lambda (f)
+;;                    (and (not (string= (substring f -3) "/.."))
+;;                         (file-directory-p f) 
+;;                         (add-to-list 'load-path f)))
+;;                 (directory-files "/usr/share/emacs/site-lisp" t)))))
 
 ;; ---------
 ;; Generic keybindings
