@@ -11,3 +11,4 @@
 (setq org-agenda-files "~/org/orgfiles.txt")
 (setq org-agenda-include-diary t)
 (setq org-hide-leading-stars t)
+(setq org-log-done 'time)
