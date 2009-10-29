@@ -102,6 +102,8 @@
 
 (setq column-number-mode 1)
 
+(setq visual-line-fringe-indicators '(t t))
+
 ;; ------
 ;; Initialize some things
 ;; ------
