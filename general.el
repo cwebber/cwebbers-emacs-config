@@ -104,6 +104,10 @@
 
 (setq visual-line-fringe-indicators '(t t))
 
+; Don't switch to another frame with iswitchb
+(setq iswitchb-default-method 'samewindow)
+
+
 ;; ------
 ;; Initialize some things
 ;; ------
