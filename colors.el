@@ -50,6 +50,7 @@ isn't."
        (org-todo ((t (:foreground "red2" :bold t))))
        (org-done ((t (:foreground "SpringGreen3" :bold t))))
        (org-special-keyword ((t (:foreground "sienna"))))
+       (org-column ((t (:background "gray85"))))
 ;       (py-pseudo-keyword-face ((t (:foreground: 
        (erc-input-face ((t (:foreground "brown"))))
        (erc-notice-face ((t (:foreground "SlateBlue" :bold t))))
