@@ -21,6 +21,7 @@
 (org-remember-insinuate)
 (define-key global-map "\C-cor" 'org-remember)
 (define-key global-map "\C-cm" 'org-remember)
+(define-key global-map "\C-col" 'org-store-link)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
 
 (setq org-remember-templates
