@@ -46,3 +46,4 @@
 ; Always file things at the start of a tree rather than at the end
 (setq org-reverse-note-order t)
 
+(setq org-log-state-notes-into-drawer t)
