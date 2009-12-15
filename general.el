@@ -325,6 +325,7 @@ in X or in a terminal"
 (global-set-key (kbd "C--") 'shrink-window)
 (global-set-key (kbd "C-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-_") 'undo-or-shrink-horizontally)
+(global-set-key (kbd "C-c x") 'execute-extended-command)
 
 
 ;; ---------
