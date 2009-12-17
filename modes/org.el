@@ -48,3 +48,38 @@
 (setq org-reverse-note-order t)
 
 (setq org-log-state-notes-into-drawer t)
+
+
+;; Useful functions
+
+(defun cwebber-org-update-roundup ()
+  (with-current-buffer (or (find-buffer-visiting "~/org/ccommons.org")
+                           (find-file-noselect "~/org/ccommons.org"))
+    (save-excursion
+      (beginning-of-buffer)
+      (search-forward "\n* Roundup")
+      (outline-next-heading)
+      (backward-char)
+      (let* ((roundup-entries
+              (remove ""
+                      (split-string
+                       (shell-command-to-string
+                        "python ~/org/scripts/read_roundup_csv.py") "\n")))
+             (roundup-header-marker (point-marker))
+             (filed-roundup-ids
+              (remove nil (org-map-entries
+                           '(org-entry-get (point) "ROUNDUPID")
+                           nil 'tree))))
+        (dolist (csvline roundup-entries)
+          (let* ((split-entry (split-string csvline))
+                 (entry-id (car split-entry))
+                 (entry-title (combine-and-quote-strings (cdr split-entry))))
+            (if (not (member entry-id filed-roundup-ids))
+                (progn
+                  (insert "\n\n")
+                  (backward-char)
+                  (org-insert-subheading t)
+                  (insert (format "TODO [[roundup:%s]] %s" entry-id entry-title))
+                  (org-entry-put (point) "ROUNDUPID" entry-id)
+                  (hide-subtree)
+                  (goto-char (marker-position roundup-header-marker))))))))))
