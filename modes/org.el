@@ -95,4 +95,6 @@
 (setq midnight-mode t)
 (remove-hook 'midnight-hook 'clean-buffer-list)
 (add-hook 'midnight-hook 'org-agenda-to-appt)
+
+; This one is kinda annoying...
 (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
