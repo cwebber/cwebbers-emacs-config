@@ -83,3 +83,16 @@
                   (org-entry-put (point) "ROUNDUPID" entry-id)
                   (hide-subtree)
                   (goto-char (marker-position roundup-header-marker))))))))))
+
+
+;; -----------------
+;; Appointment stuff
+;; -----------------
+
+(appt-activate)
+(org-agenda-to-appt)
+(require 'midnight)
+(setq midnight-mode t)
+(remove-hook 'midnight-hook 'clean-buffer-list)
+(add-hook 'midnight-hook 'org-agenda-to-appt)
+(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
