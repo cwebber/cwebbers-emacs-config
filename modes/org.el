@@ -9,6 +9,7 @@
 
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-agenda-files "~/org/orgfiles.txt")
+(setq org-id-locations-file "~/org/org-id-locations.txt")
 (setq org-agenda-include-diary t)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
