@@ -49,6 +49,10 @@
 
 (setq org-log-state-notes-into-drawer t)
 
+; It's just too hard to deal with daily repeating tasks (octavia)
+; if you see them every day in the future
+; I am not confident this is the right option though.
+(setq org-agenda-repeating-timestamp-show-all nil)
 
 ;; Useful functions
 
@@ -98,3 +102,4 @@
 
 ; This one is kinda annoying...
 (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
+
