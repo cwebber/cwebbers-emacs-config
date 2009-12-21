@@ -49,6 +49,9 @@
 
 (setq org-log-state-notes-into-drawer t)
 
+(setq org-refile-targets '((org-agenda-files . (:level . 1))))
+(setq org-refile-use-outline-path 'file)
+
 ; It's just too hard to deal with daily repeating tasks (octavia)
 ; if you see them every day in the future
 ; I am not confident this is the right option though.
