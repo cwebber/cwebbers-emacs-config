@@ -54,6 +54,8 @@
 ; I am not confident this is the right option though.
 (setq org-agenda-repeating-timestamp-show-all nil)
 
+(setq org-archive-default-command 'org-archive-to-archive-sibling)
+
 ;; Useful functions
 
 (defun cwebber-org-update-roundup ()
