@@ -333,3 +333,9 @@ in X or in a terminal"
 ;; ---------
 
 (load-file "~/elisp/diet.el")
+
+(defun insert-ellipsis ()
+  (interactive)
+  (insert "…"))
+(global-set-key (kbd "C-c ;") 'insert-ellipsis)
+
