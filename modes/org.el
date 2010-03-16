@@ -105,3 +105,4 @@
 ; This one is kinda annoying...
 (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
 
+(setq org-clock-idle-time 15)
