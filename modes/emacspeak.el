@@ -1,0 +1,1 @@
+(setq emacspeak-sounds-directory "/home/cwebber/programs/emacspeak_audio_icons/")
