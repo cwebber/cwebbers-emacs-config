@@ -18,6 +18,10 @@
       '((sequence "TODO" "DONE")
         (sequence "|" "CANCELED")))
 
+(require 'org-habit)
+(add-to-list 'org-modules 'org-habit)
+(setq org-habit-graph-column 60)
+
 ;; remember
 (org-remember-insinuate)
 (define-key global-map "\C-cor" 'org-remember)
