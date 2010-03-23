@@ -31,9 +31,9 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
-        ("Schedule" ?s "* %^{Event}%?\n  %^t\n  %a" "~/org/life.org" "Events")
+        ("Schedule" ?s "* %^{Event}\n  %^t\n  %a\n\n%?" "~/org/life.org" "Events")
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
-        ("Weigh-in" ?w "* %t
+        ("Weigh-in" ?w "* Diet for day %t
 %^{Weight}p
 
 | Food / Exercise | Calories | Quantity | Total |
