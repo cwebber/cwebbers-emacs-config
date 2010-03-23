@@ -29,6 +29,8 @@
 (define-key global-map "\C-col" 'org-store-link)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
 
+(setq org-remember-delete-empty-lines-at-end nil)
+
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
         ("Schedule" ?s "* %^{Event}\n  %^t\n  %a\n\n%?" "~/org/life.org" "Events")
