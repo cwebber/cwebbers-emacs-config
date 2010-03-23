@@ -31,7 +31,7 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
-        ("Schedule" ?s "* %^{Event}%?\n  SCHEDULED: %^t\n  %a" "~/org/life.org" "Events")
+        ("Schedule" ?s "* %^{Event}%?\n  %^t\n  %a" "~/org/life.org" "Events")
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
         ("Weigh-in" ?w "* %t
 %^{Weight}p
@@ -44,6 +44,8 @@
 #+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)
 
 " "~/org/diet.org" "Daily Logs")
+        ("Note" ?n "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
+         "~/org/notes.org" "General Notes")
         ("Idea" ?i "* %^{Title}\n  %i\n  %a" "~/org/ideas.org")))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
