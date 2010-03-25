@@ -27,6 +27,7 @@
 (define-key global-map "\C-cor" 'org-remember)
 (define-key global-map "\C-cm" 'org-remember)
 (define-key global-map "\C-col" 'org-store-link)
+(define-key global-map "\C-coj" 'org-clock-goto)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
 
 (setq org-remember-delete-empty-lines-at-end nil)
@@ -57,7 +58,7 @@
 
 (setq org-log-state-notes-into-drawer t)
 
-(setq org-refile-targets '((org-agenda-files . (:level . 1))))
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 8))))
 (setq org-refile-use-outline-path 'file)
 
 ; It's just too hard to deal with daily repeating tasks (octavia)
