@@ -25,7 +25,6 @@
 ;; remember
 (org-remember-insinuate)
 (define-key global-map "\C-cor" 'org-remember)
-(define-key global-map "\C-cm" 'org-remember)
 (define-key global-map "\C-col" 'org-store-link)
 (define-key global-map "\C-coj" 'org-clock-goto)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
@@ -38,7 +37,6 @@
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
         ("Weigh-in" ?w "* CAL-IN Diet for day %t
 %^{Weight}p
-
 | Food / Exercise | Calories | Quantity | Total |
 |-----------------+----------+----------+-------|
 | %?%&                |          |          |       |
@@ -104,6 +102,17 @@
                   (org-entry-put (point) "ROUNDUPID" entry-id)
                   (hide-subtree)
                   (goto-char (marker-position roundup-header-marker))))))))))
+
+
+(defun cwebber-org-pull-up-agenda ()
+  "Switch to the org agenda, or prompt for new one if one does not exist"
+  (interactive)
+  (let ((agenda-buffer (get-buffer "*Org Agenda*")))
+    (if agenda-buffer
+        (switch-to-buffer-other-window agenda-buffer)
+      (org-agenda))))
+
+(define-key global-map "\C-coa" 'cwebber-org-pull-up-agenda)
 
 
 ;; -----------------

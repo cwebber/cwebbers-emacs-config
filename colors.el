@@ -122,7 +122,8 @@ isn't."
 ;; (ad-activate 'make-frame)
 
 (setq org-todo-keyword-faces
-      '(("CANCELED" . (:foreground "orange" :weight bold))))
+      '(("CANCELED" . (:foreground "orange" :weight bold))
+        ("CAL-CANCEL" . (:foreground "orange" :weight bold))))
 
 ;;;; And now, set faces
 (custom-set-faces
