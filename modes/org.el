@@ -33,7 +33,7 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
-        ("Event" ?e "* %^{Event}\n  %^t\n  %a\n\n%?" "~/org/life.org" "Events")
+        ("Event" ?e "* %^{Event} %^t\n  %a\n\n%?" "~/org/life.org" "Events")
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
         ("Weigh-in" ?w "* CAL-IN Diet for day %t
 %^{Weight}p
