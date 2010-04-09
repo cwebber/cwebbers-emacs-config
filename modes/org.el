@@ -33,7 +33,7 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
-        ("Schedule" ?s "* %^{Event}\n  %^t\n  %a\n\n%?" "~/org/life.org" "Events")
+        ("Event" ?e "* %^{Event}\n  %^t\n  %a\n\n%?" "~/org/life.org" "Events")
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
         ("Weigh-in" ?w "* CAL-IN Diet for day %t
 %^{Weight}p
@@ -104,15 +104,18 @@
                   (goto-char (marker-position roundup-header-marker))))))))))
 
 
-(defun cwebber-org-pull-up-agenda ()
+(defun cwebber-org-pull-up-agenda (&optional open-same-window)
   "Switch to the org agenda, or prompt for new one if one does not exist"
-  (interactive)
+  (interactive "P")
   (let ((agenda-buffer (get-buffer "*Org Agenda*")))
     (if agenda-buffer
-        (switch-to-buffer-other-window agenda-buffer)
+        (if open-same-window
+            (switch-to-buffer agenda-buffer)
+          (switch-to-buffer-other-window agenda-buffer))
       (org-agenda))))
 
 (define-key global-map "\C-coa" 'cwebber-org-pull-up-agenda)
+(define-key global-map [XF86Favorites] 'cwebber-org-pull-up-agenda)
 
 
 ;; -----------------
