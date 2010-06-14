@@ -16,4 +16,4 @@
 (require 'erc-log)
 (erc-log-mode t)
 (add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
-
+(setq erc-scrolltobottom-mode t)
