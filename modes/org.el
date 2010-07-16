@@ -116,6 +116,7 @@
 
 (define-key global-map "\C-coa" 'cwebber-org-pull-up-agenda)
 (define-key global-map [XF86Favorites] 'cwebber-org-pull-up-agenda)
+(define-key global-map [f5] 'cwebber-org-pull-up-agenda)
 
 
 ;; -----------------
@@ -134,3 +135,9 @@
 
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
+
+;; -----------
+;; Babel stuff
+;; -----------
+
+(require 'ob-sh)
