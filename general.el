@@ -327,7 +327,8 @@ in X or in a terminal"
 (global-set-key (kbd "C-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-_") 'undo-or-shrink-horizontally)
 (global-set-key (kbd "C-c x") 'execute-extended-command)
-
+(global-set-key [S-prior] 'beginning-of-buffer)
+(global-set-key [S-next] 'end-of-buffer)
 
 ;; ---------
 ;; Load some custom stuff
