@@ -27,6 +27,7 @@
 (define-key global-map "\C-cor" 'org-remember)
 (define-key global-map "\C-col" 'org-store-link)
 (define-key global-map "\C-coj" 'org-clock-goto)
+(define-key global-map "\C-cod" 'org-diet-hacky-jump-to-today)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
 
 (setq org-remember-delete-empty-lines-at-end nil)
@@ -141,3 +142,20 @@
 ;; -----------
 
 (require 'ob-sh)
+
+;; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
+
+; hacky diet stuff
+(defun org-diet-hacky-jump-to-today ()
+  "Really hacky function to jump to today based on the assumption
+    that we can find the first Total line"
+  (interactive)
+  (switch-to-buffer (get-file-buffer "~/org/diet.org"))
+  (beginning-of-buffer)
+  (search-forward-regexp "^| Total")
+  (beginning-of-line)
+  (previous-line))

@@ -3,5 +3,5 @@
 
 (setq identica-update-status-method 'edit-buffer)
 
-; We'll set the username here but NOT our password.
-(setq identica-username "cwebber")
+;; ; We'll set the username here but NOT our password.
+;; (setq identica-username nil)
