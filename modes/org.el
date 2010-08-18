@@ -141,7 +141,17 @@
 ;; Babel stuff
 ;; -----------
 
+(require 'ob-python)
 (require 'ob-sh)
+(require 'ob-gnuplot)
+
+; Don't prompt me all the time about evaluating code blocks
+
+(setq org-confirm-babel-evaluate nil)
+
+;; -----------
+;; Other stuff
+;; -----------
 
 ;; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
