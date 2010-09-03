@@ -108,6 +108,10 @@
 ; Don't switch to another frame with iswitchb
 (setq iswitchb-default-method 'samewindow)
 
+; Use diff -u
+
+(setq diff-switches "-u")
+
 
 ;; ------
 ;; Initialize some things
