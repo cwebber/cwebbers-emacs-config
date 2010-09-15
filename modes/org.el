@@ -10,12 +10,13 @@
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-agenda-files "~/org/orgfiles.txt")
 (setq org-id-locations-file "~/org/org-id-locations.txt")
-(setq org-agenda-include-diary t)
+;(setq org-agenda-include-diary t)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
 
 (setq org-todo-keywords
       '((sequence "TODO" "DONE")
+        (sequence "WAITING" "|" "DONE")
         (sequence "|" "CANCELED")))
 
 (require 'org-habit)
@@ -25,6 +26,7 @@
 ;; remember
 (org-remember-insinuate)
 (define-key global-map "\C-cor" 'org-remember)
+(define-key global-map "\C-coc" 'org-capture)
 (define-key global-map "\C-col" 'org-store-link)
 (define-key global-map "\C-coj" 'org-clock-goto)
 (define-key global-map "\C-cod" 'org-diet-hacky-jump-to-today)
@@ -49,6 +51,39 @@
         ("Note" ?n "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
          "~/org/notes.org" "General Notes")
         ("Idea" ?i "* %^{Title}\n  %i\n  %a" "~/org/ideas.org")))
+
+
+(setq org-capture-templates
+      '(("t" "Todo" entry
+         (file+headline "~/org/life.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t)
+        ("e" "Event" entry
+         (file+headline "~/org/life.org" "Events")
+         "* %^{Event} %^t\n  %a\n\n%?" :prepend t)
+        ("j" "Journal" entry
+         (file+headline "~/org/journal.org" "")
+         "* %U %?\n\n  %i\n  %a" :prepend t)
+        ("w" "Weigh-in" entry
+         (file+headline "~/org/diet.org" "Daily Logs")
+         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)\n\n" :prepend t)
+        ("n" "Note" entry
+         (file+headline "~/org/notes.org" "General Notes")
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a" :prepend t)
+        ("i" "Idea" entry
+         (file+headline "~/org/ideas.org" "")
+         "* %^{Title}\n  %i\n  %a" :prepend t)
+        ("c" "CC work-related items")
+        ("ct" "CC Todo" entry
+         (file+headline "~/org/ccommons.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t)
+        ("ce" "CC Event" entry
+         (file+headline "~/org/ccommons.org" "Events")
+         "* %^{Event} %^t\n  %a\n\n%?" :prepend t)
+        ("cn" "CC Note" entry
+         (file+headline "~/org/ccommons.org" "Notes")
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
+         :prepend t)))
+
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
@@ -136,6 +171,9 @@
 
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
+
+(setq org-src-fontify-natively t)
+(setq org-src-tab-acts-natively t)
 
 ;; -----------
 ;; Babel stuff
