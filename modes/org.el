@@ -25,8 +25,11 @@
 
 ;; remember
 (org-remember-insinuate)
-(define-key global-map "\C-cor" 'org-remember)
-(define-key global-map "\C-coc" 'org-capture)
+;(define-key global-map "\C-cor" 'org-remember)
+(define-key global-map "\C-coR" 'org-remember) ; used to be C-o r, here in case
+                                               ; I need it
+(define-key global-map "\C-cor" 'org-capture)
+;(define-key global-map "\C-coc" 'org-capture)
 (define-key global-map "\C-col" 'org-store-link)
 (define-key global-map "\C-coj" 'org-clock-goto)
 (define-key global-map "\C-cod" 'org-diet-hacky-jump-to-today)
