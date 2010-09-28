@@ -59,34 +59,35 @@
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file+headline "~/org/life.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t)
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("e" "Event" entry
          (file+headline "~/org/life.org" "Events")
-         "* %^{Event} %^t\n  %a\n\n%?" :prepend t)
+         "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("j" "Journal" entry
          (file+headline "~/org/journal.org" "")
-         "* %U %?\n\n  %i\n  %a" :prepend t)
+         "* %U %?\n\n  %i\n  %a" :prepend t :empty-lines 1)
         ("w" "Weigh-in" entry
          (file+headline "~/org/diet.org" "Daily Logs")
-         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)\n\n" :prepend t)
+         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)\n\n"
+         :prepend t :empty-lines 1)
         ("n" "Note" entry
          (file+headline "~/org/notes.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a" :prepend t)
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
+         :prepend t :empty-lines 1)
         ("i" "Idea" entry
          (file+headline "~/org/ideas.org" "")
-         "* %^{Title}\n  %i\n  %a" :prepend t)
+         "* %^{Title}\n  %i\n  %a" :prepend t :empty-lines 1)
         ("c" "CC work-related items")
         ("ct" "CC Todo" entry
          (file+headline "~/org/ccommons.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t)
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("ce" "CC Event" entry
          (file+headline "~/org/ccommons.org" "Events")
-         "* %^{Event} %^t\n  %a\n\n%?" :prepend t)
+         "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
          (file+headline "~/org/ccommons.org" "Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
-         :prepend t)))
-
+         :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
