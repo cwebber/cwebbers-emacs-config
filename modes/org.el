@@ -216,8 +216,8 @@
 
 (setq initial-major-mode 'org-mode)
 (with-current-buffer "*scratch*"
-	(if (not (eq major-mode initial-major-mode))
-	    (funcall initial-major-mode)))
+  (if (not (eq major-mode initial-major-mode))
+      (funcall initial-major-mode)))
 (setq initial-scratch-message
       (purecopy "\
 # Scratch!
