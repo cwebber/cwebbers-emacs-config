@@ -211,3 +211,12 @@
   (search-forward-regexp "^| Total")
   (beginning-of-line)
   (previous-line))
+
+; Make org the default scratch
+
+(setq initial-major-mode 'org-mode)
+(setq initial-scratch-message
+      (purecopy "\
+# Scratch!
+# --------
+# This buffer is for notes you don't want to save, etc."))
