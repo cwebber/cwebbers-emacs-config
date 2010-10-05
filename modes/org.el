@@ -215,8 +215,12 @@
 ; Make org the default scratch
 
 (setq initial-major-mode 'org-mode)
+(with-current-buffer "*scratch*"
+	(if (not (eq major-mode initial-major-mode))
+	    (funcall initial-major-mode)))
 (setq initial-scratch-message
       (purecopy "\
 # Scratch!
 # --------
-# This buffer is for notes you don't want to save, etc."))
+# This buffer is for notes you don't want to save, etc.
+"))
