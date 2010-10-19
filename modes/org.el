@@ -87,7 +87,7 @@
          (file+headline "~/org/ccommons.org" "Events")
          "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
-         (file+headline "~/org/ccommons.org" "Notes")
+         (file+headline "~/org/ccommons.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %i\n  %a"
          :prepend t :empty-lines 1)))
 
