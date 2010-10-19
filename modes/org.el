@@ -4,12 +4,14 @@
 
 (setq load-path (cons "~/elisp/org-mode/lisp" load-path))
 (require 'org)
+(require 'org-id)
 (require 'org-install)
 (global-set-key "\C-ca" 'org-agenda)
 
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-agenda-files "~/org/orgfiles.txt")
-(setq org-id-locations-file "~/org/org-id-locations.txt")
+(setq org-id-track-globally nil)
+;(setq org-id-locations-file "~/org/org-id-locations.txt")
 ;(setq org-agenda-include-diary t)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
@@ -72,7 +74,7 @@
          :prepend t :empty-lines 1)
         ("n" "Note" entry
          (file+headline "~/org/notes.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %i\n  %a"
          :prepend t :empty-lines 1)
         ("i" "Idea" entry
          (file+headline "~/org/ideas.org" "")
@@ -86,7 +88,7 @@
          "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
          (file+headline "~/org/ccommons.org" "Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %i\n  %a"
          :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
