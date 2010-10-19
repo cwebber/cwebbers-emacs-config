@@ -74,7 +74,7 @@
          :prepend t :empty-lines 1)
         ("n" "Note" entry
          (file+headline "~/org/notes.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %i\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
         ("i" "Idea" entry
          (file+headline "~/org/ideas.org" "")
@@ -88,7 +88,7 @@
          "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
          (file+headline "~/org/ccommons.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %i\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
