@@ -123,7 +123,8 @@ isn't."
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
-        ("CAL-CANCEL" . (:foreground "orange" :weight bold))))
+        ("CAL-CANCEL" . (:foreground "orange" :weight bold))
+        ("WAITING" . (:foreground "magenta" :weight bold))))
 
 ;;;; And now, set faces
 (custom-set-faces

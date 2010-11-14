@@ -68,6 +68,7 @@
 (setq user-mail-address "cwebber@dustycloud.org")
 (setq user-full-name "Christopher Allan Webber")
 (setq mail-source-movemail-program "/usr/bin/movemail")
+(setq mail-signature "\n\n-- \n𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻")
 
 (when (not window-system)
   ;;allow you to see the region when in console mode
