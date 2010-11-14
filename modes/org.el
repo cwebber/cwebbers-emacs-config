@@ -13,6 +13,7 @@
 (setq org-id-track-globally nil)
 ;(setq org-id-locations-file "~/org/org-id-locations.txt")
 ;(setq org-agenda-include-diary t)
+(setq org-agenda-include-diary nil)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
 
@@ -72,6 +73,9 @@
          (file+headline "~/org/diet.org" "Daily Logs")
          "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)\n\n"
          :prepend t :empty-lines 1)
+        ("b" "Blood pressure" table-line
+         (file+headline "~/org/bpressure.org" "Blood pressure table")
+         "| %U | %^{systolic} | %^{diastolic} | %^{pulse} | %^{note} |")
         ("n" "Note" entry
          (file+headline "~/org/notes.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
@@ -192,6 +196,8 @@
 ; Don't prompt me all the time about evaluating code blocks
 
 (setq org-confirm-babel-evaluate nil)
+
+(setq org-src-preserve-indentation nil)
 
 ;; -----------
 ;; Other stuff
