@@ -19,3 +19,5 @@
 
 (setq appt-disp-window-function 'botler->appt-message-me)
 (setq appt-delete-window-function 'botler->do-nothing)
+
+(setq appt-display-inverval 5) ; maybe 6 is better?
