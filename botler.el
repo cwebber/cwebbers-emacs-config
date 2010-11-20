@@ -5,15 +5,17 @@
 
 (defun botler->appt-message-me (min-to-app new-time appt-msg)
   "Message me about an upcoming appointment."
-  (jabber-send-message
-   (jabber-find-connection "emacs@dustycloud.org")
-   "cwebber@dustycloud.org" nil
-   (format "Appointment %s: %s%s"
+  (let ((message-body
+         (format "Appointment %s: %s%s"
            (if (string-equal "0" min-to-app) "now"
              (format "in %s minute%s" min-to-app
                      (if (string-equal "1" min-to-app) "" "s")))
-           new-time appt-msg)
-   nil))
+           new-time appt-msg)))
+    (jabber-send-sexp
+     (jabber-find-connection "emacs@dustycloud.org")
+     `(message ((to . "cwebber@dustycloud.org")
+                (type . "normal"))
+                (body () ,message-body)))))
 
 (defun botler->do-nothing ())
 
