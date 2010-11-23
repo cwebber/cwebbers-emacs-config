@@ -22,6 +22,9 @@
         (sequence "WAITING" "|" "DONE")
         (sequence "|" "CANCELED")))
 
+; Complete with org-complete (does a fallback to hippie-expand automatically)
+(define-key org-mode-map "\M-/" 'org-complete)
+
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
 (setq org-habit-graph-column 60)
@@ -83,6 +86,9 @@
         ("i" "Idea" entry
          (file+headline "~/org/ideas.org" "")
          "* %^{Title}\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("p" "Purchase wishlist" entry
+         (file+headline "~/org/consumerism.org" "Stuff to buy")
+         "* TODO %^{Title}\n\n%?\n" :prepend t :empty-lines 1)
         ("c" "CC work-related items")
         ("ct" "CC Todo" entry
          (file+headline "~/org/ccommons.org" "Various Tasks")
