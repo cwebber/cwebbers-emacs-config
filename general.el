@@ -46,6 +46,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c fd") 'find-dired)
 (global-set-key (kbd "C-c d") 'diff-buffer-with-file)
+(global-set-key (kbd "C-c R") 'revert-buffer)
 
 (global-set-key (kbd "C-<right>") 'next-buffer)
 (global-set-key (kbd "C-<left>") 'previous-buffer)
