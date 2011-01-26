@@ -123,6 +123,7 @@ isn't."
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
+        ("DONE-NOT-ME" . (:foreground "SpringGreen4" :weight bold))
         ("CAL-CANCEL" . (:foreground "orange" :weight bold))
         ("WAITING" . (:foreground "magenta" :weight bold))))
 
