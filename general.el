@@ -69,7 +69,7 @@
 (setq user-mail-address "cwebber@dustycloud.org")
 (setq user-full-name "Christopher Allan Webber")
 (setq mail-source-movemail-program "/usr/bin/movemail")
-(setq mail-signature "\n\n-- \n𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻")
+(setq mail-signature "𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻")
 
 (when (not window-system)
   ;;allow you to see the region when in console mode
@@ -139,9 +139,7 @@
     (global-unset-key (kbd "C-z"))
     (setq scroll-bar-mode nil)
     (tool-bar-mode nil)
-    (menu-bar-mode nil)
-    ;(set-face-font 'default "-Misc-Fixed-Medium-R-Normal--13-120-75-75-C-70-ISO8859-1")
-    (set-default-font "mono-10")))
+    (menu-bar-mode nil)))
 
 
 ;; ---------
@@ -335,6 +333,21 @@ in X or in a terminal"
 (global-set-key (kbd "C-c x") 'execute-extended-command)
 (global-set-key [S-prior] 'beginning-of-buffer)
 (global-set-key [S-next] 'end-of-buffer)
+
+
+;; Apparently I'm a crufty old timer who likes the way the old mouse
+;; and x11 pasting worked.  This sets it back
+
+(global-set-key [mouse-2] 'mouse-yank-at-click)
+
+(setq mouse-drag-copy-region t
+      select-active-regions nil
+      x-select-enable-primary t
+      x-select-enable-clipboard nil)
+
+;; I also like my scrollbars on the left, thanks!
+
+(set-scroll-bar-mode 'left)
 
 ;; ---------
 ;; Load some custom stuff
