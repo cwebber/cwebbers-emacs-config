@@ -11,8 +11,10 @@
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-agenda-files "~/org/orgfiles.txt")
 (setq org-id-track-globally nil)
+(setq org-link-to-org-use-id nil)
 ;(setq org-id-locations-file "~/org/org-id-locations.txt")
 ;(setq org-agenda-include-diary t)
+(setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-include-diary nil)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
@@ -20,10 +22,11 @@
 (setq org-todo-keywords
       '((sequence "TODO" "DONE")
         (sequence "WAITING" "|" "DONE")
-        (sequence "|" "CANCELED")))
+        (sequence "|" "CANCELED")
+        (sequence "|" "DONE-NOT-ME")))
 
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
-(define-key org-mode-map "\M-/" 'org-complete)
+;(define-key org-mode-map "\M-/" 'org-complete)
 
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
@@ -68,7 +71,7 @@
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("e" "Event" entry
          (file+headline "~/org/life.org" "Events")
-         "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
+         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("j" "Journal" entry
          (file+headline "~/org/journal.org" "")
          "* %U %?\n\n  %i\n  %a" :prepend t :empty-lines 1)
@@ -95,7 +98,7 @@
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("ce" "CC Event" entry
          (file+headline "~/org/ccommons.org" "Events")
-         "* %^{Event} %^t\n  %a\n\n%?" :prepend t :empty-lines 1)
+         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
          (file+headline "~/org/ccommons.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
@@ -225,6 +228,14 @@
   (search-forward-regexp "^| Total")
   (beginning-of-line)
   (previous-line))
+
+
+; pretty latex source blocks!
+
+(require 'org-latex)
+(add-to-list 'org-export-latex-packages-alist '("" "listings"))
+(add-to-list 'org-export-latex-packages-alist '("" "color"))
+
 
 ; Make org the default scratch
 
