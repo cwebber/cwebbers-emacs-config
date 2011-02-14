@@ -17,9 +17,10 @@
                 (type . "normal"))
                 (body () ,message-body)))))
 
-(defun botler->do-nothing ())
+; I don't care when people come online to my bot's roster.
+(setq jabber-alert-presence-hooks nil)
 
 (setq appt-disp-window-function 'botler->appt-message-me)
-(setq appt-delete-window-function 'botler->do-nothing)
+(setq appt-delete-window-function (lambda ()))
 
 (setq appt-display-inverval 5) ; maybe 6 is better?

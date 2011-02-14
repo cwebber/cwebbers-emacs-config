@@ -5,3 +5,6 @@
 
 ;; ; We'll set the username here but NOT our password.
 ;; (setq identica-username nil)
+
+; Let's not overload ourselves
+(setq identica-display-max-dents 500)

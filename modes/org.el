@@ -235,7 +235,7 @@
 (require 'org-latex)
 (add-to-list 'org-export-latex-packages-alist '("" "listings"))
 (add-to-list 'org-export-latex-packages-alist '("" "color"))
-
+(setq org-export-latex-listings nil)
 
 ; Make org the default scratch
 

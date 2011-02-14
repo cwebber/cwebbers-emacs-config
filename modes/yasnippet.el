@@ -14,7 +14,7 @@
 (yas/load-directory "~/.config/emacs/yas-snippets/")
 
 ;; Also putting hippie-expand here.  Maybe should be its own file..
-(global-set-key "\M-/" 'hippie-expand)
+(define-key global-map "\M-/" 'hippie-expand)
 
 (setq hippie-expand-try-functions-list
       (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))

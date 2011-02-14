@@ -1,7 +1,9 @@
 ;;; Color theme setup, with cycling
 ;;; -----
 
+(add-to-list 'load-path "~/elisp/color-theme-6.6.0/")
 (require 'color-theme)
+(load-file "~/elisp/color-theme-6.6.0/themes/color-theme-library.el")
 
 ;(setq color-theme-is-cumulative nil)
 
@@ -14,7 +16,7 @@ font."
     (color-theme-install
      '(color-theme-ebony-gnome
        ((foreground-color . "lightgray")
-	(background-color . "black"))))))
+        (background-color . "black"))))))
 
 (defun color-theme-emacs-21-black ()
   "`color-theme-emacs-21' with a black background and a nice gray
@@ -25,7 +27,7 @@ font."
     (color-theme-install
      '(color-theme-emacs-21-black
        ((foreground-color . "lightgray")
-	(background-color . "black"))))))
+        (background-color . "black"))))))
 
 
 (defun color-theme-snow-better ()
@@ -36,7 +38,12 @@ isn't."
   (let ((color-theme-is-cumulative t))
     (color-theme-install
      '(color-theme-snow-better
-       nil
+       ((background-color . "snow2")
+        (background-mode . light)
+        (border-color . "black")
+        (cursor-color . "cadet blue")
+        (foreground-color . "black")
+        (mouse-color . "black"))
        (emacs-wiki-link-face ((t (:bold t :underline "BlueViolet" :foreground "BlueViolet"))))
        (muse-link-face ((t (:bold t :underline "BlueViolet" :foreground "BlueViolet"))))
        (info-xref ((t (:bold t :foreground "BlueViolet"))))
@@ -96,19 +103,14 @@ isn't."
     (if frame
         (select-frame frame))
     ; guess I shouldn't tack this in here, but meh...
-    (set-default-font "mono-10")
+    (set-default-font "mono-9")
     (funcall (car my-color-themes))))
 
 (setq theme-current my-color-themes)
-(setq color-theme-is-global nil)	; Initialization
-
-; Run me first!
-(color-theme-emacs-21)
 
 (my-theme-set-default)
 (global-set-key [f12] 'my-theme-cycle)
 (global-set-key [f11] 'my-refresh-current-theme)
-(setq color-theme-is-cumulative t)
 
 (add-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
 ;; (remove-hook 'after-make-frame-functions 'cwebber/load-primary-theme)

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: FUD
+# --
+`(progn 
+  (save-excursion
+   (org-insert-todo-subheading nil)
+   (insert "Functionality")
+   (org-insert-todo-heading nil)
+   (insert "Unit tests")
+   (org-insert-todo-heading nil)
+   (insert "Documentation"))
+  (kill-line))`
