@@ -229,6 +229,13 @@
   (beginning-of-line)
   (previous-line))
 
+; Open files with the programs I want.
+
+(setq org-file-apps
+      '((auto-mode . emacs)
+        ("\\.mm\\'" . default)
+        ("\\.x?html?\\'" . "firefox %s")
+        ("\\.pdf\\'" . "evince %s")))
 
 ; pretty latex source blocks!
 
