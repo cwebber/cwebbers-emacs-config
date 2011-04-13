@@ -65,12 +65,6 @@
 
 (setq max-specpdl-size 9000)
 
-;; Mail stuff
-(setq user-mail-address "cwebber@dustycloud.org")
-(setq user-full-name "Christopher Allan Webber")
-(setq mail-source-movemail-program "/usr/bin/movemail")
-(setq mail-signature "𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻")
-
 (when (not window-system)
   ;;allow you to see the region when in console mode
   (setq transient-mark-mode t))
@@ -349,6 +343,27 @@ in X or in a terminal"
 
 (set-scroll-bar-mode 'left)
 
+;; ----------
+;; Mail stuff
+;; ----------
+
+(setq user-mail-address "cwebber@dustycloud.org")
+(setq user-full-name "Christopher Allan Webber")
+(setq mail-source-movemail-program "/usr/bin/movemail")
+
+; Randomly choose mail signature
+(setq cwebber-mail-sigs
+      '("The bottom line."
+        "𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻"))
+
+(defun cwebber-random-mail-sig ()
+  (nth (random (length cwebber-mail-sigs))
+       cwebber-mail-sigs))
+
+(setq mail-signature 'cwebber-random-mail-sig)
+(setq message-signature 'cwebber-random-mail-sig)
+
+
 ;; ---------
 ;; Load some custom stuff
 ;; ---------
@@ -360,3 +375,6 @@ in X or in a terminal"
   (insert "…"))
 (global-set-key (kbd "C-c ;") 'insert-ellipsis)
 
+; Always compose mail with gnus.  *ALWAYS*.
+(setq read-mail-command 'gnus)
+(setq mail-user-agent 'gnus-user-agent)
