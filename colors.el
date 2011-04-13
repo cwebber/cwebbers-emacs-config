@@ -108,11 +108,11 @@ isn't."
 
 (setq theme-current my-color-themes)
 
-(my-theme-set-default)
-(global-set-key [f12] 'my-theme-cycle)
-(global-set-key [f11] 'my-refresh-current-theme)
+;(my-theme-set-default)
+;(global-set-key [f12] 'my-theme-cycle)
+;(global-set-key [f11] 'my-refresh-current-theme)
 
-(add-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
+;(add-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
 ;; (remove-hook 'after-make-frame-functions 'cwebber/load-primary-theme)
 
 ;; (defadvice make-frame (after possibly-load-color-theme)
@@ -136,3 +136,14 @@ isn't."
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(column-marker-1-face ((t (:background "red" :foreground "black")))))
+
+(load-file "~/elisp/naquadah-theme/naquadah-theme.el")
+
+(defun cwebber/fix-font-size (&optional frame)
+  (interactive)
+  (when window-system
+    (if frame
+        (select-frame frame))
+    (set-default-font "mono-9")))
+
+(add-hook 'after-make-frame-functions 'cwebber/fix-font-size)
