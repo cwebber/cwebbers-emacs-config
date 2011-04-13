@@ -201,6 +201,7 @@
 (require 'ob-python)
 (require 'ob-sh)
 (require 'ob-gnuplot)
+(require 'ob-calc)
 
 ; Don't prompt me all the time about evaluating code blocks
 
@@ -247,6 +248,8 @@
 
 (add-to-list 'org-export-latex-packages-alist
              '("" "minted"))
+(add-to-list 'org-export-latex-packages-alist
+             '("" "hyperref"))
 
 ; Also in latex, @alert@
 ;;; Not working... why?
