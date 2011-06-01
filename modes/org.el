@@ -102,6 +102,17 @@
         ("cn" "CC Note" entry
          (file+headline "~/org/ccommons.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         :prepend t :empty-lines 1)
+        ("m" "MediaGoblin items")
+        ("mt" "MediaGoblin Todo" entry
+         (file+headline "~/org/mediagoblin.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("me" "MediaGoblin Event" entry
+         (file+headline "~/org/mediagoblin.org" "Events")
+         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+        ("mn" "MediaGoblin Note" entry
+         (file+headline "~/org/mediagoblin.org" "General Notes")
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
