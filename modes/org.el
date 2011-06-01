@@ -268,3 +268,14 @@
 # --------
 # This buffer is for notes you don't want to save, etc.
 "))
+
+;; --------------------
+;; Appointment property
+;; --------------------
+
+(defun cwebber-org-add-appointment ()
+  (interactive)
+  (org-set-property
+   "APPOINTMENT" 
+   (concat "<" (org-read-date t) ">")))
+
