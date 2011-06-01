@@ -14,14 +14,14 @@
                '("\\.py\\'" flymake-pyflakes-init)))
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
-(remove-hook 'find-file-hook 'flymake-find-file-hook)
+;(remove-hook 'find-file-hook 'flymake-find-file-hook)
 (load-file "~/elisp/flymake-cursor.el")
 
 (setq flymake-allowed-file-name-masks
       '(("\\.py\\'" flymake-pyflakes-init)
         ("\\.c\\'" flymake-simple-make-init)
         ("\\.cpp\\'" flymake-simple-make-init)
-        ("\\.xml\\'" flymake-xml-init)
+        ;("\\.xml\\'" flymake-xml-init)
         ;("\\.html?\\'" flymake-xml-init)
         ("\\.cs\\'" flymake-simple-make-init)
         ("\\.p[ml]\\'" flymake-perl-init)
