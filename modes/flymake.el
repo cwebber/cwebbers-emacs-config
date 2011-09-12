@@ -19,14 +19,14 @@
 
 (setq flymake-allowed-file-name-masks
       '(("\\.py\\'" flymake-pyflakes-init)
-        ("\\.c\\'" flymake-simple-make-init)
-        ("\\.cpp\\'" flymake-simple-make-init)
+        ;("\\.c\\'" flymake-simple-make-init)
+        ;("\\.cpp\\'" flymake-simple-make-init)
+        ;("\\.h\\'" flymake-master-make-header-init flymake-master-cleanup)
         ;("\\.xml\\'" flymake-xml-init)
         ;("\\.html?\\'" flymake-xml-init)
         ("\\.cs\\'" flymake-simple-make-init)
         ("\\.p[ml]\\'" flymake-perl-init)
         ("\\.php[345]?\\'" flymake-php-init)
-        ("\\.h\\'" flymake-master-make-header-init flymake-master-cleanup)
         ("\\.java\\'" flymake-simple-make-java-init flymake-simple-java-cleanup)
         ("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup)
         ("\\.tex\\'" flymake-simple-tex-init)

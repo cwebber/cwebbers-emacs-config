@@ -3,6 +3,7 @@
 ;; --------
 
 (setq load-path (cons "~/elisp/org-mode/lisp" load-path))
+(setq load-path (cons "~/elisp/org-mode/contrib/lisp" load-path))
 (require 'org)
 (require 'org-id)
 (require 'org-install)
@@ -71,7 +72,7 @@
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("e" "Event" entry
          (file+headline "~/org/life.org" "Events")
-         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("j" "Journal" entry
          (file+headline "~/org/journal.org" "")
          "* %U %?\n\n  %i\n  %a" :prepend t :empty-lines 1)
@@ -98,9 +99,9 @@
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("ce" "CC Event" entry
          (file+headline "~/org/ccommons.org" "Events")
-         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("cn" "CC Note" entry
-         (file+headline "~/org/ccommons.org" "General Notes")
+         (file+headline "~/org/ccommons.org" "Various Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
         ("m" "MediaGoblin items")
@@ -109,7 +110,7 @@
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("me" "MediaGoblin Event" entry
          (file+headline "~/org/mediagoblin.org" "Events")
-         "* %^{Event} %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("mn" "MediaGoblin Note" entry
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"

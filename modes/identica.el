@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/elisp/emacs-oauth")
+
 (load-file "~/elisp/identica-mode/identica-mode.el")
 (require 'identica-mode)
 
