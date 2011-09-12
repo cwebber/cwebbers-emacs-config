@@ -131,7 +131,10 @@
 ; I am not confident this is the right option though.
 (setq org-agenda-repeating-timestamp-show-all nil)
 
-(setq org-archive-default-command 'org-archive-to-archive-sibling)
+(define-key org-mode-map "\C-c\C-xA" 'org-archive-subtree-default-with-confirmation)
+(define-key org-mode-map "\C-c\C-x\C-a" 'org-archive-subtree-default-with-confirmation)
+
+(setq org-archive-default-command 'org-archive-subtree)
 
 ; Start weekly view from present day
 (setq org-agenda-start-on-weekday nil)
