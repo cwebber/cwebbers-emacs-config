@@ -2,8 +2,6 @@
 ;; Org mode
 ;; --------
 
-(setq load-path (cons "~/elisp/org-mode/lisp" load-path))
-(setq load-path (cons "~/elisp/org-mode/contrib/lisp" load-path))
 (require 'org)
 (require 'org-id)
 (require 'org-install)
@@ -24,7 +22,17 @@
       '((sequence "TODO" "DONE")
         (sequence "WAITING" "|" "DONE")
         (sequence "|" "CANCELED")
+        ; We don't always want this... only if we don't mostly care to
+        ; pay attention to it.  Sometimes WAITING is better.
+        (sequence "|" "PASSED-OFF")
         (sequence "|" "DONE-NOT-ME")))
+
+(setq org-todo-keyword-faces
+      '(("CANCELED" . (:foreground "orange" :weight bold))
+        ("DONE-NOT-ME" . (:foreground "SpringGreen4" :weight bold))
+        ("PASSED-OFF" . (:foreground "peru" :weight bold))
+        ("CAL-CANCEL" . (:foreground "orange" :weight bold))
+        ("WAITING" . (:foreground "magenta" :weight bold))))
 
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
@@ -132,6 +140,7 @@
 (setq org-agenda-repeating-timestamp-show-all nil)
 
 (define-key org-mode-map "\C-c\C-xA" 'org-archive-subtree-default-with-confirmation)
+(define-key org-mode-map "\C-c\C-xa" 'org-archive-subtree-default-with-confirmation)
 (define-key org-mode-map "\C-c\C-x\C-a" 'org-archive-subtree-default-with-confirmation)
 
 (setq org-archive-default-command 'org-archive-subtree)
