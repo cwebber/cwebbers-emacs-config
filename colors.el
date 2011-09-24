@@ -123,12 +123,6 @@ isn't."
 
 ;; (ad-activate 'make-frame)
 
-(setq org-todo-keyword-faces
-      '(("CANCELED" . (:foreground "orange" :weight bold))
-        ("DONE-NOT-ME" . (:foreground "SpringGreen4" :weight bold))
-        ("CAL-CANCEL" . (:foreground "orange" :weight bold))
-        ("WAITING" . (:foreground "magenta" :weight bold))))
-
 ;;;; And now, set faces
 (custom-set-faces
   ;; custom-set-faces was added by Custom.

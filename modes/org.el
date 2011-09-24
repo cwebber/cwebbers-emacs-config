@@ -122,7 +122,15 @@
         ("mn" "MediaGoblin Note" entry
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
-         :prepend t :empty-lines 1)))
+         :prepend t :empty-lines 1)
+        ("C" "Contact" entry
+         (file+headline "~/org/contacts.org" "General")
+         "* %(org-contacts-template-name)
+  :PROPERTIES:
+  :EMAIL: %^{Email}
+  :CreationTime:  %U
+  :END:
+%?")))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
@@ -303,3 +311,9 @@
    "APPOINTMENT" 
    (concat "<" (org-read-date t) ">")))
 
+;; ------------
+;; org-contacts
+;; ------------
+
+(require 'org-contacts)
+(setq org-contacts-files '("~/org/contacts.org"))
