@@ -14,15 +14,15 @@
       '((:name magit
                :after (lambda () (global-set-key (kbd "C-x C-z") 'magit-status)))
 
-        (:name asciidoc
-               :type elpa
-               :after (lambda ()
-                        (autoload 'doc-mode "doc-mode" nil t)
-                        (add-to-list 'auto-mode-alist '("\\.adoc$" . doc-mode))
-                        (add-hook 'doc-mode-hook '(lambda ()
-                                                    (turn-on-auto-fill)
-                                                    (require 'asciidoc)))))
-        (:name lisppaste        :type elpa)
+        ;; (:name asciidoc
+        ;;        :type elpa
+        ;;        :after (lambda ()
+        ;;                 (autoload 'doc-mode "doc-mode" nil t)
+        ;;                 (add-to-list 'auto-mode-alist '("\\.adoc$" . doc-mode))
+        ;;                 (add-hook 'doc-mode-hook '(lambda ()
+        ;;                                             (turn-on-auto-fill)
+        ;;                                             (require 'asciidoc)))))
+        ;(:name lisppaste        :type elpa)
         ;(:name nxhtml           :type elpa)
         ;(:name dictionary-el    :type apt-get)
         ;(:name emacs-goodies-el :type apt-get)
