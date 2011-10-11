@@ -315,5 +315,6 @@
 ;; org-contacts
 ;; ------------
 
-(require 'org-contacts)
-(setq org-contacts-files '("~/org/contacts.org"))
+;(require 'org-contacts)
+;(setq org-contacts-files '("~/org/contacts.org"))
+;(org-contacts-gnus-insinuate)
