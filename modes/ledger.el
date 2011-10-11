@@ -1,13 +1,15 @@
 ;; ---------
 ;; Ledger
 ;; ---------
-(setenv "LEDGER" "/home/cwebber/records/ledger.dat")
-(load "~/elisp/ledger.el")
+;; (setenv "LEDGER" "/home/cwebber/records/ledger.dat")
+;; (load "~/elisp/ledger.el")
 
-(defun my-open-my-ledger-file ()
-  "Opens my usual ledger file ands sets up for ledgerin'."
-  (interactive)
-  (find-file "~/records/ledger.dat")
-  (end-of-buffer)
-  (ledger-mode))
-(global-set-key (kbd "C-c fl") 'my-open-my-ledger-file)
+;; (defun my-open-my-ledger-file ()
+;;   "Opens my usual ledger file ands sets up for ledgerin'."
+;;   (interactive)
+;;   (find-file "~/records/ledger.dat")
+;;   (end-of-buffer)
+;;   (ledger-mode))
+;; (global-set-key (kbd "C-c fl") 'my-open-my-ledger-file)
+
+(setq ledger-binary-path "/usr/bin/ledger")
