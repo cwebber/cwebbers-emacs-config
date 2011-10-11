@@ -361,9 +361,10 @@ in X or in a terminal"
   (nth (random (length cwebber-mail-sigs))
        cwebber-mail-sigs))
 
-(setq mail-signature 'cwebber-random-mail-sig)
-(setq message-signature 'cwebber-random-mail-sig)
-
+;(setq mail-signature 'cwebber-random-mail-sig)
+;(setq message-signature 'cwebber-random-mail-sig)
+(setq mail-signature nil)
+(setq message-signature nil)
 
 ;; ---------
 ;; Load some custom stuff
