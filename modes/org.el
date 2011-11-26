@@ -123,6 +123,12 @@
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
+  ;;       ("ml" "MediaGoblin Ledger" plain
+  ;;        (file "~/records/mgllc_accounts/mediagoblin.ldgr")
+  ;;        "%(org-read-date) %^{Payee}
+  ;;   Expenses:%^{Account}  %^{Amount}
+  ;;   Assets:Banking:Checking
+  ;; ")
         ("C" "Contact" entry
          (file+headline "~/org/contacts.org" "General")
          "* %(org-contacts-template-name)
@@ -130,7 +136,20 @@
   :EMAIL: %^{Email}
   :CreationTime:  %U
   :END:
-%?")))
+%?")
+        ("l" "Ledger entries")
+        ("le" "Expense (checking)" plain
+         (file "~/org/finances.ldgr")
+         "%(org-read-date) %^{Payee}
+    Expenses:%^{Account}  %^{Amount}
+    Assets:Banking:Checking
+  ")
+        ("lc" "Cash expense" plain
+         (file "~/org/finances.ldgr")
+         "%(org-read-date) %^{Payee}
+    Expenses:%^{Account}  %^{Amount}
+    Expenses:Cash
+  ")))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
