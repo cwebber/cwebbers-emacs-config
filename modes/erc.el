@@ -17,3 +17,7 @@
 (erc-log-mode t)
 (add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
 (erc-scrolltobottom-mode t)
+
+; Truncate
+(add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
+(setq erc-max-buffer-size 100000)
