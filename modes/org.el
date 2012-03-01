@@ -5,6 +5,10 @@
 (require 'org)
 (require 'org-id)
 (require 'org-install)
+
+; Load stuff from http://doc.norang.ca/org-mode.html
+(load-file "~/.config/emacs/modes/org-norang.el")
+
 (global-set-key "\C-ca" 'org-agenda)
 
 (setq org-export-html-toplevel-hlevel 2)
@@ -20,6 +24,7 @@
 
 (setq org-todo-keywords
       '((sequence "TODO" "DONE")
+        (sequence "NEXT" "DONE")
         (sequence "WAITING" "|" "DONE")
         (sequence "|" "CANCELED")
         ; We don't always want this... only if we don't mostly care to
@@ -29,10 +34,11 @@
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
+        ("NEXT" . (:foreground "DeepPink2" :weight bold))
         ("DONE-NOT-ME" . (:foreground "SpringGreen4" :weight bold))
         ("PASSED-OFF" . (:foreground "peru" :weight bold))
         ("CAL-CANCEL" . (:foreground "orange" :weight bold))
-        ("WAITING" . (:foreground "magenta" :weight bold))))
+        ("WAITING" . (:foreground "dodger blue" :weight bold))))
 
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
@@ -160,6 +166,11 @@
 
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 8))))
 (setq org-refile-use-outline-path 'file)
+
+; Force task blocking (ie, block marking as done with subtasks open)
+(setq org-enforce-todo-dependencies t)
+; ... but don't grey it out
+(setq org-agenda-dim-blocked-tasks nil)
 
 ; It's just too hard to deal with daily repeating tasks (octavia)
 ; if you see them every day in the future
@@ -337,3 +348,4 @@
 ;(require 'org-contacts)
 ;(setq org-contacts-files '("~/org/contacts.org"))
 ;(org-contacts-gnus-insinuate)
+
