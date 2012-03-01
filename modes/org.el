@@ -236,6 +236,21 @@
 (define-key global-map [f5] 'cwebber-org-pull-up-agenda)
 
 
+;; NEXT tag on TODO magic
+
+(defun cwebber/org-possibly-toggle-next-tag-based-on-todo-kewyord ()
+  (save-excursion
+    (org-back-to-heading)
+    (let ((todo-is-next (equal (org-get-todo-state) "NEXT"))
+          (next-in-tags (member "NEXT" (org-get-tags))))
+      (if (or (and todo-is-next (not next-in-tags))
+              (and (not todo-is-next) next-in-tags))
+          (org-toggle-tag "NEXT")))))
+
+(add-hook 'org-after-todo-state-change-hook
+          'cwebber/org-possibly-toggle-next-tag-based-on-todo-kewyord)
+
+
 ;; -----------------
 ;; Appointment stuff
 ;; -----------------
