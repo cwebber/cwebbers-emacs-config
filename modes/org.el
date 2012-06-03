@@ -92,7 +92,7 @@
          "* %U %?\n\n  %i\n  %a" :prepend t :empty-lines 1)
         ("w" "Weigh-in" entry
          (file+headline "~/org/diet.org" "Daily Logs")
-         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)\n\n"
+         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3;%.0f::$LR4=vsum(@2$4..@-I$4)\n\n"
          :prepend t :empty-lines 1)
         ("b" "Blood pressure" table-line
          (file+headline "~/org/bpressure.org" "Blood pressure table")

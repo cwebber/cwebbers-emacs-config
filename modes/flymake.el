@@ -28,6 +28,6 @@
         ("\\.p[ml]\\'" flymake-perl-init)
         ("\\.php[345]?\\'" flymake-php-init)
         ("\\.java\\'" flymake-simple-make-java-init flymake-simple-java-cleanup)
-        ("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup)
-        ("\\.tex\\'" flymake-simple-tex-init)
+        ;("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup)
+        ;("\\.tex\\'" flymake-simple-tex-init)
         ("\\.idl\\'" flymake-simple-make-init)))
