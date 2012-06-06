@@ -33,7 +33,7 @@
 
 (setq my-packages
       (append
-       '("el-get" "org-mode" "yasnippet")
+       '("el-get" "org-mode")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
