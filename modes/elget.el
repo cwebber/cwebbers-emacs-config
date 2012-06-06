@@ -30,9 +30,7 @@
 
 (setq my-packages
       (append
-       '(cssh el-get switch-window
-              vkill google-maps xcscope yasnippet
-              org-mode)
+       '("el-get" "org-mode")
        (mapcar 'el-get-source-name el-get-sources)))
 
-(el-get 'sync my-packages)
+(el-get 'sync el-get)
