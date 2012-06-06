@@ -13,7 +13,10 @@
 (setq el-get-sources
       '((:name magit
                :after (lambda () (global-set-key (kbd "C-x C-z") 'magit-status)))
-
+        (:name "yasnippet"
+               :description "YASnippet is a template system for Emacs."
+               :type git
+               :url "https://github.com/capitaomorte/yasnippet")
         ;; (:name asciidoc
         ;;        :type elpa
         ;;        :after (lambda ()
@@ -30,9 +33,7 @@
 
 (setq my-packages
       (append
-       '(cssh el-get switch-window
-              vkill google-maps xcscope yasnippet
-              org-mode)
+       '("el-get" "org-mode" "yasnippet")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
