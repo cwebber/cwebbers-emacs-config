@@ -12,4 +12,5 @@
 ;;   (ledger-mode))
 ;; (global-set-key (kbd "C-c fl") 'my-open-my-ledger-file)
 
-(setq ledger-binary-path "/usr/bin/ledger")
+(add-to-list 'load-path "~/programs/ledger/lisp/")
+(require 'ledger)
