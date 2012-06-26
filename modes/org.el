@@ -177,12 +177,6 @@
 ; I am not confident this is the right option though.
 (setq org-agenda-repeating-timestamp-show-all nil)
 
-(define-key org-mode-map "\C-c\C-xA" 'org-archive-subtree-default-with-confirmation)
-(define-key org-mode-map "\C-c\C-xa" 'org-archive-subtree-default-with-confirmation)
-(define-key org-mode-map "\C-c\C-x\C-a" 'org-archive-subtree-default-with-confirmation)
-
-(setq org-archive-default-command 'org-archive-subtree)
-
 ; Start weekly view from present day
 (setq org-agenda-start-on-weekday nil)
 
@@ -364,3 +358,37 @@
 ;(setq org-contacts-files '("~/org/contacts.org"))
 ;(org-contacts-gnus-insinuate)
 
+
+;; -----------------
+;; Smarter archiving
+;; -----------------
+
+(setq org-archive-default-command 'org-archive-subtree)
+
+(defun cwebber/org-archive-subtree-depending-on-property ()
+  "Conditionally archive the subtree to a file or archive sibling
+If the parent subtree has an ARCHIVE property, archive to a file.
+Otherwise, archive to an archive sibling."
+  (interactive)
+  (let* ((current-level (org-current-level))
+         (parent-archive-property
+          (if current-level
+              (save-excursion
+                (org-up-heading-safe)
+                (org-entry-get (point) "ARCHIVE")))))
+    (cond
+     ; If there is no current level, do nothing
+     ((not current-level) nil)
+     ; If we're at the first level, subtree archive it
+     ((or (eq current-level 1)
+          (not parent-archive-property))
+      (let ((org-archive-default-command 'org-archive-to-archive-sibling))
+        (org-archive-subtree-default-with-confirmation)))
+     ; Otherwise, archive to a file
+     (t
+       (let ((org-archive-default-command 'org-archive-subtree))
+         (org-archive-subtree-default-with-confirmation))))))
+
+(define-key org-mode-map "\C-c\C-xA" 'cwebber/org-archive-subtree-depending-on-property)
+(define-key org-mode-map "\C-c\C-xa" 'cwebber/org-archive-subtree-depending-on-property)
+(define-key org-mode-map "\C-c\C-x\C-a" 'cwebber/org-archive-subtree-depending-on-property)
