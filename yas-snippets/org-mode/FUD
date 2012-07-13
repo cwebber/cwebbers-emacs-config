@@ -8,5 +8,4 @@
    (org-insert-todo-heading nil)
    (insert "Unit tests")
    (org-insert-todo-heading nil)
-   (insert "Documentation"))
-  (kill-line))`
+   (insert "Documentation")))`
