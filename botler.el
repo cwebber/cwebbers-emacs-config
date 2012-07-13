@@ -24,3 +24,5 @@
 (setq appt-delete-window-function (lambda ()))
 
 (setq appt-display-inverval 5) ; maybe 6 is better?
+
+(setq jabber-auto-reconnect t)
