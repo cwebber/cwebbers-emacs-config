@@ -172,6 +172,16 @@
 ; ... but don't grey it out
 (setq org-agenda-dim-blocked-tasks nil)
 
+; Make sure we don't block repeating tasks
+(defadvice org-block-todo-from-children-or-siblings-or-parent
+  (around cwebber/dont-block-if-repeating)
+  "Never block if this is a repeating task"
+  (let ((org-enforce-todo-dependencies
+         (not (org-get-repeat))))
+      ad-do-it))
+
+(ad-activate 'org-block-todo-from-children-or-siblings-or-parent)
+
 ; It's just too hard to deal with daily repeating tasks (octavia)
 ; if you see them every day in the future
 ; I am not confident this is the right option though.
