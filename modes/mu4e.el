@@ -6,6 +6,14 @@
 (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
 
 (setq mu4e-get-mail-command "offlineimap")
+(setq mu4e-html2text-command "html2text -utf8 -width 72")
 
 (require 'mu4e)
 (require 'org-mu4e)
+
+(setq mu4e-maildir-shortcuts
+      '(("/Inbox.General"     . ?i)
+        ("/CC Staff"   . ?c)))
+
+(setq smtpmail-queue-mail  nil  ;; start in non-queuing mode
+      smtpmail-queue-dir   "~/Maildir/queue/cur")
