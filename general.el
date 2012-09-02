@@ -381,6 +381,8 @@ in X or in a terminal"
 (setq read-mail-command 'gnus)
 (setq mail-user-agent 'gnus-user-agent)
 
+; Turn off tool-bar-mode, which is slow
+(call-interactively 'tool-bar-mode)
 
 ;; UTF-8 support
 (prefer-coding-system       'utf-8)
