@@ -30,7 +30,8 @@
         ; We don't always want this... only if we don't mostly care to
         ; pay attention to it.  Sometimes WAITING is better.
         (sequence "|" "PASSED-OFF")
-        (sequence "|" "DONE-NOT-ME")))
+        (sequence "|" "DONE-NOT-ME")
+        (sequence "PAYMENT-WAITING" "|" "PAID")))
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
@@ -38,7 +39,9 @@
         ("DONE-NOT-ME" . (:foreground "SpringGreen4" :weight bold))
         ("PASSED-OFF" . (:foreground "peru" :weight bold))
         ("CAL-CANCEL" . (:foreground "orange" :weight bold))
-        ("WAITING" . (:foreground "dodger blue" :weight bold))))
+        ("WAITING" . (:foreground "dodger blue" :weight bold))
+        ("PAYMENT-WAITING" . (:foreground "orchid" :weight bold))
+        ("PAID" . (:foreground "sea green" :weight bold))))
 
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
@@ -171,6 +174,9 @@
 (setq org-enforce-todo-dependencies t)
 ; ... but don't grey it out
 (setq org-agenda-dim-blocked-tasks nil)
+
+(setq org-agenda-custom-commands
+      '(("N" todo "NEXT")))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
