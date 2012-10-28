@@ -21,3 +21,7 @@
             (org-set-local 'yas/trigger-key [tab])
             (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
+
+; change dropdown behavior
+(require 'dropdown-list)
+(setq yas/prompt-functions '(yas/dropdown-prompt yas/ido-prompt yas/completing-prompt yas/no-prompt))
