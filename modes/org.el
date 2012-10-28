@@ -121,6 +121,10 @@
          (file+headline "~/org/ccommons.org" "Various Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
+        ("cb" "CC Billable" entry
+         (file+headline "~/org/ccommons.org" "Billable Stuff")
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         :prepend t :empty-lines 1)
         ("m" "MediaGoblin items")
         ("mt" "MediaGoblin Todo" entry
          (file+headline "~/org/mediagoblin.org" "Various Tasks")
