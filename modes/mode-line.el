@@ -1,12 +1,12 @@
 ; Make erc tracking come after everything else
-(setq erc-track-position-in-mode-line t)
+(setq erc-track-position-in-mode-line 'after-modes)
 
 ; Don't show me the time.
 (setq display-time-mode nil)
 
 ; borrowed heavily from
 ; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
-(setq-default mode-line-format
+(setq mode-line-format
       (list
        "[" ;; insert vs overwrite mode, input-method in a tooltip
        '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
@@ -48,11 +48,18 @@
                            'help-echo buffer-file-coding-system))
        "]"
 
-       vc-mode
+       '(vc-mode vc-mode)
 
-       global-mode-string
+       " "
+
+       '(global-mode-string global-mode-string)
+
+       " "
+
+       '(erc-modified-channels-object erc-modified-channels-object)
 
        ;; i don't want to see minor-modes; but if you want, uncomment this:
        ;; minor-mode-alist  ;; list of minor modes
        "%-" ;; fill with '-'
        ))
+ 
