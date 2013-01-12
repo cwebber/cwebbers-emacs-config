@@ -136,6 +136,9 @@
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
+        ("mr" "MediaGoblin Review Queue" entry
+         (file+headline "~/org/mediagoblin.org" "Review Queue")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
   ;;       ("ml" "MediaGoblin Ledger" plain
   ;;        (file "~/records/mgllc_accounts/mediagoblin.ldgr")
   ;;        "%(org-read-date) %^{Payee}
