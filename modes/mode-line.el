@@ -6,7 +6,7 @@
 
 ; borrowed heavily from
 ; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
-(setq mode-line-format
+(setq-default mode-line-format
       (list
        "[" ;; insert vs overwrite mode, input-method in a tooltip
        '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
