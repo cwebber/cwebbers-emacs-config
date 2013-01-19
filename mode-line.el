@@ -57,6 +57,8 @@
 
        " "
 
+       '(:eval (when nyan-mode (list (nyan-create) " ")))
+
        '(erc-modified-channels-object erc-modified-channels-object)
 
        ;; i don't want to see minor-modes; but if you want, uncomment this:
