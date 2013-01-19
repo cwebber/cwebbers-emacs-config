@@ -113,7 +113,7 @@
 ;; Initialize some things
 ;; ------
 
-(display-time)
+; (display-time)
 (server-start)
 
 ;; Mouse scrolling
