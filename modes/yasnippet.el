@@ -1,13 +1,9 @@
 (require 'yasnippet)
 
-(yas/initialize)
-
-; Our snippets
-(setq yas/root-directory "~/.config/emacs/yas-snippets")
-(yas/load-directory "~/.config/emacs/yas-snippets/")
-
-; third party snippets
-(yas/load-directory "~/elisp/yasnippet-snippets/")
+(setq yas-snippet-dirs
+      '("~/.config/emacs/yas-snippets"   ;; personal snippets
+        "~/elisp/yasnippet-snippets/"  ; third party snippets
+        ))
 
 ;; Also putting hippie-expand here.  Maybe should be its own file..
 (define-key global-map "\M-/" 'hippie-expand)
@@ -25,3 +21,6 @@
 ; change dropdown behavior
 ;(require 'dropdown-list)
 (setq yas/prompt-functions '(yas/dropdown-prompt yas/ido-prompt yas/completing-prompt yas/no-prompt))
+
+(yas-global-mode 1)
+
