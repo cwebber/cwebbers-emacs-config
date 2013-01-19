@@ -33,7 +33,7 @@
 
 (setq my-packages
       (append
-       '("el-get" "org-mode" "calfw" "dropdown-list")
+       '("el-get" "org-mode" "calfw") ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)

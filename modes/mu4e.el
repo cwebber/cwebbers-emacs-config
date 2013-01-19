@@ -26,7 +26,8 @@
     ("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
     ("mime:image/* AND NOT maildir:/Spam"                     "Messages with images" ?p)
     ("flag:unread AND NOT flag:trashed AND maildir:/Spam"     "Unread spam"          ?s)
-    ("flag:unread AND maildir:/Inbox.General"  "Unread general inbox" ?i)))
+    ("flag:unread AND maildir:/Inbox.General"  "Unread general inbox" ?i)
+    ("flag:unread AND maildir:/Mediagoblin"  "MediaGoblin devel" ?m)))
 
 (load-file "~/devel/mu4e-uqueue/mu4e-uqueue.el")
 (load-file "~/devel/mu4e-uqueue/uqueue-advice.el")
