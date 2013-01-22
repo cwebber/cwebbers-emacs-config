@@ -126,7 +126,17 @@
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
         ("m" "MediaGoblin items")
-        ("mt" "MediaGoblin Todo" entry
+        ("mt" "MediaGoblin TODO")
+        ("mth" "MediaGoblin Todo: Hacking" entry
+         (file+headline "~/org/mediagoblin.org" "Hacking Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("mtc" "MediaGoblin Todo: Community" entry
+         (file+headline "~/org/mediagoblin.org" "Community Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("mta" "MediaGoblin Todo: Administration" entry
+         (file+headline "~/org/mediagoblin.org" "Administrative Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("mtv" "MediaGoblin Todo: Various" entry
          (file+headline "~/org/mediagoblin.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("me" "MediaGoblin Event" entry
