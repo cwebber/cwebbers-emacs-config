@@ -59,10 +59,22 @@
 
        '(:eval (when nyan-mode (list (nyan-create) " ")))
 
-       '(:eval (when erc-track-mode (list erc-modified-channels-object)))
+       '(:eval (when (and erc-track-mode cwebber/show-erc-in-mode-line)
+                 (list erc-modified-channels-object)))
 
        ;; i don't want to see minor-modes; but if you want, uncomment this:
        ;; minor-mode-alist  ;; list of minor modes
        "%-" ;; fill with '-'
        ))
  
+
+(defvar cwebber/show-erc-in-mode-line t)
+
+(defun cwebber/toggle-show-erc ()
+  (interactive)
+  (if cwebber/show-erc-in-mode-line
+      (setq cwebber/show-erc-in-mode-line nil)
+    (setq cwebber/show-erc-in-mode-line t)))
+
+(global-set-key (kbd "C-c E") 'cwebber/toggle-show-erc)
+
