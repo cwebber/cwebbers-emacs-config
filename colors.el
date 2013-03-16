@@ -140,4 +140,6 @@ isn't."
         (select-frame frame))
     (set-default-font "mono-9")))
 
+(set-face-background 'ledger-font-highlight-face "#2a3031")
+
 (add-hook 'after-make-frame-functions 'cwebber/fix-font-size)
