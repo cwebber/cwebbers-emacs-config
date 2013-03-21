@@ -140,6 +140,10 @@ isn't."
         (select-frame frame))
     (set-default-font "mono-9")))
 
-(set-face-background 'ledger-font-highlight-face "#2a3031")
+; Make the ansi-term blue not so painful
+(setq ansi-color-names-vector
+      ["black" "red" "green" "yellow" "#729fcf"
+       "magenta" "cyan" "white"])
+(setq ansi-color-map (ansi-color-make-color-map))
 
 (add-hook 'after-make-frame-functions 'cwebber/fix-font-size)

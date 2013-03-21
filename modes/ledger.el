@@ -13,4 +13,8 @@
 ;; (global-set-key (kbd "C-c fl") 'my-open-my-ledger-file)
 
 (add-to-list 'load-path "~/programs/ledger/lisp/")
-(require 'ledger)
+(load-file "~/programs/ledger/lisp/ldg-new.el")
+(add-to-list 'auto-mode-alist '("\\.ldgr\\'" . ledger-mode))
+
+(set-face-background 'ledger-font-highlight-face "#2a3031")
+
