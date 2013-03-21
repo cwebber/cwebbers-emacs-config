@@ -343,17 +343,18 @@
         ("\\.pdf\\'" . "evince %s")))
 
 ; pretty latex source blocks!
+; hm, what to do in the new exporter?
 
-(setq org-export-latex-listings 'minted)
-(setq org-latex-to-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-export-latex-listings 'minted)
+;; (setq org-latex-to-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-(add-to-list 'org-export-latex-packages-alist
-             '("" "minted"))
-(add-to-list 'org-export-latex-packages-alist
-             '("" "hyperref"))
+;; (add-to-list 'org-export-latex-packages-alist
+;;              '("" "minted"))
+;; (add-to-list 'org-export-latex-packages-alist
+;;              '("" "hyperref"))
 
 ; Also in latex, @alert@
 ;;; Not working... why?
