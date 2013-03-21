@@ -31,3 +31,6 @@
 
 (load-file "~/devel/mu4e-uqueue/mu4e-uqueue.el")
 (load-file "~/devel/mu4e-uqueue/uqueue-advice.el")
+
+(add-to-list 'mu4e-view-actions
+  '("ViewInBrowser" . mu4e-action-view-in-browser) t)
