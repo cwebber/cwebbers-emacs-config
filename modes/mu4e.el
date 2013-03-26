@@ -34,3 +34,5 @@
 
 (add-to-list 'mu4e-view-actions
   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+(setq mu4e~main-buffer-name "*mu4e-main*")
