@@ -391,3 +391,6 @@ in X or in a terminal"
 (set-keyboard-coding-system 'utf-8)
 
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+; highlight current line
+(global-hl-line-mode +1)
