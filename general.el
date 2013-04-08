@@ -301,7 +301,7 @@
       (error "No ./bin/activate_this.py in that virtualenv (maybe update virtualenv?)"))))
   
 
-(global-set-key (kbd "C-c r") 'rename-buffer-with-directory)
+; (global-set-key (kbd "C-c r") 'rename-buffer-with-directory)
 
 (defun blender-style ()
   (interactive)

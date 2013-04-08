@@ -17,6 +17,10 @@
                :description "YASnippet is a template system for Emacs."
                :type git
                :url "https://github.com/capitaomorte/yasnippet")
+        (:name "visual-regexp"
+               :description "Visual regexps"
+               :type git
+               :url "https://github.com/benma/visual-regexp.el.git")
         ;; (:name asciidoc
         ;;        :type elpa
         ;;        :after (lambda ()
@@ -33,7 +37,8 @@
 
 (setq my-packages
       (append
-       '("el-get" "org-mode" "calfw") ; "dropdown-list")
+       '("el-get" "org-mode" "calfw" "ace-jump-mode"
+         "paredit" "visual-regexp") ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
