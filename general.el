@@ -395,3 +395,8 @@ in X or in a terminal"
 ;; highlight current line
 ;; Kinda cool but not really needed right now
 ; (global-hl-line-mode +1)
+
+; lock files borking git-annex-assistant autocommits.  Disabling for now.
+(setq create-lockfiles nil)
+; Similarly with auto-save files :(
+(setq auto-save-default nil)
