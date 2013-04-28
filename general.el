@@ -397,6 +397,7 @@ in X or in a terminal"
 ; (global-hl-line-mode +1)
 
 ; lock files borking git-annex-assistant autocommits.  Disabling for now.
+;; We can re-enable both of these once .gitignore support comes to git-annex
 (setq create-lockfiles nil)
 ; Similarly with auto-save files :(
 (setq auto-save-default nil)
