@@ -41,7 +41,9 @@
         ("CAL-CANCEL" . (:foreground "orange" :weight bold))
         ("WAITING" . (:foreground "dodger blue" :weight bold))
         ("PAYMENT-WAITING" . (:foreground "orchid" :weight bold))
-        ("PAID" . (:foreground "sea green" :weight bold))))
+        ("PAID" . (:foreground "sea green" :weight bold))
+        ("FOODLIST-OUT" . (:foreground "#4e9a06" :weight bold))
+        ))
 
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
@@ -49,6 +51,7 @@
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
 (setq org-habit-graph-column 60)
+(setq org-habit-show-done-always-green t)
 
 ;; remember
 (org-remember-insinuate)
@@ -193,7 +196,16 @@
 (setq org-agenda-dim-blocked-tasks nil)
 
 (setq org-agenda-custom-commands
-      '(("N" todo "NEXT")))
+      '(("N" todo "NEXT")
+        ("h" "Habits" tags-todo "STYLE=\"habit\""
+         ((org-agenda-overriding-header "Habits")
+          (org-agenda-sorting-strategy
+           '(todo-state-down effort-up category-keep))))
+        ("A" "Agenda plus plus"
+         ((tags-todo "NEXT")
+          
+          (agenda "" nil)))
+        ))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
