@@ -438,3 +438,7 @@ Otherwise, archive to an archive sibling."
 (define-key org-mode-map "\C-c\C-xA" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-xa" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-x\C-a" 'cwebber/org-archive-subtree-depending-on-property)
+
+; I hate org-open-line
+(setq org-open-line 'open-line)
+
