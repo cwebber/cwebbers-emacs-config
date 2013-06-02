@@ -299,7 +299,8 @@
   "For use on grumps only... this also reverts all files, but it does update the appt list"
   (interactive)
   (setq appt-time-msg-list nil)
-  (org-revert-all-org-buffers)
+  (flet ((yes-or-no-p (x) t))
+    (org-revert-all-org-buffers))
   (org-agenda-to-appt))
 
 (appt-activate)
