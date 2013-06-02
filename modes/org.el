@@ -335,6 +335,11 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+(defun cwebber/set-back-open-line ()
+  (define-key org-mode-map (kbd "C-o") 'open-line))
+
+(add-hook 'org-mode-hook 'cwebber/set-back-open-line)
+
 ; hacky diet stuff
 (defun org-diet-hacky-jump-to-today ()
   "Really hacky function to jump to today based on the assumption
@@ -438,9 +443,3 @@ Otherwise, archive to an archive sibling."
 (define-key org-mode-map "\C-c\C-xA" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-xa" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-x\C-a" 'cwebber/org-archive-subtree-depending-on-property)
-
-; I hate org-open-line
-(defun org-open-line (n)
-  (interactive "*p")
-  (open-line n))
-
