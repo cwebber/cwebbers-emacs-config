@@ -12,6 +12,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 
 (setq org-export-html-toplevel-hlevel 2)
+(setq org-export-babel-evaluate nil)
 (setq org-agenda-files "~/org/orgfiles.txt")
 (setq org-id-track-globally nil)
 (setq org-link-to-org-use-id nil)
@@ -294,6 +295,11 @@
 ;; Appointment stuff
 ;; -----------------
 
+(defun cwebber/org-reset-appts ()
+  (interactive)
+  (setq appt-time-msg-list nil)
+  (org-agenda-to-appt))
+
 (appt-activate)
 (org-agenda-to-appt)
 (require 'midnight)
@@ -301,8 +307,8 @@
 (remove-hook 'midnight-hook 'clean-buffer-list)
 (add-hook 'midnight-hook 'org-agenda-to-appt)
 
-; This one is kinda annoying...
-(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
+;; ; This one is kinda annoying...
+;; (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
 
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
