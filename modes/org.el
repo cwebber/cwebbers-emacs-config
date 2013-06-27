@@ -349,6 +349,11 @@
 
 (add-hook 'org-mode-hook 'cwebber/set-back-open-line)
 
+; More desparate
+(defun org-open-line (n)
+  (interactive "*p")
+  (open-line n))
+
 ; hacky diet stuff
 (defun org-diet-hacky-jump-to-today ()
   "Really hacky function to jump to today based on the assumption
