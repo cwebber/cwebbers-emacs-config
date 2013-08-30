@@ -132,8 +132,7 @@ isn't."
  '(column-marker-1-face ((t (:background "red" :foreground "black")))))
 
 ;(load-file "~/elisp/naquadah-theme/naquadah-theme.el")
-(when window-system
-  (require 'naquadah-theme))
+(require 'naquadah-theme)
 
 ; (require 'dark-emacs-theme)
 
