@@ -131,7 +131,11 @@ isn't."
   ;; If there is more than one, they won't work right.
  '(column-marker-1-face ((t (:background "red" :foreground "black")))))
 
-(load-file "~/elisp/naquadah-theme/naquadah-theme.el")
+;(load-file "~/elisp/naquadah-theme/naquadah-theme.el")
+(when window-system
+  (require 'naquadah-theme))
+
+; (require 'dark-emacs-theme)
 
 (defun cwebber/fix-font-size (&optional frame)
   (interactive)
