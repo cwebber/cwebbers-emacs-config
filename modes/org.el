@@ -54,11 +54,6 @@
 (setq org-habit-graph-column 60)
 (setq org-habit-show-done-always-green t)
 
-;; remember
-(org-remember-insinuate)
-;(define-key global-map "\C-cor" 'org-remember)
-(define-key global-map "\C-coR" 'org-remember) ; used to be C-o r, here in case
-                                               ; I need it
 (define-key global-map "\C-cor" 'org-capture)
 ;(define-key global-map "\C-coc" 'org-capture)
 (define-key global-map "\C-col" 'org-store-link)
@@ -179,7 +174,15 @@
          "%(org-read-date) %^{Payee}
     Expenses:%^{Account}  %^{Amount}
     Expenses:Cash
-  ")))
+  ")
+        ("x" "XUDD")
+        ("xt" "XUDD Todo" plain
+         (file+headline "~/org/xudd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("xn" "XUDD Note" plain
+         (file+headline "~/org/xudd.org" "Notes")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
@@ -457,3 +460,5 @@ Otherwise, archive to an archive sibling."
 (define-key org-mode-map "\C-c\C-xA" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-xa" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-x\C-a" 'cwebber/org-archive-subtree-depending-on-property)
+(define-key org-mode-map "\C-c\C-x\C-s" 'cwebber/org-archive-subtree-depending-on-property)
+(define-key org-mode-map "\C-c$" 'cwebber/org-archive-subtree-depending-on-property)
