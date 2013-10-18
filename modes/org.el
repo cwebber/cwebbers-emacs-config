@@ -22,6 +22,7 @@
 (setq org-agenda-include-diary nil)
 (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
+(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 
 (setq org-todo-keywords
       '((sequence "TODO" "DONE")
