@@ -207,7 +207,7 @@
           (org-agenda-sorting-strategy
            '(todo-state-down effort-up category-keep))))
         ("A" "Agenda plus plus"
-         ((tags-todo "NEXT")
+         ((todo "NEXT")
           
           (agenda "" nil)))
         ))
