@@ -50,6 +50,18 @@
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
 
+; Priorities??
+
+(setq org-priority-faces
+      '((?A . "#f01a0f")
+        (?B . "#f0640f")
+        (?C . "light sea green")
+        (?D . "slate blue")))
+
+(setq org-default-priority ?C)
+(setq org-lowest-priority ?D)
+
+
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
 (setq org-habit-graph-column 60)
