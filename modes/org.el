@@ -220,8 +220,8 @@
            '(todo-state-down effort-up category-keep))))
         ("A" "Agenda plus plus"
          ((todo "NEXT")
-          
-          (agenda "" nil)))
+          (agenda "" nil)
+          ))
         ))
 
 ; Make sure we don't block repeating tasks

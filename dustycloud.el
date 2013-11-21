@@ -41,3 +41,9 @@ $0
            (yas-expand-snippet dustycloud-html-snippet))
           (t
            (error "File extension not .rst or .html")))))
+
+
+(defun mediagoblin-compose ()
+  (interactive)
+  (let ((dustycloud-content-dir "~/devel/mediagoblin-website/content/"))
+    (dustycloud-compose)))

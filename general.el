@@ -63,6 +63,8 @@
 ;; General config BS
 ;; ------
 
+(setq fill-column 79)
+
 (setq max-specpdl-size 9000)
 
 (when (not window-system)
