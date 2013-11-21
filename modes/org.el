@@ -212,12 +212,18 @@
 ; ... but don't grey it out
 (setq org-agenda-dim-blocked-tasks nil)
 
+(defun cwebber/skip-unless-habit ()
+  "Checks to see if the style at point is \"habit\""
+  (if (not (equal (org-entry-get (point) "STYLE") "habit"))
+      ; Skip till the next heading
+      (progn (outline-next-heading) (1- (point)))))
+
 (setq org-agenda-custom-commands
       '(("N" todo "NEXT")
-        ("h" "Habits" tags-todo "STYLE=\"habit\""
-         ((org-agenda-overriding-header "Habits")
-          (org-agenda-sorting-strategy
-           '(todo-state-down effort-up category-keep))))
+        ("h" "Habits"
+         (agenda ""
+         ((org-habit-show-all-today t)
+          (org-agenda-skip-function 'cwebber/skip-unless-habit)))
         ("A" "Agenda plus plus"
          ((todo "NEXT")
           (agenda "" nil)
