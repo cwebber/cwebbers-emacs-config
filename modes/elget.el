@@ -1,3 +1,9 @@
+(require 'package)
+(add-to-list 'package-archives 
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil t)
@@ -21,6 +27,30 @@
                :description "Visual regexps"
                :type git
                :url "https://github.com/benma/visual-regexp.el.git")
+        (:name "dark-theme"
+               :description "Dark theme"
+               :type http
+               :url "https://raw.github.com/suvayu/.emacs.d/master/themes/dark-emacs-theme.el")
+        (:name "naquadah-theme"
+               :description "Naquadah theme"
+               :type git
+               :url "git://git.naquadah.org/naquadah-theme.git")
+        (:name "kivy-mode"
+               :description "Kivy highlighting mode"
+               :type http
+               :url "https://raw.github.com/kivy/kivy/master/kivy/tools/highlight/kivy-mode.el")
+        (:name "web-mode"
+               :description "emacs major mode for html templates"
+               :type git
+               :url "https://github.com/fxbois/web-mode.git")
+        (:name "org-reveal"
+               :description "reveal.js stuff for orgmode"
+               :type git
+               :url "https://github.com/yjwen/org-reveal.git")
+        ;; (:name "cyberpunk-theme"
+        ;;        :description "Cyberpunk theme"
+        ;;        :type git
+        ;;        :url "https://github.com/n3mo/cyberpunk-theme.el.git")
         ;; (:name asciidoc
         ;;        :type elpa
         ;;        :after (lambda ()
@@ -38,7 +68,10 @@
 (setq my-packages
       (append
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
-         "paredit" "visual-regexp") ; "dropdown-list")
+         "paredit" "visual-regexp" "web-mode" "smex"
+         ;  "jedi"
+         ) ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
+
