@@ -221,9 +221,10 @@
 (setq org-agenda-custom-commands
       '(("N" todo "NEXT")
         ("h" "Habits"
-         (agenda ""
-         ((org-habit-show-all-today t)
-          (org-agenda-skip-function 'cwebber/skip-unless-habit)))
+         ((agenda
+           ""
+           ((org-habit-show-all-today t)
+            (org-agenda-skip-function 'cwebber/skip-unless-habit)))))
         ("A" "Agenda plus plus"
          ((todo "NEXT")
           (agenda "" nil)
@@ -426,6 +427,19 @@
 # --------
 # This buffer is for notes you don't want to save, etc.
 "))
+
+
+(defun cwebber/org-tree-to-indirect-buffer-renamed (subname)
+  "Like org-tree-to-indirect-buffer, with the option to give a \"subname\""
+  (interactive "sNew buffer subname?: ")
+  (let ((orig-buffer-name (buffer-name (current-buffer))))
+    (org-tree-to-indirect-buffer)
+    (other-window 1)
+    (if (not (equal subname ""))
+        (rename-buffer (format "%s(%s)" orig-buffer-name subname)))))
+
+(define-key org-mode-map (kbd "C-c C-x b") 'cwebber/org-tree-to-indirect-buffer-renamed)
+
 
 ;; --------------------
 ;; Appointment property
