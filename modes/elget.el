@@ -31,6 +31,10 @@
                :description "Dark theme"
                :type http
                :url "https://raw.github.com/suvayu/.emacs.d/master/themes/dark-emacs-theme.el")
+        (:name "highlight-sexps"
+               :description "Highlight sexps"
+               :type http
+               :url "http://david.rysdam.org/src/emacs/highlight-sexps.el")
         (:name "naquadah-theme"
                :description "Naquadah theme"
                :type git
