@@ -35,6 +35,10 @@
                :description "Highlight sexps"
                :type http
                :url "http://david.rysdam.org/src/emacs/highlight-sexps.el")
+        (:name "highlight-parentheses"
+               :description "Highlight parentheses"
+               :type git
+               :url "https://github.com/nschum/highlight-parentheses.el.git")
         (:name "naquadah-theme"
                :description "Naquadah theme"
                :type git
