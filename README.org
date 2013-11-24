@@ -4,7 +4,9 @@
 
 Welcome to my .emacs config.  It's got some structure to it, but it's
 kind of grown organically over the years.  Hopefully it's useful for
-you.
+you.  Keep in mind, a lot of stuff in here is stuff that's probably
+been around since I started using emacs and had no idea what I was
+doing in 2003.  I clean it up occasionally, but uh... expect cruft.
 
 So the way I install things currently is kind of goofy.  I used to
 have multiple machines that all shared this config, but I mostly just
