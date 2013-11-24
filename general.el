@@ -349,8 +349,6 @@ in X or in a terminal"
 ;; Mail stuff
 ;; ----------
 
-(setq user-mail-address "cwebber@dustycloud.org")
-(setq user-full-name "Christopher Allan Webber")
 (setq mail-source-movemail-program "/usr/bin/movemail")
 
 ; Randomly choose mail signature
