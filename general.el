@@ -372,8 +372,6 @@ in X or in a terminal"
 ;; Load some custom stuff
 ;; ---------
 
-(load-file "~/elisp/diet.el")
-
 (defun insert-ellipsis ()
   (interactive)
   (insert "…"))
