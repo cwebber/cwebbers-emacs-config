@@ -1,0 +1,93 @@
+#+TITLE: Chris Webber's emacs config
+
+* Intro
+
+Welcome to my .emacs config.  It's got some structure to it, but it's
+kind of grown organically over the years.  Hopefully it's useful for
+you.
+
+So the way I install things currently is kind of goofy.  I used to
+have multiple machines that all shared this config, but I mostly just
+use my laptop these days.  Nonetheless, my .emacs looks more or less
+like this:
+
+#+BEGIN_SRC emacs-lisp
+;; Load up the general config
+(load-file "~/.config/emacs/general.el")
+
+;; El-get!  This installs a bunch of the modes I use
+(load-file "~/.config/emacs/modes/elget.el")
+
+;; Modes
+(load-file "~/.config/emacs/modes/bbdb.el")
+(load-file "~/.config/emacs/modes/column-marker.el")
+(load-file "~/.config/emacs/modes/css.el")
+(load-file "~/.config/emacs/modes/erc.el")
+(load-file "~/.config/emacs/modes/eshell.el")
+(load-file "~/.config/emacs/modes/flymake.el")
+(load-file "~/.config/emacs/modes/identica.el")
+(load-file "~/.config/emacs/modes/ledger.el")
+(load-file "~/.config/emacs/modes/longlines.el")
+(load-file "~/.config/emacs/modes/magit.el")
+(load-file "~/.config/emacs/modes/mozrepl.el")
+(load-file "~/.config/emacs/modes/yasnippet.el")
+(load-file "~/.config/emacs/modes/org.el")
+(load-file "~/.config/emacs/modes/php.el")
+(load-file "~/.config/emacs/modes/tramp.el")
+(load-file "~/.config/emacs/modes/visual-regexp.el")
+(load-file "~/.config/emacs/modes/w3m.el")
+(load-file "~/.config/emacs/modes/wordcount.el")
+(load-file "~/.config/emacs/modes/ido.el")
+(load-file "~/.config/emacs/modes/smex.el")
+(load-file "~/.config/emacs/modes/uniquify.el")
+(load-file "~/.config/emacs/modes/mu4e.el")
+(load-file "~/.config/emacs/modes/ediff.el")
+(load-file "~/.config/emacs/modes/ace-jump.el")
+(load-file "~/.config/emacs/modes/web-mode.el")
+
+;; Install a custom mode line
+(load-file "~/.config/emacs/mode-line.el")
+
+;; Finalize things
+(load-file "~/.config/emacs/finalize.el")
+
+;; Some custom tools
+(load-file "~/devel/magit-review/magit-review.el")
+(load-file "~/devel/org-diet/org-diet.el")
+(load-file "~/.config/emacs/dustycloud.el")
+
+;; Load colors and theme things
+(load-file "~/.config/emacs/colors.el")
+
+;; Because I load different font sizes on different computers
+; (set-default-font "inconsolata-12")
+(set-default-font "mono-9")
+#+END_SRC
+
+You can include whatever modes you want.  But let's face it, people
+who aren't me will probably just pick and choose from this repo.
+Which makes sense!
+
+Anyway, maybe it's useful to you, maybe not.
+
+* Licensing
+
+All original code in here GPLv3 or later, as published by the FSF.
+You shoulda received a [[file:./gpl3.0.txt][copy of the GPL]] with this repository, but if
+not, check it out on the intarwebs:
+  http://www.gnu.org/copyleft/gpl.html
+
+It's a bit more complicated because some of this stuff is snippets I
+took from emacswiki and other sources around the web.  It should be
+all GPLv3+ but uh...
+
+Oh yeah, a couple of cool sources if you want to look into more stuff.
+Lots of this stuff borrowed from these places...
+ - http://www.emacswiki.org/
+ - http://doc.norang.ca/org-mode.html
+ - http://orgmode.org/worg/
+
+This particular document waived into the public domain via:
+  http://creativecommons.org/publicdomain/zero/1.0/
+
+Have fun!
