@@ -2,7 +2,6 @@
 ;; ERC
 ;; ---------
 
-(setq erc-nick "paroneayea")
 (setq erc-user-full-name user-full-name)
 ;; (setq browse-url-browser-function 'w3m-browse-url)
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART"
