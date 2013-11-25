@@ -12,5 +12,9 @@
        (naquadah-get-colors 'gradient-5)
        (naquadah-get-colors 'gradient-6)
        (naquadah-get-colors 'gradient-7)
-       (naquadah-get-colors 'gradient-8)))
+       (naquadah-get-colors 'gradient-8)
+       (naquadah-get-colors 'gradient-9)
+       (naquadah-get-colors 'gradient-10)
+       (naquadah-get-colors 'gradient-11)
+       ))
 
