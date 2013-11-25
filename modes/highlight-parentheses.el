@@ -18,3 +18,8 @@
        (naquadah-get-colors 'gradient-11)
        ))
 
+; Make the parenthesis' matched by hl-paren-face bold.
+;
+; Not sure if I like this or not!  It looks nice but moves around
+; the text a bit.
+(set-face-attribute 'hl-paren-face nil :bold t)
