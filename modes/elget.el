@@ -10,16 +10,15 @@
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
+     (let (el-get-master-branch)
+       (goto-char (point-max))
+       (eval-print-last-sexp)))))
 
 (require 'el-get)
 
 ;; local sources
 (setq el-get-sources
-      '((:name magit
-               :after (lambda () (global-set-key (kbd "C-x C-z") 'magit-status)))
-        (:name "yasnippet"
+      '((:name "yasnippet"
                :description "YASnippet is a template system for Emacs."
                :type git
                :url "https://github.com/capitaomorte/yasnippet")
@@ -55,6 +54,9 @@
                :description "reveal.js stuff for orgmode"
                :type git
                :url "https://github.com/yjwen/org-reveal.git")
+        (:name "git-modes"
+               :type git
+               :url "https://github.com/magit/git-modes.git")
         ;; (:name "cyberpunk-theme"
         ;;        :description "Cyberpunk theme"
         ;;        :type git
@@ -77,9 +79,11 @@
       (append
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
+         "smartparens"
          ;  "jedi"
          ) ; "dropdown-list")
-       (mapcar 'el-get-source-name el-get-sources)))
+       (mapcar 'el-get-source-name el-get-sources)
+       '("magit")))
 
 (el-get 'sync my-packages)
 
