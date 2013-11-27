@@ -11,7 +11,7 @@
 
 ;; Less nasty face for pair-overlay
 
-(set-face-attribute 'sp-pair-overlay-face nil :background "#201e1b")
+(set-face-attribute 'sp-pair-overlay-face nil :background "#2b2925")
 
 
 ;;; Lots borrwowed from https://github.com/Fuco1/smartparens/wiki/Example-configuration
