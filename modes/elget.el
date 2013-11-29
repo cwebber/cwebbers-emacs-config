@@ -79,10 +79,9 @@
       (append
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
-         "browse-kill-ring"
+         "browse-kill-ring" "hy-mode"
          "smartparens"
-         "jedi"
-         ) ; "dropdown-list")
+         "jedi") ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)
        '("magit")))
 
