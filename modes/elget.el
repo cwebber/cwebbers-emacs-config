@@ -79,6 +79,7 @@
       (append
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
+         "browse-kill-ring"
          "smartparens"
          ;  "jedi"
          ) ; "dropdown-list")
