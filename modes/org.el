@@ -313,6 +313,58 @@
 (add-hook 'org-after-todo-state-change-hook
           'cwebber/org-possibly-toggle-next-tag-based-on-todo-kewyord)
 
+(defun cwebber/org-repeating-tasks-with-NEXT (org-state org-last-state)
+  "Repeating entries set to NEXT should switch back to their old state when done
+
+When first setting to NEXT, it sets a property, ORIG-TODO-STATE
+If set to NEXT and it's being"
+  (let ((is-repeater (org-get-repeat))
+        (orig-todo-state (org-entry-get (point) "ORIG_TODO_STATE")))
+    (cond
+     ; New state is NEXT, old state was something else
+     ((and
+       (equal org-state "NEXT")
+       (not (equal org-last-state "NEXT")))
+      (org-entry-put (point) "ORIG_TODO_STATE" org-last-state))
+     ; New state is 
+     ((and (equal org-last-state "NEXT")
+           orig-todo-state)
+      (org-entry-delete (point) "ORIG_TODO_STATE")
+      orig-todo-state))))
+
+(add-hook 'org-todo-get-default-hook
+          'cwebber/org-repeating-tasks-with-NEXT)
+
+; (defadvice org-todo (around cwebber/org-next-on-repeater-wrapper
+;;                             (&optional new-todo-state))
+;;   "Repeating entries set to NEXT should switch back to their old state when done
+;; 
+;; When first setting to NEXT, it sets a property, ORIG-TODO-STATE
+;; If set to NEXT and it's being 
+;; 
+;; "
+;;   (let ((todo-is-next (equal (org-get-todo-state) "NEXT"))
+;;         (is-repeater (org-get-repeat))
+;;         (new-todo-is-next (equal new-todo-state "NEXT"))
+;;         (orig-todo-state (org-entry-get (point) "ORIG_TODO_STATE")))
+;;     (cond
+;;      ; We need to set to NEXT and set the original TODO state, without
+;;      ; cycling this at all
+;;      ((and is-repeater new-todo-is-next (not todo-is-next))
+;;       (progn
+;;         (org-entry-put (point) "ORIG_TODO_STATE" orig-todo-state)
+;;         (let ((org-auto-repeat-maybe
+;;                ; no-op!
+;;                (lambda (x))))
+;;           ad-do-it)))
+;;      ; original state
+;;      ((and is-repeater todo-is-next orig-todo-state)
+;;       (progn
+;;         (org-todo orig-todo-state)
+;;         (org-entry-delete (point) "ORIG_TODO_STATE")))
+;;      (t ad-do-it))))
+; (ad-activate 'org-todo)
+
 
 ;; -----------------
 ;; Appointment stuff
