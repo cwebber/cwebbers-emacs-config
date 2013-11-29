@@ -1,8 +1,8 @@
 (setq dustycloud-content-dir "~/devel/dustycloud/content/")
 
-(setq dustycloud-rst-snippet "${1:$(make-string (string-width text) ?\=)}
+(setq dustycloud-rst-snippet "${1:$(make-string (string-width yas/text) ?\=)}
 ${1:Title}
-${1:$(make-string (string-width text) ?\=)}
+${1:$(make-string (string-width yas/text) ?\=)}
 
 :date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
 :author: ${2:Christopher Allan Webber}
