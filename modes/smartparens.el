@@ -1,8 +1,6 @@
 (require 'smartparens)
 (require 'smartparens-config)
 
-(smartparens-global-mode t)
-
 ; Use default keygindings
 (sp-use-smartparens-bindings)
 
@@ -30,3 +28,4 @@
   (sp-local-pair "(" nil :bind "C-("))
 
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(add-hook 'hy-mode 'smartparens-mode)
