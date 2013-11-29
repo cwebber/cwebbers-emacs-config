@@ -81,7 +81,7 @@
          "paredit" "visual-regexp" "web-mode" "smex"
          "browse-kill-ring"
          "smartparens"
-         ;  "jedi"
+         "jedi"
          ) ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)
        '("magit")))
