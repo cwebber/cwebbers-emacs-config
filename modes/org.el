@@ -225,11 +225,9 @@
            ""
            ((org-habit-show-all-today t)
             (org-agenda-skip-function 'cwebber/skip-unless-habit)))))
-        ("A" "Agenda plus plus"
+        ("a" "Agenda plus plus"
          ((todo "NEXT")
-          (agenda "" nil)
-          ))
-        ))
+          (agenda "" nil)))))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
