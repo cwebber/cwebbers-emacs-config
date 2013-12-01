@@ -79,7 +79,7 @@
       (append
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
-         "browse-kill-ring" "hy-mode"
+         "browse-kill-ring" "hy-mode" "rainbow-mode"
          "smartparens"
          "jedi") ; "dropdown-list")
        (mapcar 'el-get-source-name el-get-sources)
