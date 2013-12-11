@@ -324,17 +324,18 @@ If set to NEXT and it's being run again, it sets it back
 This uses DARK VOODOO MAGIC but it works"
   (let ((is-repeater (org-get-repeat))
         (orig-todo-state (org-entry-get (point) "ORIG_TODO_STATE")))
-    (cond (cwebber/org-currently-in-NEXT-setting nil)  ; don't recurse :)
-          ;; New state is NEXT, old state was something else
-          ((and (equal org-state "NEXT")
-             (not orig-todo-state))
-           (org-entry-put (point) "ORIG_TODO_STATE" org-last-state))
-          ((and (equal org-state "NEXT")
-                orig-todo-state)
-           (progn
-             (org-entry-delete (point) "ORIG_TODO_STATE")
-             (let ((cwebber/org-currently-in-NEXT-setting t))
-               (org-todo orig-todo-state)))))))
+    (if is-repeater
+        (cond (cwebber/org-currently-in-NEXT-setting nil)  ; don't recurse :)
+              ;; New state is NEXT, old state was something else
+              ((and (equal org-state "NEXT")
+                    (not orig-todo-state))
+               (org-entry-put (point) "ORIG_TODO_STATE" org-last-state))
+              ((and (equal org-state "NEXT")
+                    orig-todo-state)
+               (progn
+                 (org-entry-delete (point) "ORIG_TODO_STATE")
+                 (let ((cwebber/org-currently-in-NEXT-setting t))
+                   (org-todo orig-todo-state))))))))
 
 (add-hook 'org-after-todo-state-change-hook
           'cwebber/org-repeating-tasks-with-NEXT)
