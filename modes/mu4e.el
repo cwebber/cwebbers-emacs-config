@@ -36,3 +36,5 @@
   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
 (setq mu4e~main-buffer-name "*mu4e-main*")
+
+(setq mu4e-compose-dont-reply-to-self t)
