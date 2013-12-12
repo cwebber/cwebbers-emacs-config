@@ -37,4 +37,7 @@
 
 (setq mu4e~main-buffer-name "*mu4e-main*")
 
+(setq mu4e-user-mail-address-list
+      '("cwebber@dustycloud.org"
+        "cwebber@mediagoblin.org"))
 (setq mu4e-compose-dont-reply-to-self t)
