@@ -46,6 +46,10 @@
                :description "Kivy highlighting mode"
                :type http
                :url "https://raw.github.com/kivy/kivy/master/kivy/tools/highlight/kivy-mode.el")
+        (:name "rainbow-delimeters"
+               :description "Highlight rainbowz"
+               :type http
+               :url "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
         (:name "web-mode"
                :description "emacs major mode for html templates"
                :type git
@@ -80,8 +84,9 @@
        '("el-get" "org-mode" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
          "browse-kill-ring" "hy-mode" "rainbow-mode"
-         "smartparens"
-         "jedi") ; "dropdown-list")
+         "smartparens" ; "helm"
+         "rainbow-delimeters"
+         "jedi")
        (mapcar 'el-get-source-name el-get-sources)
        '("magit")))
 

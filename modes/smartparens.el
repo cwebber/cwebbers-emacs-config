@@ -4,12 +4,9 @@
 ; Use default keygindings
 (sp-use-smartparens-bindings)
 
-;; highlights matching pairs
-(show-smartparens-global-mode t)
-
 ;; Less nasty face for pair-overlay
 
-(set-face-attribute 'sp-pair-overlay-face nil :background "#2d3233")
+(set-face-attribute 'sp-pair-overlay-face nil :background "#23132f")
 
 ;;; Lots borrwowed from https://github.com/Fuco1/smartparens/wiki/Example-configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28,4 +25,4 @@
   (sp-local-pair "(" nil :bind "C-("))
 
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(add-hook 'hy-mode 'smartparens-mode)
+(add-hook 'hy-mode-hook 'smartparens-mode)

@@ -1,6 +1,7 @@
 (require 'highlight-parentheses)
 
-(add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+; (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+; (remove-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
 
 ; Use naquadah colors
 (setq hl-paren-colors
