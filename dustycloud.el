@@ -38,6 +38,7 @@ $0
     (cond ((equal file-extension "rst")
            (yas-expand-snippet dustycloud-rst-snippet))
           ((equal file-extension "html")
+           (setq-local web-mode-disable-auto-indentation t)
            (yas-expand-snippet dustycloud-html-snippet))
           (t
            (error "File extension not .rst or .html")))))
