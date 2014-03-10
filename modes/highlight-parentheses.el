@@ -3,6 +3,7 @@
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
 (add-hook 'hy-mode-hook 'highlight-parentheses-mode)
 (add-hook 'lisp-mode-hook 'highlight-parentheses-mode)
+(add-hook 'inferior-lisp-mode-hook 'highlight-parentheses-mode)
 
 ;; ; Use naquadah colors
 ;; (setq hl-paren-colors
