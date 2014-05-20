@@ -32,7 +32,7 @@ $0
   (let ((file-extension
          (progn (string-match "\\.\\(html\\|rst\\)$" buffer-file-name)
                 (match-string 1 buffer-file-name)))
-        (yas/indent-line 'fixed)
+        (yas/indent-line nil)
         (yas/wrap-around-region nil))
     ;; Expand the appropriate snippet (or throw an error if unrecognized)
     (cond ((equal file-extension "rst")
