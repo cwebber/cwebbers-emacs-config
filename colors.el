@@ -145,7 +145,7 @@ isn't."
   (when window-system
     (if frame
         (select-frame frame))
-    (set-default-font "mono-9")))
+    (set-default-font "Fantasque Sans Mono-12")))
 
 ; Make the ansi-term blue not so painful
 (setq ansi-color-names-vector
