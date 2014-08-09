@@ -107,7 +107,16 @@
          "* %U %?\n\n  %i\n  %a" :prepend t :empty-lines 1)
         ("w" "Weigh-in" entry
          (file+headline "~/org/diet.org" "Daily Logs")
-         "* CAL-IN Diet for day %t\n%^{Weight}p\n| Food / Exercise | Calories | Quantity | Total |\n|-----------------+----------+----------+-------|\n| %?                |          |          |       |\n|-----------------+----------+----------+-------|\n| Total           |          |          |       |\n#+TBLFM: $4=$2*$3;%.0f::$LR4=vsum(@2$4..@-I$4)\n\n"
+         "* CAL-IN Diet for day %t
+%^{Weight}p
+| Food / Exercise | Calories | Quantity | Total |
+|-----------------+----------+----------+-------|
+| %?                |          |          |       |
+|-----------------+----------+----------+-------|
+| Total           |          |          |       |
+#+TBLFM: $4=$2*$3;%.0f::$LR4=vsum(@2$4..@-I$4)
+
+"
          :prepend t :empty-lines 1)
         ("b" "Blood pressure" table-line
          (file+headline "~/org/bpressure.org" "Blood pressure table")
@@ -414,6 +423,19 @@ This uses DARK VOODOO MAGIC but it works"
   (search-forward-regexp "^| Total")
   (beginning-of-line)
   (previous-line))
+
+(defun cwebber/org-diet-copy-weight-to-dustycloud ()
+  (interactive)
+  (save-excursion
+    (let ((org-diet-open-in-browser-after-export nil))
+      (org-diet-expand-and-export-progress-template))
+    (shell-command "scp /tmp/org_diet_results.html /tmp/weight.png /tmp/weight_month.png /tmp/weight_year.png dustycloud:/srv/dustycloud/static/tmp/")
+    (browse-url "http://dustycloud.org/tmp/org_diet_results.html")
+    (kill-buffer)
+    (other-window -1)))
+
+(define-key global-map (kbd "C-c o W") 'cwebber/org-diet-copy-weight-to-dustycloud)
+
 
 ; Open files with the programs I want.
 
