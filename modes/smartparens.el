@@ -27,3 +27,4 @@
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (add-hook 'hy-mode-hook 'smartparens-mode)
 (add-hook 'inferior-lisp-mode-hook 'smartparens-mode)
+(add-hook 'guile-mode-hook 'smartparens-mode)

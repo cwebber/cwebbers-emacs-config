@@ -4,6 +4,7 @@
 (add-hook 'hy-mode-hook 'highlight-parentheses-mode)
 (add-hook 'lisp-mode-hook 'highlight-parentheses-mode)
 (add-hook 'inferior-lisp-mode-hook 'highlight-parentheses-mode)
+(add-hook 'scheme-mode-hook 'highlight-parentheses-mode)
 
 ;; ; Use naquadah colors
 ;; (setq hl-paren-colors
