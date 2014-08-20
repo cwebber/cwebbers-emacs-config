@@ -544,3 +544,6 @@ Otherwise, archive to an archive sibling."
 (define-key org-mode-map "\C-c\C-x\C-a" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c\C-x\C-s" 'cwebber/org-archive-subtree-depending-on-property)
 (define-key org-mode-map "\C-c$" 'cwebber/org-archive-subtree-depending-on-property)
+
+;; I don't want a bookmark every time I capture things
+(setq org-capture-bookmark nil)
