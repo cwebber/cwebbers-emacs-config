@@ -41,3 +41,5 @@
       '("cwebber@dustycloud.org"
         "cwebber@mediagoblin.org"))
 (setq mu4e-compose-dont-reply-to-self t)
+
+(setq mu4e-compose-signature-auto-include nil)
