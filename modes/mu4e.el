@@ -5,6 +5,8 @@
 ; (add-to-list 'load-path "~/programs/mu/mu4e/")
 ; (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
 
+(setq mu4e-msg2pdf "/usr/bin/msg2pdf")
+
 (setq mu4e-get-mail-command "offlineimap")
 (setq mu4e-html2text-command "html2text -utf8 -width 72")
 
