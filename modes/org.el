@@ -9,7 +9,7 @@
 ; Load stuff from http://doc.norang.ca/org-mode.html
 (load-file "~/.config/emacs/modes/org-norang.el")
 
-(global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-export-babel-evaluate nil)
@@ -547,3 +547,6 @@ Otherwise, archive to an archive sibling."
 
 ;; I don't want a bookmark every time I capture things
 (setq org-capture-bookmark nil)
+
+;; I hate that foo_bar becomes foo(subscript:bar) stuff
+(setq org-use-sub-superscripts '{})
