@@ -71,6 +71,8 @@
 ;(define-key global-map "\C-coc" 'org-capture)
 (define-key global-map "\C-col" 'org-store-link)
 (define-key global-map "\C-coj" 'org-clock-goto)
+(define-key global-map "\C-coJ" (lambda () (interactive) (org-clock-goto t)))
+
 (define-key global-map "\C-cod" 'org-diet-hacky-jump-to-today)
 ;(define-key global-map "\C-cob" 'org-iswitchb)
 
@@ -374,6 +376,7 @@ This uses DARK VOODOO MAGIC but it works"
 
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
+(setq org-clock-out-remove-zero-time-clocks t)
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
