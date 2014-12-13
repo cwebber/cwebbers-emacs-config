@@ -33,7 +33,7 @@
         ; pay attention to it.  Sometimes WAITING is better.
         (sequence "|" "PASSED-OFF")
         (sequence "|" "DONE-NOT-ME")
-        (sequence "PAYMENT-WAITING" "|" "PAID")))
+        (sequence "BILL-THIS" "PAYMENT-WAITING" "RECORD-INCOME" "|" "PAID")))
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
@@ -133,21 +133,21 @@
         ("p" "Purchase wishlist" entry
          (file+headline "~/org/consumerism.org" "Stuff to buy")
          "* TODO %^{Title}\n\n%?\n" :prepend t :empty-lines 1)
-        ("c" "CC work-related items")
-        ("ct" "CC Todo" entry
-         (file+headline "~/org/ccommons.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
-        ("ce" "CC Event" entry
-         (file+headline "~/org/ccommons.org" "Events")
-         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
-        ("cn" "CC Note" entry
-         (file+headline "~/org/ccommons.org" "Various Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
-         :prepend t :empty-lines 1)
-        ("cb" "CC Billable" entry
-         (file+headline "~/org/ccommons.org" "Billable Stuff")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
-         :prepend t :empty-lines 1)
+        ;; ("c" "CC work-related items")
+        ;; ("ct" "CC Todo" entry
+        ;;  (file+headline "~/org/ccommons.org" "Various Tasks")
+        ;;  "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ;; ("ce" "CC Event" entry
+        ;;  (file+headline "~/org/ccommons.org" "Events")
+        ;;  "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+        ;; ("cn" "CC Note" entry
+        ;;  (file+headline "~/org/ccommons.org" "Various Notes")
+        ;;  "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+        ;;  :prepend t :empty-lines 1)
+        ;; ("cb" "CC Billable" entry
+        ;;  (file+headline "~/org/ccommons.org" "Billable Stuff")
+        ;;  "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+        ;;  :prepend t :empty-lines 1)
         ("m" "MediaGoblin items")
         ("mt" "MediaGoblin TODO")
         ("mth" "MediaGoblin Todo: Hacking" entry
@@ -172,6 +172,19 @@
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
+        ;; Contracting stuff
+        ;; -----------------
+        ("c" "Contracting")
+        ;; Open Tech Strategies
+        ("co" "Open Tech Strategies")
+        ("cot" "OTS Todo" entry
+         (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("cot" "OTS Note" entry
+         (file+headline "~/org/contracting/opentechstrategies.org" "Notes")
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         :prepend t :empty-lines 1)
+
   ;;       ("ml" "MediaGoblin Ledger" plain
   ;;        (file "~/records/mgllc_accounts/mediagoblin.ldgr")
   ;;        "%(org-read-date) %^{Payee}
@@ -236,6 +249,15 @@
            ""
            ((org-habit-show-all-today t)
             (org-agenda-skip-function 'cwebber/skip-unless-habit)))))
+        ("c" "Contracting this week"
+         ((agenda
+           ""
+           ((org-agenda-start-on-weekday 1)
+            (org-agenda-files '("~/org/contracting/opentechstrategies.org"
+                            "~/org/contracting/contracting.org"))
+            (org-agenda-archives-mode t)
+            (org-agenda-start-with-clockreport-mode t)
+            ))))
         ("a" "Agenda plus plus"
          ((todo "NEXT")
           (agenda "" nil)))))
@@ -377,6 +399,9 @@ This uses DARK VOODOO MAGIC but it works"
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
 (setq org-clock-out-remove-zero-time-clocks t)
+
+(setq org-agenda-clockreport-parameter-plist
+      (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80)))
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
@@ -553,3 +578,4 @@ Otherwise, archive to an archive sibling."
 
 ;; I hate that foo_bar becomes foo(subscript:bar) stuff
 (setq org-use-sub-superscripts '{})
+
