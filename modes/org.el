@@ -176,6 +176,7 @@
         ;; -----------------
         ("c" "Contracting")
         ;; Open Tech Strategies
+        ("cg" "Contracting general")
         ("co" "Open Tech Strategies")
         ("cot" "OTS Todo" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")
@@ -183,6 +184,17 @@
         ("cot" "OTS Note" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         :prepend t :empty-lines 1)
+        ("cob" "OTS Billing" entry
+         (file+headline "~/org/contracting/opentechstrategies.org" "Billing")
+         "* TODO Billing for %?
+** TODO Get out invoice
+*** TODO Write it up
+*** TODO Send it in
+
+** TODO Get paid
+** TODO Record in [[file:~/org/finances.ldgr][ledger]] and [[~/org/finances.org][finances.org]]
+"
          :prepend t :empty-lines 1)
 
   ;;       ("ml" "MediaGoblin Ledger" plain
@@ -254,9 +266,24 @@
            ""
            ((org-agenda-start-on-weekday 1)
             (org-agenda-files '("~/org/contracting/opentechstrategies.org"
-                            "~/org/contracting/contracting.org"))
+                                "~/org/contracting/contracting.org"))
             (org-agenda-archives-mode t)
             (org-agenda-start-with-clockreport-mode t)
+            ;; As-is, we show nonbillable, but not in the clock report
+            ; (org-agenda-tag-filter-preset
+            ; '("-nonbillable"))
+            ))))
+        ("D" "Contracting today"
+         ((agenda
+           ""
+           ((org-agenda-files '("~/org/contracting/opentechstrategies.org"
+                                "~/org/contracting/contracting.org"))
+            (org-agenda-archives-mode t)
+            (org-agenda-start-with-clockreport-mode t)
+            (org-agenda-ndays 1)
+            ;; As-is, we show nonbillable, but not in the clock report
+            ; (org-agenda-tag-filter-preset
+            ; '("-nonbillable"))
             ))))
         ("a" "Agenda plus plus"
          ((todo "NEXT")
@@ -401,7 +428,7 @@ This uses DARK VOODOO MAGIC but it works"
 (setq org-clock-out-remove-zero-time-clocks t)
 
 (setq org-agenda-clockreport-parameter-plist
-      (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80)))
+      (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80 :tags "-nonbillable")))
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
