@@ -425,7 +425,7 @@ This uses DARK VOODOO MAGIC but it works"
 
 ;(setq org-clock-idle-time 15)
 (setq org-clock-idle-time nil)
-(setq org-clock-out-remove-zero-time-clocks t)
+(setq org-clock-out-remove-zero-time-clocks nil) ;; turns out I hate this feature
 
 (setq org-agenda-clockreport-parameter-plist
       (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80 :tags "-nonbillable")))
