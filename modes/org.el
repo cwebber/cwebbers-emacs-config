@@ -181,7 +181,7 @@
         ("cot" "OTS Todo" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
-        ("cot" "OTS Note" entry
+        ("con" "OTS Note" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
