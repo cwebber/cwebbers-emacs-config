@@ -58,23 +58,42 @@
                :description "reveal.js stuff for orgmode"
                :type git
                :url "https://github.com/yjwen/org-reveal.git")
-        (:name "git-modes"
+        (:name "geiser"
+               :type elpa
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name "replace-color-themes"
                :type git
-               :url "https://github.com/magit/git-modes.git"
-               :branch "next")
-        (:name magit
-               :website "https://github.com/magit/magit#readme"
-               :description "It's Magit! An Emacs mode for Git."
-               :type github
-               :pkgname "magit/magit"
-               :depends (cl-lib git-modes)
-               :info "."
-               :branch "1.2.1"
-               ;; let el-get care about autoloads so that it works with all OSes
-               :build (if (version<= "24.3" emacs-version)
-                          `(("make" ,(format "EMACS=%s" el-get-emacs) "all"))
-                        `(("make" ,(format "EMACS=%s" el-get-emacs) "docs")))
-               :build/berkeley-unix (("touch" "`find . -name Makefile`") ("gmake")))
+               :url "https://github.com/emacs-jp/replace-colorthemes.git")
+        (:name "popup"
+               :type elpa
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name "git-modes"
+               :type elpa
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name "magit"
+               :type elpa
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name "magit-annex"
+               :type elpa
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        ;; (:name "timesheet"
+        ;;        :type elpa)
+
+
+
+        ;; (:name magit
+        ;;        :website "https://github.com/magit/magit#readme"
+        ;;        :description "It's Magit! An Emacs mode for Git."
+        ;;        :type github
+        ;;        :pkgname "magit/magit"
+        ;;        :depends (cl-lib git-modes)
+        ;;        :info "."
+        ;;        :branch "next"
+        ;;        ;; let el-get care about autoloads so that it works with all OSes
+        ;;        :build (if (version<= "24.3" emacs-version)
+        ;;                   `(("make" ,(format "EMACS=%s" el-get-emacs) "all"))
+        ;;                 `(("make" ,(format "EMACS=%s" el-get-emacs) "docs")))
+        ;;        :build/berkeley-unix (("touch" "`find . -name Makefile`") ("gmake")))
         ;; (:name "cyberpunk-theme"
         ;;        :description "Cyberpunk theme"
         ;;        :type git
@@ -100,8 +119,9 @@
          "browse-kill-ring" "hy-mode" "rainbow-mode"
          "smartparens" ; "helm"
          "rainbow-delimeters"
-         "jedi" "geiser")
+         "jedi" "geiser" "haskell-mode"
+         "switch-window"
+         "sicp")
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
-
