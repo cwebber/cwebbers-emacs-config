@@ -399,3 +399,6 @@ in X or in a terminal"
 (setq create-lockfiles nil)
 ; Similarly with auto-save files :(
 (setq auto-save-default nil)
+
+;; How did electric-indent-mode get turned on?  Why the hell would i want that
+(setq electric-indent-mode nil)
