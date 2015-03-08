@@ -28,3 +28,4 @@
 (add-hook 'hy-mode-hook 'smartparens-mode)
 (add-hook 'inferior-lisp-mode-hook 'smartparens-mode)
 (add-hook 'scheme-mode-hook 'smartparens-mode)
+(add-hook 'lisp-mode-hook 'smartparens-mode)
