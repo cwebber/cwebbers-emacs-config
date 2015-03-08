@@ -5,7 +5,8 @@
 ; (add-to-list 'load-path "~/programs/mu/mu4e/")
 ; (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
 
-(setq mu4e-msg2pdf "/usr/bin/msg2pdf")
+; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
+(setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf")
 
 (setq mu4e-get-mail-command "offlineimap")
 (setq mu4e-html2text-command "html2text -utf8 -width 72")
@@ -24,13 +25,14 @@
 
 (setq mu4e-bookmarks
   '(("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam" "Unread messages"      ?u)
-    ("date:today..now AND NOT maildir:/Spam"                  "Today's messages"     ?t)
+    ("date:today..now AND NOT maildir:/Spam"                  "Today's messages"     ?T)
     ("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
     ("mime:image/* AND NOT maildir:/Spam"                     "Messages with images" ?p)
     ("flag:unread AND NOT flag:trashed AND maildir:/Spam"     "Unread spam"          ?s)
     ("flag:unread AND maildir:/Inbox.General"  "Unread general inbox" ?i)
     ("flag:unread AND (/Inbox.General OR /Mediagoblin OR \"/W3C Social WG\"" "Important messages)" ?I)
-    ("flag:unread AND maildir:/Mediagoblin"  "MediaGoblin devel" ?m)))
+    ("flag:unread AND maildir:/Mediagoblin"  "MediaGoblin devel" ?m)
+    ("flag:unread AND \"maildir:/MediaGoblin Tickets\""  "Unread general inbox" ?t)))
 
 (load-file "~/devel/mu4e-uqueue/mu4e-uqueue.el")
 (load-file "~/devel/mu4e-uqueue/uqueue-advice.el")
@@ -48,3 +50,4 @@
 (setq mu4e-compose-signature-auto-include nil)
 
 (global-set-key (kbd "C-c m q") 'mu4e-uqueue)
+(global-set-key (kbd "C-c q") 'mu4e-uqueue)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Notes Block (for org-reveal)
+# --
+#+BEGIN_NOTES
+$0
+#+END_NOTES

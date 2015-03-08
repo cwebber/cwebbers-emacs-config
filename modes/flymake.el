@@ -36,7 +36,7 @@
         ;("\\.html?\\'" flymake-xml-init)
         ("\\.cs\\'" flymake-simple-make-init)
         ("\\.p[ml]\\'" flymake-perl-init)
-        ("\\.php[345]?\\'" flymake-php-init)
+        ;("\\.php[345]?\\'" flymake-php-init)
         ("\\.java\\'" flymake-simple-make-java-init flymake-simple-java-cleanup)
         ;("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup)
         ;("\\.tex\\'" flymake-simple-tex-init)

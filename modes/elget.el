@@ -119,7 +119,8 @@
          "browse-kill-ring" "hy-mode" "rainbow-mode"
          "smartparens" ; "helm"
          "rainbow-delimeters"
-         "jedi" "geiser" "haskell-mode"
+         "jedi" "haskell-mode"
+         ;; "geiser"
          "switch-window"
          "sicp")
        (mapcar 'el-get-source-name el-get-sources)))

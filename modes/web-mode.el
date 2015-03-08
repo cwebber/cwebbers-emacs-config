@@ -1,5 +1,6 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
 
 (setq web-mode-engines-alist
       '(("django" . "\\.html\\'")))
@@ -10,7 +11,7 @@
 
 (add-hook 'web-mode-hook 'cwebber-web-mode-customizations)
 
-;; More tango-y colors
+;; ;; More tango-y colors
 (set-face-attribute 'web-mode-html-tag-face nil
                     :foreground (naquadah-get-colors 'sky-blue-1))
 (set-face-attribute 'web-mode-html-tag-bracket-face nil

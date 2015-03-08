@@ -1,9 +1,9 @@
 ;;; Color theme setup, with cycling
 ;;; -----
 
-(add-to-list 'load-path "~/elisp/color-theme-6.6.0/")
-(require 'color-theme)
-(load-file "~/elisp/color-theme-6.6.0/themes/color-theme-library.el")
+;; (add-to-list 'load-path "~/elisp/color-theme-6.6.0/")
+;; (require 'color-theme)
+;; (load-file "~/elisp/color-theme-6.6.0/themes/color-theme-library.el")
 
 ;(setq color-theme-is-cumulative nil)
 
@@ -131,9 +131,9 @@ isn't."
   ;; If there is more than one, they won't work right.
  '(column-marker-1-face ((t (:background "red" :foreground "black")))))
 
-;(load-file "~/elisp/naquadah-theme/naquadah-theme.el")
-
 (require 'naquadah-theme)
+(load-theme 'naquadah t)
+;; (load-theme 'wombat t)
 
 (when (not window-system)
   (set-face-attribute 'region nil :background "blue"))
@@ -145,7 +145,7 @@ isn't."
   (when window-system
     (if frame
         (select-frame frame))
-    (set-default-font "Fantasque Sans Mono-12")))
+    (set-default-font "mono-9")))
 
 ; Make the ansi-term blue not so painful
 (setq ansi-color-names-vector

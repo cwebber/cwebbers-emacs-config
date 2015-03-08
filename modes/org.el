@@ -82,7 +82,7 @@
       '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
         ("Event" ?e "* %^{Event} %^t\n  %a\n\n%?" "~/org/life.org" "Events")
         ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
-        ("Weigh-in" ?w "* CAL-IN Diet for day %t
+        ("Weigh-in" "w" "* CAL-IN Diet for day %t
 %^{Weight}p
 | Food / Exercise | Calories | Quantity | Total |
 |-----------------+----------+----------+-------|
@@ -90,6 +90,10 @@
 |-----------------+----------+----------+-------|
 | Total           |          |          |       |
 #+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)
+
+" "~/org/diet.org" "Daily Logs")
+        ("Weigh-in (no table)" "W" "* CAL-CANCEL Diet for day %t
+%^{Weight}p
 
 " "~/org/diet.org" "Daily Logs")
         ("Note" ?n "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
@@ -118,6 +122,12 @@
 | Total           |          |          |       |
 #+TBLFM: $4=$2*$3;%.0f::$LR4=vsum(@2$4..@-I$4)
 
+"
+         :prepend t :empty-lines 1)
+        ("W" "Weigh-in (no table)" entry
+         (file+headline "~/org/diet.org" "Daily Logs")
+         "* Diet for day %t
+%^{Weight}p
 "
          :prepend t :empty-lines 1)
         ("b" "Blood pressure" table-line
