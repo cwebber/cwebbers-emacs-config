@@ -402,3 +402,13 @@ in X or in a terminal"
 
 ;; How did electric-indent-mode get turned on?  Why the hell would i want that
 (setq electric-indent-mode nil)
+
+;; Not sure where else to put this, but hey
+
+(defun open-srfi (srfi-num)
+  "Open srfi at SRFI-NUM in eww"
+  (interactive "nSRFI number: ")
+  (eww (concat "http://srfi.schemers.org/srfi-"
+               (int-to-string srfi-num)
+               "/srfi-"
+               (int-to-string srfi-num) ".html")))
