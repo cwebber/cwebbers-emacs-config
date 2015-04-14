@@ -114,7 +114,7 @@
 
 (setq my-packages
       (append
-       '("el-get" "org-mode" "calfw" "ace-jump-mode"
+       '("el-get" "calfw" "ace-jump-mode"
          "paredit" "visual-regexp" "web-mode" "smex"
          "browse-kill-ring" "hy-mode" "rainbow-mode"
          "smartparens" ; "helm"
@@ -122,6 +122,7 @@
          "jedi" "haskell-mode"
          ;; "geiser"
          "switch-window"
+         "git-timemachine"
          "sicp")
        (mapcar 'el-get-source-name el-get-sources)))
 
