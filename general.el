@@ -48,9 +48,6 @@
 (global-set-key (kbd "C-c d") 'diff-buffer-with-file)
 (global-set-key (kbd "C-c R") 'revert-buffer)
 
-(global-set-key (kbd "C-<right>") 'next-buffer)
-(global-set-key (kbd "C-<left>") 'previous-buffer)
-
 ; These should be made more local when I figure out how
 
 ;; Life-hack keybindings
