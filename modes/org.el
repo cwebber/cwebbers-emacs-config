@@ -78,29 +78,6 @@
 
 (setq org-remember-delete-empty-lines-at-end nil)
 
-(setq org-remember-templates
-      '(("Todo" ?t "* TODO %?\n  %i\n  %a" "~/org/life.org" "Various Tasks")
-        ("Event" ?e "* %^{Event} %^t\n  %a\n\n%?" "~/org/life.org" "Events")
-        ("Journal" ?j "* %U %?\n\n  %i\n  %a" "~/org/journal.org")
-        ("Weigh-in" "w" "* CAL-IN Diet for day %t
-%^{Weight}p
-| Food / Exercise | Calories | Quantity | Total |
-|-----------------+----------+----------+-------|
-| %?%&                |          |          |       |
-|-----------------+----------+----------+-------|
-| Total           |          |          |       |
-#+TBLFM: $4=$2*$3::$LR4=vsum(@2$4..@-I$4)
-
-" "~/org/diet.org" "Daily Logs")
-        ("Weigh-in (no table)" "W" "* CAL-CANCEL Diet for day %t
-%^{Weight}p
-
-" "~/org/diet.org" "Daily Logs")
-        ("Note" ?n "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n  %a"
-         "~/org/notes.org" "General Notes")
-        ("Idea" ?i "* %^{Title}\n  %i\n  %a" "~/org/ideas.org")))
-
-
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file+headline "~/org/life.org" "Various Tasks")
@@ -191,6 +168,9 @@
         ("cot" "OTS Todo" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("coe" "OTS Event" entry
+         (file+headline "~/org/contracting/opentechstrategies.org" "Events")
+         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("con" "OTS Note" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
@@ -438,7 +418,7 @@ This uses DARK VOODOO MAGIC but it works"
 (setq org-clock-out-remove-zero-time-clocks nil) ;; turns out I hate this feature
 
 (setq org-agenda-clockreport-parameter-plist
-      (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80 :tags "-nonbillable")))
+      (quote (:link nil :maxlevel 5 :fileskip0 t :compact t :narrow 90 :tags "-nonbillable")))
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
