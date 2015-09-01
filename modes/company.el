@@ -1,2 +1,9 @@
 (require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+
+;; For now, only the really cool kids (ok, geiser) get global-company-mode
+(setq global-company-mode nil)
+
+(setq company-backends
+      '(geiser-company-backend company-nxml company-css company-semantic company-capf
+                     (company-dabbrev-code company-gtags company-etags company-keywords)
+                     company-oddmuse company-files company-dabbrev))
