@@ -409,3 +409,17 @@ in X or in a terminal"
                (int-to-string srfi-num)
                "/srfi-"
                (int-to-string srfi-num) ".html")))
+
+;; Heart-and-stars page breaks!
+
+(defun heart-and-stars-pagebreaks ()
+  "Replace that boring ^L character with a sparklebutt explosion"
+  (interactive)
+  (progn
+    (unless buffer-display-table
+      (setq buffer-display-table (make-display-table)))
+    (aset buffer-display-table ?\^L
+          (vconcat
+           (mapcar (lambda (c)
+                     (make-glyph-code c 'escape-glyph))
+                   ".✯⁂♥♥♥⁂✯.")))))
