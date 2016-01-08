@@ -221,7 +221,23 @@
         ("xn" "XUDD Note" plain
          (file+headline "~/org/xudd.org" "Notes")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
-        ))
+        ("s" "SocialWG tasks")
+        ("sT" "SocialWG TODO" plain
+         (file+headline "~/org/socialwg.org" "SocialWG Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("sp" "ActiviPy (Python) Todo" entry
+         (file+headline "~/org/socialwg.org" "ActiviPy Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("sg" "Activitystuff (Guile) Todo" entry
+         (file+headline "~/org/socialwg.org" "Activitystuff Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("g" "Guile/Guix tasks")
+        ("gt" "Guile Todo" entry
+         (file+headline "~/org/guile.org" "Guile Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("gx" "Guix Todo" entry
+         (file+headline "~/org/guile.org" "Guix Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
@@ -238,9 +254,19 @@
 ; ... but don't grey it out
 (setq org-agenda-dim-blocked-tasks nil)
 
+(defun cwebber/is-habit-p ()
+  (equal (org-entry-get (point) "STYLE") "habit"))
+
 (defun cwebber/skip-unless-habit ()
   "Checks to see if the style at point is \"habit\""
-  (if (not (equal (org-entry-get (point) "STYLE") "habit"))
+  (if (not (cwebber/is-habit-p))
+      ; Skip till the next heading
+      (progn (outline-next-heading) (1- (point)))))
+
+;;;; HACK
+(defun cwebber/skip-if-habit ()
+  "Checks to see if the style at point is \"habit\""
+  (if (cwebber/is-habit-p)
       ; Skip till the next heading
       (progn (outline-next-heading) (1- (point)))))
 
@@ -277,7 +303,9 @@
             ))))
         ("a" "Agenda plus plus"
          ((todo "NEXT")
-          (agenda "" nil)))))
+          (agenda ""
+                  ;; TEMPORARILY skipping habits!
+                  ((org-agenda-skip-function 'cwebber/skip-if-habit)))))))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
