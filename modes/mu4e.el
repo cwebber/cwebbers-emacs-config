@@ -8,7 +8,7 @@
 ; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
 (setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf")
 
-(setq mu4e-get-mail-command "offlineimap")
+(setq mu4e-get-mail-command "fetchmail")
 (setq mu4e-html2text-command "html2text -utf8 -width 72")
 
 (require 'mu4e)
@@ -25,9 +25,11 @@
 
 (setq mu4e-bookmarks
   '(("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam" "Unread messages"      ?u)
+    ("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam AND NOT (/Inbox.General OR /Mediagoblin OR \"/W3C Social WG\""
+     "Unread non-important messages"                                                 ?U)
     ("date:today..now AND NOT maildir:/Spam"                  "Today's messages"     ?T)
-    ("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
-    ("mime:image/* AND NOT maildir:/Spam"                     "Messages with images" ?p)
+    ;("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
+    ;("mime:image/* AND NOT maildir:/Spam"                     "Messages with images" ?p)
     ("flag:unread AND NOT flag:trashed AND maildir:/Spam"     "Unread spam"          ?s)
     ("flag:unread AND maildir:/Inbox.General"  "Unread general inbox" ?i)
     ("flag:unread AND (/Inbox.General OR /Mediagoblin OR \"/W3C Social WG\"" "Important messages)" ?I)
@@ -51,3 +53,4 @@
 
 (global-set-key (kbd "C-c m q") 'mu4e-uqueue)
 (global-set-key (kbd "C-c q") 'mu4e-uqueue)
+
