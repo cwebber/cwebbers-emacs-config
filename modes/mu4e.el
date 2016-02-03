@@ -2,14 +2,21 @@
       mu4e-sent-folder   "/sent-to-misc"       ;; where do i keep sent mail?
       mu4e-drafts-folder "/drafts")     ;; where do i keep half-written mail?
       ; mu4e-trash-folder  "/trash")     ;; where do i move deleted mail?
-; (add-to-list 'load-path "~/programs/mu/mu4e/")
+
+;; <mark_weaver> paroneayea: it's a hack, but /run/current-system will exist on a
+;;               GuixSD system and not on Debian.
+;; <mark_weaver> I hope such a test will never end up in any published software.
+(if (file-exists-p "/run/current-system")
+    (add-to-list 'load-path "~/.guix-profile/share/emacs/site-lisp/mu4e/"))
 ; (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
 
 ; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
-(setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf")
+(setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf/msg2pdf")
 
 (setq mu4e-get-mail-command "fetchmail")
 (setq mu4e-html2text-command "html2text -utf8 -width 72")
+;;;; When all goes badly:
+;; (setq mu4e-html2text-command "cat")
 
 (require 'mu4e)
 (require 'org-mu4e)
