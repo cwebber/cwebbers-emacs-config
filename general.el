@@ -70,8 +70,6 @@
 
 ;; Shell stuff
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-(setq shell-file-name "/bin/bash")
-(setq explicit-shell-file-name "/bin/bash")
 
 (setq ispell-alternate-dictionary "/etc/dictionaries-common/words")
 
