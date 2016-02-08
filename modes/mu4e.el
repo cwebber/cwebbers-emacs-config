@@ -1,3 +1,7 @@
+(require 'mu4e)
+(require 'org-mu4e)
+(require 'mu4e-contrib)
+
 (setq mu4e-maildir       "~/Maildir"   ;; top-level Maildir
       mu4e-sent-folder   "/sent-to-misc"       ;; where do i keep sent mail?
       mu4e-drafts-folder "/drafts")     ;; where do i keep half-written mail?
@@ -13,13 +17,11 @@
 ; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
 (setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf/msg2pdf")
 
-(setq mu4e-get-mail-command "fetchmail")
-(setq mu4e-html2text-command "html2text -utf8 -width 72")
+(setq mu4e-get-mail-command "fdm fetch -v")
+(setq mu4e-html2text-command 'mu4e-shr2text)
+;; (setq mu4e-html2text-command "html2text -utf8 -width 72")
 ;;;; When all goes badly:
 ;; (setq mu4e-html2text-command "cat")
-
-(require 'mu4e)
-(require 'org-mu4e)
 
 (setq mu4e-maildir-shortcuts
       '(("/Inbox.General"     . ?i)
@@ -60,4 +62,3 @@
 
 (global-set-key (kbd "C-c m q") 'mu4e-uqueue)
 (global-set-key (kbd "C-c q") 'mu4e-uqueue)
-

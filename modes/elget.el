@@ -41,7 +41,7 @@
         (:name "naquadah-theme"
                :description "Naquadah theme"
                :type git
-               :url "git://git.naquadah.org/naquadah-theme.git")
+               :url "https://github.com/jd/naquadah-theme.git")
         (:name "kivy-mode"
                :description "Kivy highlighting mode"
                :type http
@@ -58,9 +58,9 @@
                :description "reveal.js stuff for orgmode"
                :type git
                :url "https://github.com/yjwen/org-reveal.git")
-        (:name "geiser"
-               :type elpa
-               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        ;; (:name "geiser"
+        ;;        :type elpa
+        ;;        :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
         (:name "replace-color-themes"
                :type git
                :url "https://github.com/emacs-jp/replace-colorthemes.git")
