@@ -1,7 +1,3 @@
-(require 'mu4e)
-(require 'org-mu4e)
-(require 'mu4e-contrib)
-
 (setq mu4e-maildir       "~/Maildir"   ;; top-level Maildir
       mu4e-sent-folder   "/sent-to-misc"       ;; where do i keep sent mail?
       mu4e-drafts-folder "/drafts")     ;; where do i keep half-written mail?
@@ -13,6 +9,10 @@
 (if (file-exists-p "/run/current-system")
     (add-to-list 'load-path "~/.guix-profile/share/emacs/site-lisp/mu4e/"))
 ; (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
+
+(require 'mu4e)
+(require 'org-mu4e)
+(require 'mu4e-contrib)
 
 ; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
 (setq mu4e-msg2pdf "/home/cwebber/programs/mu/toys/msg2pdf/msg2pdf")
