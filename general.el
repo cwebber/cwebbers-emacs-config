@@ -422,4 +422,5 @@ in X or in a terminal"
                      (make-glyph-code c 'escape-glyph))
                    ".✯⁂♥♥♥⁂✯.")))))
 
+;; Don't annoy office mates
 (setq visible-bell t)
