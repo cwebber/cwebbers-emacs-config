@@ -421,3 +421,5 @@ in X or in a terminal"
            (mapcar (lambda (c)
                      (make-glyph-code c 'escape-glyph))
                    ".✯⁂♥♥♥⁂✯.")))))
+
+(setq visible-bell t)
