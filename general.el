@@ -398,6 +398,9 @@ in X or in a terminal"
 ;; How did electric-indent-mode get turned on?  Why the hell would i want that
 (setq electric-indent-mode nil)
 
+;; shift + arrow based window nav
+(windmove-default-keybindings)
+
 ;; Not sure where else to put this, but hey
 
 (defun open-srfi (srfi-num)
@@ -421,6 +424,11 @@ in X or in a terminal"
            (mapcar (lambda (c)
                      (make-glyph-code c 'escape-glyph))
                    ".✯⁂♥♥♥⁂✯.")))))
+
+(defun insert-uuid ()
+  "Insert a uuid string at point"
+  (interactive)
+  (insert (org-id-uuid)))
 
 ;; Don't annoy office mates
 (setq visible-bell t)
