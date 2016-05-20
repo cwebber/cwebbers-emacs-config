@@ -276,8 +276,7 @@
          ((agenda
            ""
            ((org-habit-show-all-today t)
-            ;;; No longer skipping habits for now
-            ;; (org-agenda-skip-function 'cwebber/skip-unless-habit)
+            (org-agenda-skip-function 'cwebber/skip-unless-habit)
             ))))
         ("c" "Contracting this week"
          ((agenda
@@ -305,9 +304,7 @@
             ))))
         ("a" "Agenda plus plus"
          ((todo "NEXT")
-          (agenda ""
-                  ;; TEMPORARILY skipping habits!
-                  ((org-agenda-skip-function 'cwebber/skip-if-habit)))))))
+          (agenda "")))))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
