@@ -276,7 +276,9 @@
          ((agenda
            ""
            ((org-habit-show-all-today t)
-            (org-agenda-skip-function 'cwebber/skip-unless-habit)))))
+            ;;; No longer skipping habits for now
+            ;; (org-agenda-skip-function 'cwebber/skip-unless-habit)
+            ))))
         ("c" "Contracting this week"
          ((agenda
            ""
