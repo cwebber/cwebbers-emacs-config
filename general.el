@@ -425,6 +425,8 @@ in X or in a terminal"
                      (make-glyph-code c 'escape-glyph))
                    ".✯⁂♥♥♥⁂✯.")))))
 
+(setq page-break-lines-char ?…)
+
 (defun insert-uuid ()
   "Insert a uuid string at point"
   (interactive)

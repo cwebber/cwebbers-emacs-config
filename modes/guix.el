@@ -10,7 +10,11 @@
 
 (add-to-list 'load-path "/home/cwebber/devel/guix/emacs")
 (setq guix-load-path "/home/cwebber/devel/guix/emacs")
-;; (setq guix-guile-program '("/home/cwebber/devel/guix/pre-inst-env" "guile"))
+(setq guix-guile-program '("/home/cwebber/devel/guix/pre-inst-env" "guile"))
 
-(require 'guix-init)
-(guix-emacs-autoload-packages)
+(require 'guix-init nil t)
+; (guix-emacs-autoload-packages)
+
+(global-set-key (kbd "C-c g") 'guix)
+(global-set-key (kbd "C-c G p") 'guix-all-available-packages)
+(global-set-key (kbd "C-c G g") 'guix-generations)

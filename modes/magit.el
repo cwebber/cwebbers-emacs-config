@@ -6,3 +6,5 @@
 (require 'magit)
 (setq magit-revert-item-confirm t)
 
+;; (add-to-list 'magit-log-section-arguments
+;;              "--show-signature")

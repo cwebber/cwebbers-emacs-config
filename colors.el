@@ -1,7 +1,7 @@
 ;;; Color theme setup, with cycling
 ;;; -----
 
-;; (add-to-list 'load-path "~/elisp/color-theme-6.6.0/")
+(add-to-list 'load-path "~/devel/naquadah-theme/")
 ;; (require 'color-theme)
 ;; (load-file "~/elisp/color-theme-6.6.0/themes/color-theme-library.el")
 

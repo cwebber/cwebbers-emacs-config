@@ -67,15 +67,15 @@
         (:name "popup"
                :type elpa
                :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
-        (:name "git-modes"
-               :type elpa
-               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
-        (:name "magit"
-               :type elpa
-               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
-        (:name "magit-annex"
-               :type elpa
-               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        ;; (:name "git-modes"
+        ;;        :type elpa
+        ;;        :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        ;; (:name "magit"
+        ;;        :type elpa
+        ;;        :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        ;; (:name "magit-annex"
+        ;;        :type elpa
+        ;;        :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
         ;; (:name "timesheet"
         ;;        :type elpa)
 
@@ -118,7 +118,7 @@
          "paredit" "visual-regexp" "web-mode" "smex"
          "browse-kill-ring" "hy-mode" "rainbow-mode"
          ; "smartparens"
-         "helm"
+         ; "helm"
          "rainbow-delimeters"
          "jedi" "haskell-mode"
          ;; "geiser"
