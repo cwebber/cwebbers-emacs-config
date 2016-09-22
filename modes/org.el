@@ -215,7 +215,7 @@
     Expenses:Cash
   ")
         ("x" "XUDD")
-        ("xt" "XUDD Todo" plain
+        ("xt" "XUDD Todo" entry
          (file+headline "~/org/xudd.org" "Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("xn" "XUDD Note" plain
