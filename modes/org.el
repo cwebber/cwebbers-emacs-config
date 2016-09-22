@@ -218,7 +218,7 @@
         ("xt" "XUDD Todo" entry
          (file+headline "~/org/xudd.org" "Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
-        ("xn" "XUDD Note" plain
+        ("xn" "XUDD Note" entry
          (file+headline "~/org/xudd.org" "Notes")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("s" "SocialWG tasks")
