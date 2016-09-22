@@ -222,7 +222,7 @@
          (file+headline "~/org/xudd.org" "Notes")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("s" "SocialWG tasks")
-        ("sT" "SocialWG TODO" plain
+        ("sT" "SocialWG TODO" entry
          (file+headline "~/org/socialwg.org" "SocialWG Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("sp" "ActiviPy (Python) Todo" entry
