@@ -432,5 +432,8 @@ in X or in a terminal"
   (interactive)
   (insert (org-id-uuid)))
 
+;; By default, we almost always want spaces not tabs.
+(setq indent-tabs-mode nil)
+
 ;; Don't annoy office mates
 (setq visible-bell t)
