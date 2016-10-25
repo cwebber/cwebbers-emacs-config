@@ -13,4 +13,5 @@
 (setq tramp-remote-path
       (append tramp-remote-path
               '(tramp-own-remote-path
+                "/run/current-system/profile/bin" "/run/current-system/profile/sbin"
                 "~/.guix-profile/bin" "~/.guix-profile/sbin")))
