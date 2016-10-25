@@ -12,4 +12,5 @@
 ;; probably only helps if you start on a guixsd machine..!
 (setq tramp-remote-path
       (append tramp-remote-path
-              '(tramp-own-remote-path)))
+              '(tramp-own-remote-path
+                "~/.guix-profile/bin" "~/.guix-profile/sbin")))
