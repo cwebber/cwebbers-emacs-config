@@ -10,6 +10,7 @@
         ;; comics
         "http://xkcd.com/atom.xml"
         "http://www.oursuperadventure.com/feed/"
+        "http://feeds2.feedburner.com/sydneypadua/yBZX"  ; 2dgoggles
         "http://www.octopuspie.com/feed/atom/"))
 
 (setq elfeed-show-entry-switch
