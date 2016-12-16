@@ -1,11 +1,15 @@
 (require 'elfeed)
 
 (setq elfeed-feeds
-      '(;; programming
+      '(;; programming or other blogs
         "http://wingolog.org/feed/atom"
         "http://planet.gnu.org/atom.xml"
         "http://lambda-the-ultimate.org/rss.xml"
         "http://nullprogram.com/feed/"
+        "http://www.more-magic.net/feed.atom"
+        "http://joeyh.name/blog/index.rss"
+        "http://gondwanaland.com/mlog/feed/"
+        "http://nautil.us/rss/all"
 
         ;; comics
         "http://xkcd.com/atom.xml"
