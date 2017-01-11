@@ -77,3 +77,37 @@ indentation."
                (funcall method state indent-point normal-indent)))))))
 
 ;;; =============
+
+;;; More robust keyword highlighting
+
+;; (setq scheme-font-lock-keywords
+;;       (list
+;;        ;;
+;;        ;; Declarations.  Hannes Haug <hannes.haug@student.uni-tuebingen.de> says
+;;        ;; this works for SOS, STklos, SCOOPS, Meroon and Tiny CLOS.
+;;        (list (concat "(\\(define\\("
+;;                      ;; Function names.
+;;                      "\\(\\|-public\\|-method\\|-generic\\(-procedure\\)?\\)\\|"
+;;                      ;; Macro names, as variable names.  A bit dubious, this.
+;;                      "\\(-syntax\\|-macro\\)\\|"
+;;                      ;; Class names.
+;;                      "-class"
+;;                      ;; Guile modules.
+;;                      "\\|-module"
+;;                      "\\)\\*?\\)\\>"
+;;                      ;; Any whitespace and declared object.
+;;                      ;; The "(*" is for curried definitions, e.g.,
+;;                      ;;  (define ((sum a) b) (+ a b))
+;;                      "[ \t]*(*"
+;;                      "\\(\\sw+\\)?")
+;;              '(1 font-lock-keyword-face)
+;;              '(6 (cond ((match-beginning 3) font-lock-function-name-face)
+;;                        ((match-beginning 5) font-lock-variable-name-face)
+;;                        (t font-lock-type-face))
+;;                  nil t))
+;;        ))
+
+
+;;; This is for 8sync!
+
+(put 'mbody-receive 'scheme-indent-function 2)

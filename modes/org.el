@@ -162,8 +162,23 @@
         ;; Contracting stuff
         ;; -----------------
         ("c" "Contracting")
-        ;; Open Tech Strategies
+        ;; General
         ("cg" "Contracting general")
+        ("cgb" "OTS Billing" entry
+         (file+headline "~/org/contracting/contracting.org" "Billing")
+         "* TODO Billing for %?
+** TODO Get out invoice
+*** TODO Write it up
+*** TODO Send it in
+
+** TODO Get paid
+** TODO Record in [[file:~/org/finances.ldgr][ledger]] and [[~/org/finances.org][finances.org]]
+"
+         :prepend t :empty-lines 1)
+        ;; Open Tech Strategies
+        ("cgt" "Contracting general TODO" entry
+         (file+headline "~/org/contracting/contracting.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("co" "Open Tech Strategies")
         ("cot" "OTS Todo" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")

@@ -10,4 +10,5 @@
 (add-hook 'geiser-mode-hook 'cwebber/geiser-completion-prefs)
 (add-hook 'geiser-repl-mode-hook 'cwebber/geiser-completion-prefs)
 
-(setq geiser-guile-binary '("/home/cwebber/devel/guix/pre-inst-env" "guile"))
+;;; This no longer works...
+;; (setq geiser-guile-binary '("/home/cwebber/devel/guix/pre-inst-env" "guile"))

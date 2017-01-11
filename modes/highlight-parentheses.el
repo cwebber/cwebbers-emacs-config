@@ -25,9 +25,15 @@
 (setq hl-paren-colors nil)
 
 ; Have a light first parenthesis background then unlimited slightly darker ones
+;; (setq hl-paren-background-colors
+;;       (cons "#465255"
+;;             (mapcar (lambda (x) "#3d4749")
+;;                     (number-sequence 1 100))))
+
+;; Lighter edition
 (setq hl-paren-background-colors
-      (cons "#465255"
-            (mapcar (lambda (x) "#3d4749")
+      (cons "#c3ccce"
+            (mapcar (lambda (x) "#acb5b7")
                     (number-sequence 1 100))))
 
 ;; Make the parenthesis' matched by hl-paren-face bold.
