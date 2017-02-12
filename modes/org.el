@@ -164,7 +164,7 @@
         ("c" "Contracting")
         ;; General
         ("cg" "Contracting general")
-        ("cgb" "OTS Billing" entry
+        ("cgb" "Billing" entry
          (file+headline "~/org/contracting/contracting.org" "Billing")
          "* TODO Billing for %?
 ** TODO Get out invoice
