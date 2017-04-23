@@ -62,3 +62,8 @@
 
 (global-set-key (kbd "C-c m q") 'mu4e-uqueue)
 (global-set-key (kbd "C-c q") 'mu4e-uqueue)
+
+;; Only request contacts that have sent to us directly
+(setq mu4e-compose-complete-only-personal t)
+;; Don't update contacts after every update
+(remove-hook 'mu4e-index-updated-hook 'mu4e~request-contacts)
