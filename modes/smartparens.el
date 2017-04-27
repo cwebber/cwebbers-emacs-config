@@ -7,6 +7,8 @@
 ;; Less nasty face for pair-overlay
 
 (set-face-attribute 'sp-pair-overlay-face nil :background "#443152")
+;;; snow edition
+;; (set-face-attribute 'sp-pair-overlay-face nil :background "old lace")
 
 ;;; Lots borrwowed from https://github.com/Fuco1/smartparens/wiki/Example-configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
