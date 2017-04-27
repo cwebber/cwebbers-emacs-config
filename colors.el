@@ -50,7 +50,7 @@ isn't."
        (region ((t (:background "light steel blue"))))
        (cursor ((t (:background "cadet blue"))))
        (fringe ((t (:background "white"))))
-       (mu4e-unread-face ((t (:foreground "dark slate gray"))))
+       (mu4e-unread-face ((t (:foreground "dark slate gray" :bold t))))
        (planner-high-priority-task-face ((t (:foreground "red"))))
        (planner-medium-priority-task-face ((t (:foreground "green"))))
        (planner-low-priority-task-face ((t (:foreground "blue"))))
