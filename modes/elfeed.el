@@ -9,6 +9,7 @@
         "http://www.more-magic.net/feed.atom"
         "http://joeyh.name/blog/index.rss"
         "http://gondwanaland.com/mlog/feed/"
+        "http://www.rants.org/feed/atom/"
 
         ;; Disabled, for now...
         ;; "http://nautil.us/rss/all"
