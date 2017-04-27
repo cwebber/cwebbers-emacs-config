@@ -25,16 +25,47 @@
 (setq hl-paren-colors nil)
 
 ; Have a light first parenthesis background then unlimited slightly darker ones
-;; (setq hl-paren-background-colors
-;;       (cons "#465255"
-;;             (mapcar (lambda (x) "#3d4749")
-;;                     (number-sequence 1 100))))
-
+(setq cwebber/darker-highlight-parentheses
+      (cons "#465255"
+            (mapcar (lambda (x) "#3d4749")
+                    (number-sequence 1 100))))
 ;; Lighter edition
-(setq hl-paren-background-colors
+(setq cwebber/lighter-highlight-parentheses
       (cons "#c3ccce"
             (mapcar (lambda (x) "#acb5b7")
                     (number-sequence 1 100))))
+
+(setq hl-paren-background-colors
+      cwebber/darker-highlight-parentheses)
+
+
+(setq cwebber/known-lisp-modes '(lisp-mode
+                                 emacs-lisp-mode scheme-mode
+                                 hy-mode))
+
+(defun cwebber/reset-highlight-parentheses ()
+  (interactive)
+  (mapc
+   (lambda (buffer)
+     (save-excursion
+       (set-buffer buffer)
+       (when (member major-mode cwebber/known-lisp-modes)
+         ;; Toggle highlight-parentheses-mode off and on again to reset the colors
+         (highlight-parentheses-mode)
+         (highlight-parentheses-mode))))
+   (buffer-list)))
+
+(defun cwebber/enable-light-parentheses ()
+  (interactive)
+  (setq hl-paren-background-colors
+        cwebber/lighter-highlight-parentheses)
+  (cwebber/reset-highlight-parentheses))
+
+(defun cwebber/enable-dark-parentheses ()
+  (interactive)
+  (setq hl-paren-background-colors
+        cwebber/darker-highlight-parentheses)
+  (cwebber/reset-highlight-parentheses))
 
 ;; Make the parenthesis' matched by hl-paren-face bold.
 ;;
