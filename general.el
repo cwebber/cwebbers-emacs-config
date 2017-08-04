@@ -437,3 +437,12 @@ in X or in a terminal"
 
 ;; Don't annoy office mates
 (setq visible-bell t)
+
+;; Don't produce weird hanging in comint buffers
+(setq comint-process-echoes nil)
+(defun disable-comint-process-echoes ()
+  (interactive)
+  (setq comint-process-echoes nil))
+
+(add-hook 'inferior-lisp-mode-hook
+          'disable-comint-process-echoes)
