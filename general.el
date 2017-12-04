@@ -1,4 +1,4 @@
-;; ------
+;; -----
 ;; Require misc stuff
 ;; ------
 (require 'nxml-mode)
@@ -431,6 +431,10 @@ in X or in a terminal"
   "Insert a uuid string at point"
   (interactive)
   (insert (org-id-uuid)))
+
+;; The most important thing in this whole file
+(require 'tetris)
+(define-key tetris-mode-map (kbd "<down>") 'tetris-rotate-next)
 
 ;; By default, we almost always want spaces not tabs.
 (setq indent-tabs-mode nil)

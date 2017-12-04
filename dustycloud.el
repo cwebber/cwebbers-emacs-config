@@ -5,7 +5,7 @@ ${1:Title}
 ${1:$(make-string (string-width yas/text) ?\=)}
 
 :date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
-:author: ${2:Christopher Allan Webber}
+:author: ${2:Christopher Lemmer Webber}
 :tags: $3
 
 $0")
@@ -14,7 +14,7 @@ $0")
 <head>
   <title>$1</title>
   <meta name=\"date\" contents=\"`(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`\" />
-  <meta name=\"author\" contents=\"${2:Christopher Allan Webber}\" />
+  <meta name=\"author\" contents=\"${2:Christopher Lemmer Webber}\" />
   <meta name=\"tags\" contents=\"$3\" />
 </head>
 <body>
