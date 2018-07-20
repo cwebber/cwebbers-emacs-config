@@ -32,7 +32,7 @@
 ;; Lighter edition
 (setq cwebber/lighter-highlight-parentheses
       (cons "#c3ccce"
-            (mapcar (lambda (x) "#acb5b7")
+            (mapcar (lambda (x) "#d2dbdb")
                     (number-sequence 1 100))))
 
 (setq hl-paren-background-colors
