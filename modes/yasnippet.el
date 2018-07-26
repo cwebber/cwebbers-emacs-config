@@ -12,10 +12,10 @@
       (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))
 
 ; Fix orgmode issue with yas
-(add-hook 'org-mode-hook
-          (lambda ()
-            (org-set-local 'yas/trigger-key [tab])
-            (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (org-set-local 'yas/trigger-key [tab])
+;;             (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 
 ; change dropdown behavior
