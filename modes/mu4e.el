@@ -34,7 +34,7 @@
 
 (setq mu4e-bookmarks
   '(("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam" "Unread messages"      ?u)
-    ("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam AND NOT (/Inbox.General OR /Mediagoblin OR \"/W3C Social WG\""
+    ("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam AND NOT (maildir:/Inbox.General OR maildir:/Mediagoblin OR \"maildir:/W3C Social WG\")"
      "Unread non-important messages"                                                 ?U)
     ("date:today..now AND NOT maildir:/Spam"                  "Today's messages"     ?T)
     ;("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
