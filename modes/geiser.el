@@ -1,6 +1,6 @@
 (require 'geiser)
 (setq geiser-default-implementation 'guile)
-(setq geiser-active-implementations '(guile mit))
+(setq geiser-active-implementations '(guile mit racket))
 (setq geiser-mode-smart-tab-p t)
 
 (defun cwebber/geiser-completion-prefs ()
