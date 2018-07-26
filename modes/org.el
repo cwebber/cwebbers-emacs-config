@@ -470,7 +470,7 @@ This uses DARK VOODOO MAGIC but it works"
 ;; -----------
 
 (require 'ob-python)
-(require 'ob-sh)
+;; (require 'ob-sh)
 (require 'ob-gnuplot)
 (require 'ob-calc)
 
