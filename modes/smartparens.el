@@ -31,6 +31,7 @@
 (add-hook 'inferior-lisp-mode-hook 'smartparens-mode)
 (add-hook 'scheme-mode-hook 'smartparens-mode)
 (add-hook 'lisp-mode-hook 'smartparens-mode)
+(add-hook 'racket-mode-hook 'smartparens-mode)
 
 ;; Of course I want (|)() when at |(), damnit
 (setq sp-autoinsert-if-followed-by-same 0)
