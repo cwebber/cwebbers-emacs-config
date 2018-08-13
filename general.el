@@ -450,3 +450,8 @@ in X or in a terminal"
 
 (add-hook 'inferior-lisp-mode-hook
           'disable-comint-process-echoes)
+
+;; This is I guess how you turn on tab-based indentation in racket-mode...
+;; doesn't seem to hurt anything else...
+(setq tab-always-indent 'complete)
+
