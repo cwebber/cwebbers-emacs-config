@@ -42,7 +42,7 @@
 
 (setq cwebber/known-lisp-modes '(lisp-mode
                                  emacs-lisp-mode scheme-mode
-                                 hy-mode))
+                                 hy-mode racket-mode))
 
 (defun cwebber/reset-highlight-parentheses ()
   (interactive)
