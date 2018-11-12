@@ -159,6 +159,12 @@
          (file+headline "~/org/mediagoblin.org" "General Notes")
          "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
          :prepend t :empty-lines 1)
+        ;; Digital Bazaar stuff
+        ;; --------------------
+        ("d" "Digital Bazaar")
+        ("dt" "Digital Bazaar Various Tasks" entry
+         (file+headline "~/org/contracting/dbazaar.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ;; Contracting stuff
         ;; -----------------
         ("c" "Contracting")
