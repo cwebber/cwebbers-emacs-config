@@ -165,6 +165,14 @@
         ("dt" "Digital Bazaar Various Tasks" entry
          (file+headline "~/org/contracting/dbazaar.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("dp" "Digital Bazaar Projects")
+        ("dpo" "DB Projects: ocap-ld" entry
+         (file+headline "~/org/contracting/dbazaar.org" "ocap-ld")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("dpc" "DB Projects: House Clerk" entry
+         (file+olp "~/org/contracting/dbazaar.org"
+                   "Projects" "Legislative data modeling")
+         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ;; Contracting stuff
         ;; -----------------
         ("c" "Contracting")
@@ -325,7 +333,9 @@
             ))))
         ("a" "Agenda plus plus"
          ((todo "NEXT")
-          (agenda "")))))
+          (agenda "")))
+        ("A" "Agenda"
+         ((agenda "")))))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
