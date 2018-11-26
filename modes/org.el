@@ -53,12 +53,12 @@
 ; Priorities??
 
 (setq org-priority-faces
-      '((?A . "DeepPink1")
-        (?B . "light sea green")
+      '((?A . "light sea green")
+        (?B . "DeepPink1")
         (?C . "slate blue")
         (?D . "#f0640f")))
 
-(setq org-default-priority ?C)
+(setq org-default-priority ?D)
 (setq org-lowest-priority ?D)
 
 
@@ -307,35 +307,30 @@
            ((org-habit-show-all-today t)
             (org-agenda-skip-function 'cwebber/skip-unless-habit)
             ))))
-        ("c" "Contracting this week"
-         ((agenda
-           ""
-           ((org-agenda-start-on-weekday 1)
-            (org-agenda-files '("~/org/contracting/opentechstrategies.org"
-                                "~/org/contracting/contracting.org"))
-            (org-agenda-archives-mode t)
-            (org-agenda-start-with-clockreport-mode t)
-            ;; As-is, we show nonbillable, but not in the clock report
-            ; (org-agenda-tag-filter-preset
-            ; '("-nonbillable"))
-            ))))
-        ("D" "Contracting today"
-         ((agenda
-           ""
-           ((org-agenda-files '("~/org/contracting/opentechstrategies.org"
-                                "~/org/contracting/contracting.org"))
-            (org-agenda-archives-mode t)
-            (org-agenda-start-with-clockreport-mode t)
-            (org-agenda-ndays 1)
-            ;; As-is, we show nonbillable, but not in the clock report
-            ; (org-agenda-tag-filter-preset
-            ; '("-nonbillable"))
-            ))))
-        ("a" "Agenda plus plus"
-         ((todo "NEXT")
+        ;;("a" "Agenda plus plus"
+        ;; ((todo "NEXT")
+        ;;  (agenda "")))
+        ("a" "Agenda plus A items"
+         ((tags-todo
+           "+PRIORITY=\"A\""
+           ((org-agenda-sorting-strategy '(priority-down))))
+          (agenda "")))
+        ("b" "Agenda plus A+B items"
+         ((tags-todo
+           "+PRIORITY=\"A\"|+PRIORITY=\"B\""
+           ((org-agenda-sorting-strategy '(priority-down))))
+          (agenda "")))
+        ("c" "Agenda plus A+B+C items"
+         ((tags-todo
+           "+PRIORITY=\"A\"|+PRIORITY=\"B\"|+PRIORITY=\"C\""
+           ((org-agenda-sorting-strategy '(priority-down))))
           (agenda "")))
         ("A" "Agenda"
-         ((agenda "")))))
+         ((agenda "")))
+        ("t" "Just TODO items"
+         ((tags-todo
+           "+PRIORITY=\"A\"|+PRIORITY=\"B\"|+PRIORITY=\"C\""
+           ((org-agenda-sorting-strategy '(priority-down))))))))
 
 ; Make sure we don't block repeating tasks
 (defadvice org-block-todo-from-children-or-siblings-or-parent
