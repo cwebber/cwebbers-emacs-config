@@ -53,8 +53,8 @@
 ; Priorities??
 
 (setq org-priority-faces
-      '((?A . "light sea green")
-        (?B . "DeepPink1")
+      '((?A . "DeepPink1")
+        (?B . "light sea green")
         (?C . "slate blue")
         (?D . "#f0640f")))
 
