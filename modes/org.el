@@ -50,17 +50,18 @@
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
 
-; Priorities??
-
-(setq org-priority-faces
-      '((?A . "DeepPink1")
-        (?B . "light sea green")
-        (?C . "slate blue")
-        (?D . "#f0640f")))
-
+;; We want the lowest and "default" priority to be D.  That way
+;; when we calculate the agenda, any task that isn't specifically
+;; marked with a priority or SCHEDULED/DEADLINE won't show up.
 (setq org-default-priority ?D)
 (setq org-lowest-priority ?D)
 
+;; These priority faces look good 
+(setq org-priority-faces
+      '((?A . "DeepPink1)"
+        (?B . "light sea green")
+        (?C . "slate blue")
+        (?D . "#f0640f")))
 
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
@@ -230,26 +231,33 @@
   :CreationTime:  %U
   :END:
 %?")
-        ("l" "Ledger entries")
-        ("le" "Expense (checking)" plain
-         (file "~/org/finances.ldgr")
-         "%(org-read-date) %^{Payee}
-    Expenses:%^{Account}  %^{Amount}
-    Assets:Banking:Checking
-  ")
-        ("lc" "Cash expense" plain
-         (file "~/org/finances.ldgr")
-         "%(org-read-date) %^{Payee}
-    Expenses:%^{Account}  %^{Amount}
-    Expenses:Cash
-  ")
-        ("x" "XUDD")
-        ("xt" "XUDD Todo" entry
-         (file+headline "~/org/xudd.org" "Tasks")
+        ("l" "Libre Lounge")
+        ("lt" "Libre Lounge TODO" entry
+         (file+headline "~/org/librelounge.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
-        ("xn" "XUDD Note" entry
-         (file+headline "~/org/xudd.org" "Notes")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ("le" "Libre Lounge Event" entry
+         (file+headline "~/org/life.org" "Events")
+         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
+        ;; ("l" "Ledger entries")
+        ;;       ("le" "Expense (checking)" plain
+        ;;        (file "~/org/finances.ldgr")
+        ;;        "%(org-read-date) %^{Payee}
+        ;;   Expenses:%^{Account}  %^{Amount}
+        ;;   Assets:Banking:Checking
+        ;; ")
+        ;;       ("lc" "Cash expense" plain
+        ;;        (file "~/org/finances.ldgr")
+        ;;        "%(org-read-date) %^{Payee}
+        ;;   Expenses:%^{Account}  %^{Amount}
+        ;;   Expenses:Cash
+        ;; ")
+        ;;       ("x" "XUDD")
+        ;;       ("xt" "XUDD Todo" entry
+        ;;        (file+headline "~/org/xudd.org" "Tasks")
+        ;;        "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ;;       ("xn" "XUDD Note" entry
+        ;;        (file+headline "~/org/xudd.org" "Notes")
+        ;;        "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
         ("s" "SocialWG tasks")
         ("sT" "SocialWG TODO" entry
          (file+headline "~/org/socialwg.org" "SocialWG Tasks")
@@ -299,6 +307,18 @@
       ; Skip till the next heading
       (progn (outline-next-heading) (1- (point)))))
 
+;; Custom agenda dispatch commands which allow you to look at
+;; priorities while still being able to see when deadlines, appointments
+;; are coming up.  Very often you'll just be looking at the A or B tasks,
+;; and when you clear off enough of those or have some time you might
+;; look also at the C tasks
+;;
+;; Hit "C-c a" then one of the following key sequences...
+;;  - a for the A priority items, plus the agenda below it
+;;  - b for A-B priority items, plus the agenda below it
+;;  - c for A-C priority items, plus the agenda below it
+;;  - A for just the agenda
+;;  - t for just the A-C priority TODOs
 (setq org-agenda-custom-commands
       '(("N" todo "NEXT")
         ("h" "Habits"
