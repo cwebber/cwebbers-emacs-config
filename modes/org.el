@@ -58,7 +58,7 @@
 
 ;; These priority faces look good 
 (setq org-priority-faces
-      '((?A . "DeepPink1)"
+      '((?A . "DeepPink1")
         (?B . "light sea green")
         (?C . "slate blue")
         (?D . "#f0640f")))
