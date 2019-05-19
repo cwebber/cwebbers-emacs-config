@@ -20,7 +20,7 @@
 ;(setq org-agenda-include-diary t)
 (setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-include-diary nil)
-(setq org-hide-leading-stars t)
+; (setq org-hide-leading-stars t)
 (setq org-log-done 'time)
 (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 
@@ -285,6 +285,8 @@
 
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 8))))
 (setq org-refile-use-outline-path 'file)
+;; Don't take forever to refile
+(setq org-refile-use-cache t)
 
 ; Force task blocking (ie, block marking as done with subtasks open)
 (setq org-enforce-todo-dependencies t)
@@ -668,4 +670,3 @@ Otherwise, archive to an archive sibling."
 
 ;; I hate that foo_bar becomes foo(subscript:bar) stuff
 (setq org-use-sub-superscripts '{})
-
