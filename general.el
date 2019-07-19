@@ -385,6 +385,9 @@ in X or in a terminal"
 
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
+;; copy-pasta
+(setq x-select-enable-clipboard t)
+
 ;; highlight current line
 ;; Kinda cool but not really needed right now
 ; (global-hl-line-mode +1)
