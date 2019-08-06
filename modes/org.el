@@ -82,7 +82,7 @@
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file+headline "~/org/life.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("e" "Event" entry
          (file+headline "~/org/life.org" "Events")
          "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
@@ -113,7 +113,7 @@
          "| %U | %^{systolic} | %^{diastolic} | %^{pulse} | %^{note} |")
         ("n" "Note" entry
          (file+headline "~/org/notes.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a\n"
          :prepend t :empty-lines 1)
         ("i" "Idea" entry
          (file+headline "~/org/ideas.org" "")
@@ -140,40 +140,40 @@
         ("mt" "MediaGoblin TODO")
         ("mth" "MediaGoblin Todo: Hacking" entry
          (file+headline "~/org/mediagoblin.org" "Hacking Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("mtc" "MediaGoblin Todo: Community" entry
          (file+headline "~/org/mediagoblin.org" "Community Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("mta" "MediaGoblin Todo: Administration" entry
          (file+headline "~/org/mediagoblin.org" "Administrative Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("mtv" "MediaGoblin Todo: Various" entry
          (file+headline "~/org/mediagoblin.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("mtr" "MediaGoblin Todo: Review Queue" entry
          (file+headline "~/org/mediagoblin.org" "Review Queue")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("me" "MediaGoblin Event" entry
          (file+headline "~/org/mediagoblin.org" "Events")
          "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("mn" "MediaGoblin Note" entry
          (file+headline "~/org/mediagoblin.org" "General Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a\n"
          :prepend t :empty-lines 1)
         ;; Digital Bazaar stuff
         ;; --------------------
         ("d" "Digital Bazaar")
         ("dt" "Digital Bazaar Various Tasks" entry
          (file+headline "~/org/contracting/dbazaar.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("dp" "Digital Bazaar Projects")
         ("dpo" "DB Projects: ocap-ld" entry
          (file+headline "~/org/contracting/dbazaar.org" "ocap-ld")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("dpc" "DB Projects: House Clerk" entry
          (file+olp "~/org/contracting/dbazaar.org"
                    "Projects" "Legislative data modeling")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ;; Contracting stuff
         ;; -----------------
         ("c" "Contracting")
@@ -193,17 +193,17 @@
         ;; Open Tech Strategies
         ("cgt" "Contracting general TODO" entry
          (file+headline "~/org/contracting/contracting.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("co" "Open Tech Strategies")
         ("cot" "OTS Todo" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("coe" "OTS Event" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Events")
          "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ("con" "OTS Note" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Notes")
-         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a"
+         "* %^{Title}\n  :PROPERTIES:\n  :CreationTime:  %U\n  :END:\n\n  %i\n\n  %a\n"
          :prepend t :empty-lines 1)
         ("cob" "OTS Billing" entry
          (file+headline "~/org/contracting/opentechstrategies.org" "Billing")
@@ -234,7 +234,7 @@
         ("l" "Libre Lounge")
         ("lt" "Libre Lounge TODO" entry
          (file+headline "~/org/librelounge.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("le" "Libre Lounge Event" entry
          (file+headline "~/org/life.org" "Events")
          "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
@@ -254,27 +254,27 @@
         ;;       ("x" "XUDD")
         ;;       ("xt" "XUDD Todo" entry
         ;;        (file+headline "~/org/xudd.org" "Tasks")
-        ;;        "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ;;        "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ;;       ("xn" "XUDD Note" entry
         ;;        (file+headline "~/org/xudd.org" "Notes")
-        ;;        "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+        ;;        "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("s" "SocialWG tasks")
         ("sT" "SocialWG TODO" entry
          (file+headline "~/org/socialwg.org" "SocialWG Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("sp" "ActiviPy (Python) Todo" entry
          (file+headline "~/org/socialwg.org" "ActiviPy Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("sg" "Activitystuff (Guile) Todo" entry
          (file+headline "~/org/socialwg.org" "Activitystuff Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("g" "Guile/Guix tasks")
         ("gt" "Guile Todo" entry
          (file+headline "~/org/guile.org" "Guile Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("gx" "Guix Todo" entry
          (file+headline "~/org/guile.org" "Guix Tasks")
-         "* TODO %?\n  %i\n  %a" :prepend t :empty-lines 1)))
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)))
 
 (setq org-columns-default-format "%30ITEM %TODO %DEADLINE %TAGS")
 
