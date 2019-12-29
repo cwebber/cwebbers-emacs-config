@@ -458,3 +458,14 @@ in X or in a terminal"
 ;; doesn't seem to hurt anything else...
 (setq tab-always-indent 'complete)
 
+;; Lambda insertion
+(defun cwebber/lambda-insert ()
+  (interactive)
+  (insert-char ?\()
+  (insert-char ?λ)
+  (insert " (")
+  (let ((return-to (point)))
+    (insert "))")
+    (goto-char return-to)))
+
+(global-set-key (kbd "C-c y") 'cwebber/lambda-insert)
