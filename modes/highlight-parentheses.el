@@ -60,12 +60,16 @@
   (interactive)
   (setq hl-paren-background-colors
         cwebber/lighter-highlight-parentheses)
+  (set-face-attribute 'sp-pair-overlay-face
+                      nil :background "old lace")
   (cwebber/reset-highlight-parentheses))
 
 (defun cwebber/enable-dark-parentheses ()
   (interactive)
   (setq hl-paren-background-colors
         cwebber/darker-highlight-parentheses)
+  (set-face-attribute 'sp-pair-overlay-face
+                      nil :background "#443152")
   (cwebber/reset-highlight-parentheses))
 
 ;; Make the parenthesis' matched by hl-paren-face bold.
