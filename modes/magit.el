@@ -10,3 +10,6 @@
 
 ;; (add-to-list 'magit-log-section-arguments
 ;;              "--show-signature")
+
+(require 'magit-annex)
+
