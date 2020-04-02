@@ -268,6 +268,16 @@
         ("sg" "Activitystuff (Guile) Todo" entry
          (file+headline "~/org/socialwg.org" "Activitystuff Tasks")
          "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
+        ("r" "SpRitely tasks")
+        ("rt" "Spritely Various Tasks" entry
+         (file+headline "~/org/spritely.org" "Various Tasks")
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
+        ("rg" "Goblins Tasks" entry
+         (file+headline "~/org/spritely.org" "Goblins tasks")
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
+        ("rd" "Datashards Tasks" entry
+         (file+headline "~/org/spritely.org" "Datashards")
+         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("g" "Guile/Guix tasks")
         ("gt" "Guile Todo" entry
          (file+headline "~/org/guile.org" "Guile Tasks")
@@ -670,3 +680,9 @@ Otherwise, archive to an archive sibling."
 
 ;; I hate that foo_bar becomes foo(subscript:bar) stuff
 (setq org-use-sub-superscripts '{})
+
+;;; org tree-slide
+
+(require 'org-tree-slide)
+(define-key org-mode-map (kbd "<f6>") 'org-tree-slide-mode)
+(define-key org-mode-map (kbd "S-<f6>") 'org-tree-slide-skip-done-toggle)
