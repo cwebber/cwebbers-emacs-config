@@ -5,8 +5,15 @@ ${1:Title}
 ${1:$(make-string (string-width yas/text) ?\=)}
 
 :date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
-:author: ${2:Christopher Lemmer Webber}
-:tags: $3
+:author: Christopher Lemmer Webber
+:tags: $2
+
+$0")
+
+(setq dustycloud-md-snippet "Title: ${1:Title}
+Date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
+Author: Christopher Lemmer Webber
+Tags: $2
 
 $0")
 
@@ -14,8 +21,8 @@ $0")
 <head>
   <title>$1</title>
   <meta name=\"date\" contents=\"`(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`\" />
-  <meta name=\"author\" contents=\"${2:Christopher Lemmer Webber}\" />
-  <meta name=\"tags\" contents=\"$3\" />
+  <meta name=\"author\" contents=\"Christopher Lemmer Webber\" />
+  <meta name=\"tags\" contents=\"$2\" />
 </head>
 <body>
 $0
@@ -30,13 +37,15 @@ $0
   (let ((default-directory dustycloud-content-dir))
     (call-interactively 'find-file))
   (let ((file-extension
-         (progn (string-match "\\.\\(html\\|rst\\)$" buffer-file-name)
+         (progn (string-match "\\.\\(html\\|rst\\|md\\)$" buffer-file-name)
                 (match-string 1 buffer-file-name)))
         (yas/indent-line nil)
         (yas/wrap-around-region nil))
     ;; Expand the appropriate snippet (or throw an error if unrecognized)
     (cond ((equal file-extension "rst")
            (yas-expand-snippet dustycloud-rst-snippet))
+          ((equal file-extension "md")
+           (yas-expand-snippet dustycloud-md-snippet))
           ((equal file-extension "html")
            (setq-local web-mode-disable-auto-indentation t)
            (yas-expand-snippet dustycloud-html-snippet))
