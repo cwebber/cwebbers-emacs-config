@@ -32,24 +32,40 @@
 (setq smtpmail-queue-mail  nil  ;; start in non-queuing mode
       smtpmail-queue-dir   "~/Maildir/queue/cur")
 
+(setq cwebber/mu4e-important-lists
+      "(maildir:/Inbox.General OR maildir:/Mediagoblin OR \"maildir:/W3C Social WG\" OR \"maildir:/SpritelyBiz Dev Thoughts\")")
+
 (setq mu4e-bookmarks
-  '(("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam" "Unread messages"      ?u)
-    ("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam AND NOT (maildir:/Inbox.General OR maildir:/Mediagoblin OR \"maildir:/W3C Social WG\")"
+  `(("flag:unread AND NOT flag:trashed AND NOT maildir:/Spam" "Unread messages"      ?u)
+    (,(concat "flag:unread AND NOT flag:trashed AND NOT maildir:/Spam AND NOT "
+              cwebber/mu4e-important-lists)
      "Unread non-important messages"                                                 ?U)
     ("date:today..now AND NOT maildir:/Spam"                  "Today's messages"     ?T)
     ;("date:7d..now AND NOT maildir:/Spam"                     "Last 7 days"          ?w)
     ;("mime:image/* AND NOT maildir:/Spam"                     "Messages with images" ?p)
     ("flag:unread AND NOT flag:trashed AND maildir:/Spam"     "Unread spam"          ?s)
     ("flag:unread AND maildir:/Inbox.General"  "Unread general inbox" ?i)
-    ("flag:unread AND (/Inbox.General OR /Mediagoblin OR \"/W3C Social WG\"" "Important messages)" ?I)
+    (,(concat "flag:unread AND "
+              cwebber/mu4e-important-lists)
+     "Important messages" ?I)
+    ("flag:flagged AND NOT flag:replied" "flagged" ?f)
+    (,(concat "flag:unread AND NOT (flag:flagged) AND"
+              cwebber/mu4e-important-lists)
+     "Un-flagged unread inbox" ?F)
     ("flag:unread AND maildir:/Mediagoblin"  "MediaGoblin devel" ?m)
     ("flag:unread AND \"maildir:/MediaGoblin Tickets\""  "Unread general inbox" ?t)))
 
 (load-file "~/devel/mu4e-uqueue/mu4e-uqueue.el")
 (load-file "~/devel/mu4e-uqueue/uqueue-advice.el")
 
+(require 'mu4e-actions)
+
 (add-to-list 'mu4e-view-actions
   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+(add-to-list 'mu4e-view-actions
+  '("GitApply" . mu4e-action-git-apply-patch) t)
+(add-to-list 'mu4e-view-actions
+  '("MboxGitApply" . mu4e-action-git-apply-mbox) t)
 
 (setq mu4e~main-buffer-name "*mu4e-main*")
 
