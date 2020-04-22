@@ -16,6 +16,7 @@
 (erc-log-mode t)
 (add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
 (erc-scrolltobottom-mode t)
+(load-file "~/.erc/config.el")
 
 ; Truncate
 (add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
