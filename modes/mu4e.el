@@ -83,3 +83,5 @@
 (setq mu4e-compose-complete-only-personal t)
 ;; Don't update contacts after every update
 (remove-hook 'mu4e-index-updated-hook 'mu4e~request-contacts)
+
+(setq mu4e-cache-maildir-list t)
