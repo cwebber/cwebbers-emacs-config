@@ -8,6 +8,6 @@
 ;(setq load-path (add-to-list 'load-path "~/elisp/bbdb/lisp/"))
 
 (require 'bbdb)
-(bbdb-initialize 'gnus 'message)
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+;;(bbdb-initialize 'gnus 'message)
+;;(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (global-set-key (kbd "C-c b") 'bbdb)

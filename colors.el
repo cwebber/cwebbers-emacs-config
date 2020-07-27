@@ -2,6 +2,7 @@
 ;;; -----
 
 (add-to-list 'load-path "~/devel/naquadah-theme/")
+(add-to-list 'load-path "~/devel/snowy-theme/")
 ;; (require 'color-theme)
 ;; (load-file "~/elisp/color-theme-6.6.0/themes/color-theme-library.el")
 
@@ -132,9 +133,12 @@ isn't."
   ;; If there is more than one, they won't work right.
  '(column-marker-1-face ((t (:background "red" :foreground "black")))))
 
-(require 'naquadah-theme)
-(load-theme 'naquadah t)
+;; (require 'naquadah-theme)
+;;(load-theme 'naquadah t)
 ;; (load-theme 'wombat t)
+
+(require 'snowy-theme)
+(load-theme 'snowy t)
 
 (when (not window-system)
   (set-face-attribute 'region nil :background "blue"))

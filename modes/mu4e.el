@@ -67,8 +67,6 @@
 (add-to-list 'mu4e-view-actions
   '("MboxGitApply" . mu4e-action-git-apply-mbox) t)
 
-(setq mu4e~main-buffer-name "*mu4e-main*")
-
 (setq mu4e-user-mail-address-list
       '("cwebber@dustycloud.org"
         "cwebber@mediagoblin.org"))

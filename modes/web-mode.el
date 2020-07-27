@@ -12,7 +12,7 @@
 (add-hook 'web-mode-hook 'cwebber-web-mode-customizations)
 
 ;; ;; More tango-y colors
-(set-face-attribute 'web-mode-html-tag-face nil
-                    :foreground (naquadah-get-colors 'sky-blue-1))
-(set-face-attribute 'web-mode-html-tag-bracket-face nil
-                    :foreground (naquadah-get-colors 'aluminium-4))
+;; (set-face-attribute 'web-mode-html-tag-face nil
+;;                     :foreground (naquadah-get-colors 'sky-blue-1))
+;; (set-face-attribute 'web-mode-html-tag-bracket-face nil
+;;                     :foreground (naquadah-get-colors 'aluminium-4))

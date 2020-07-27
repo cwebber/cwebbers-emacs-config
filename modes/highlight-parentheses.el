@@ -72,6 +72,8 @@
                       nil :background "#443152")
   (cwebber/reset-highlight-parentheses))
 
+(cwebber/enable-light-parentheses)
+
 ;; Make the parenthesis' matched by hl-paren-face bold.
 ;;
 ;; Not sure if I like this or not!  It looks nice but moves around
