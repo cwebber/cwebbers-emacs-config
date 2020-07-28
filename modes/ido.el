@@ -4,6 +4,9 @@
 (setq ido-everywhere t)
 (setq ido-use-filename-at-point 'guess)
 
+;; Stop trying to find files in other directories
+(setq ido-auto-merge-work-directories-length -1)
+
 (setq ido-create-new-buffer 'always)
 (setq ido-file-extensions-order
       '(".org" ".txt" ".py" ".emacs" ".xml" ".el" ".ini" ".cfg" ".cnf"))
