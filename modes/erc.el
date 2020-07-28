@@ -2,10 +2,15 @@
 ;; ERC
 ;; ---------
 
-(setq erc-user-full-name user-full-name)
 ;; (setq browse-url-browser-function 'w3m-browse-url)
+
+(setq erc-user-full-name user-full-name)
+
+(require 'erc-track)
+(erc-track-mode t)
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART"
  				"QUIT" "MODE"))
+
 (setq erc-log-channels-directory "~/.erc/logs/")
 (setq erc-save-buffer-on-part t)
 (setq erc-hide-timestamps t)
