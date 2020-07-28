@@ -1,4 +1,4 @@
-;; -----
+;; -----
 ;; Require misc stuff
 ;; ------
 (require 'nxml-mode)
