@@ -3,10 +3,16 @@
 (spaceline-spacemacs-theme)
 
 (spaceline-compile
-  `(,left
+  '(((persp-name
+      workspace-number
+      window-number)
+     :fallback evil-state
+     :face highlight-face
+     :priority 100)
     (anzu :priority 95)
     auto-compile
-    ,second-left
+    ((buffer-modified buffer-id remote-host)
+     :priority 98)
     (major-mode :priority 79)
     (process :when active)
     ((flycheck-error flycheck-warning flycheck-info)
@@ -21,18 +27,17 @@
     (org-pomodoro :when active)
     (org-clock :when active)
     nyan-cat)
-  `(which-function
+  '(which-function
     (python-pyvenv :fallback python-pyenv)
     (purpose :priority 94)
     (battery :when active)
     (selection-info :priority 95)
     input-method
-    ;; ((buffer-encoding-abbrev
-    ;;   point-position
-    ;;   line-column)
-    ;;  :separator " | "
-    ;;  :priority 96)
+    ((; buffer-encoding-abbrev
+      point-position
+      line-column)
+     :separator " | "
+     :priority 96)
     (global :when active)
-    ,@additional-segments
     (buffer-position :priority 99)
     (hud :priority 99)))
