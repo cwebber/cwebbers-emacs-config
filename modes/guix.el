@@ -22,3 +22,6 @@
 
 ;; guix-all-available-packages takes forever on my machine...
 (setq geiser-connection-timeout 300000)
+
+(with-eval-after-load 'geiser-guile
+  (add-to-list 'geiser-guile-load-path "~/devel/guix"))
