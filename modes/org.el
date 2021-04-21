@@ -11,6 +11,9 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+;; why did they unbind this
+(org-defkey org-mode-map [(control tab)] 'org-force-cycle-archived)
+
 (setq org-export-html-toplevel-hlevel 2)
 (setq org-export-babel-evaluate nil)
 (setq org-agenda-files "~/org/orgfiles.txt")
@@ -50,11 +53,11 @@
 ; Complete with org-complete (does a fallback to hippie-expand automatically)
 ;(define-key org-mode-map "\M-/" 'org-complete)
 
-;; We want the lowest and "default" priority to be D.  That way
+;; We want the lowest and "default" priority to be E.  That way
 ;; when we calculate the agenda, any task that isn't specifically
 ;; marked with a priority or SCHEDULED/DEADLINE won't show up.
-(setq org-default-priority ?D)
-(setq org-lowest-priority ?D)
+(setq org-default-priority ?E)
+(setq org-lowest-priority ?E)
 
 ;; These priority faces look good 
 (setq org-priority-faces
@@ -355,6 +358,11 @@
         ("c" "Agenda plus A+B+C items"
          ((tags-todo
            "+PRIORITY=\"A\"|+PRIORITY=\"B\"|+PRIORITY=\"C\""
+           ((org-agenda-sorting-strategy '(priority-down))))
+          (agenda "")))
+        ("d" "Agenda plus A+B+C+D items"
+         ((tags-todo
+           "+PRIORITY=\"A\"|+PRIORITY=\"B\"|+PRIORITY=\"C\"|+PRIORITY=\"D\""
            ((org-agenda-sorting-strategy '(priority-down))))
           (agenda "")))
         ("A" "Agenda"
