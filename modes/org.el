@@ -387,8 +387,9 @@
 ; I am not confident this is the right option though.
 (setq org-agenda-repeating-timestamp-show-all nil)
 
-; Start weekly view from present day
-(setq org-agenda-start-on-weekday nil)
+;; Start weekly view from... Monday.  Used to be present day but life
+;; has changed.
+(setq org-agenda-start-on-weekday 1)
 
 ;; Useful functions
 
@@ -575,7 +576,7 @@ This uses DARK VOODOO MAGIC but it works"
 (define-key global-map (kbd "C-c o W") 'cwebber/org-diet-copy-weight-to-dustycloud)
 
 
-; Open files with the programs I want.
+;; Open files with the programs I want.
 
 (setq org-file-apps
       '((auto-mode . emacs)
