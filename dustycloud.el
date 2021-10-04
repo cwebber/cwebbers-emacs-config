@@ -5,14 +5,14 @@ ${1:Title}
 ${1:$(make-string (string-width yas/text) ?\=)}
 
 :date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
-:author: Christopher Lemmer Webber
+:author: Christine Lemmer-Webber
 :tags: $2
 
 $0")
 
 (setq dustycloud-md-snippet "Title: ${1:Title}
 Date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
-Author: Christopher Lemmer Webber
+Author: Christine Lemmer-Webber
 Tags: $2
 
 $0")
@@ -21,7 +21,7 @@ $0")
 <head>
   <title>$1</title>
   <meta name=\"date\" contents=\"`(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`\" />
-  <meta name=\"author\" contents=\"Christopher Lemmer Webber\" />
+  <meta name=\"author\" contents=\"Christine Lemmer-Webber\" />
   <meta name=\"tags\" contents=\"$2\" />
 </head>
 <body>
