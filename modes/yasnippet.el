@@ -3,7 +3,7 @@
 (setq yas-snippet-dirs
       '("~/.config/emacs/yas-snippets"   ;; personal snippets
         "~/elisp/yasnippet-snippets/"  ; third party snippets
-        ))
+        "~/devel/guix/etc/snippets"))
 
 ;; Also putting hippie-expand here.  Maybe should be its own file..
 (define-key global-map "\M-/" 'hippie-expand)
