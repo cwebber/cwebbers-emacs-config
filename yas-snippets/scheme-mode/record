@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: define-record-type
+# key: record
+# contributor: Christine Lemmer-Webber
+# --
+(define-record-type <$1>
+  (make-$1 $2)
+  $1?
+  ${2:$(mapconcat (lambda (x) (format "(%s %s-%s)" x (yas-field-value 1) x))
+                  (split-string yas-text) "\n  ")})
