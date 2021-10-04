@@ -1,4 +1,5 @@
 (require 'geiser)
+(require 'geiser-guile)
 (setq geiser-default-implementation 'guile)
 (setq geiser-active-implementations '(guile mit racket))
 (setq geiser-mode-smart-tab-p t)
@@ -12,3 +13,10 @@
 
 ;;; This no longer works...
 ;; (setq geiser-guile-binary '("/home/cwebber/devel/guix/pre-inst-env" "guile"))
+
+(with-eval-after-load 'geiser-guile
+  (add-to-list 'geiser-guile-load-path "~/devel/guix"))
+
+(with-eval-after-load 'yasnippet
+  (add-to-list 'yas-snippet-dirs "~/devel/guix/etc/snippets"))
+
