@@ -469,3 +469,25 @@ in X or in a terminal"
     (goto-char return-to)))
 
 (global-set-key (kbd "C-c y") 'cwebber/lambda-insert)
+
+
+;; Highlight glyphless characters, eg ZERO-WIDTH SPACE
+(set-face-background 'glyphless-char "red")
+
+
+;; The old "open in firefox" code no longer seemed to work so trying this...
+(defun cwebber/open-in-firefox (url &optional new-window)
+  ;; prevent someone passing in extra command line arguments as an attack
+  (if (equal (substring-no-properties url 0 1)
+             "-")
+      (error "Attempted to open URL with preceding dashes"))
+  (start-process (concat "firefox " url)
+                 nil
+                 (executable-find browse-url-firefox-program)
+                 (if new-window
+                     "--new-window"
+                     "--new-tab")
+                 url))
+
+(setq browse-url-browser-function 'cwebber/open-in-firefox)
+
