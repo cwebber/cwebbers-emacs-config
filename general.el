@@ -491,3 +491,15 @@ in X or in a terminal"
 
 (setq browse-url-browser-function 'cwebber/open-in-firefox)
 
+
+;; Make calendar show week numbers?!
+(setq calendar-week-start-day 1
+        calendar-intermonth-text
+        '(propertize
+          (format "%2d"
+                  (car
+                   (calendar-iso-from-absolute
+                    (calendar-absolute-from-gregorian (list month day year)))))
+          'font-lock-face 'font-lock-function-name-face))
+
+(setq kill-ring-max 256)
