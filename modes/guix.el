@@ -17,8 +17,6 @@
 ; (guix-emacs-autoload-packages)
 
 (global-set-key (kbd "C-c g") 'guix)
-(global-set-key (kbd "C-c G p") 'guix-all-available-packages)
-(global-set-key (kbd "C-c G g") 'guix-generations)
 
-;; guix-all-available-packages takes forever on my machine...
-(setq geiser-connection-timeout 300000)
+;; ;; guix-all-available-packages takes forever on my machine...
+;; (setq geiser-connection-timeout 300000)

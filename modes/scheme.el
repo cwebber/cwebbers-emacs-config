@@ -112,3 +112,29 @@ indentation."
 ;;; This is for 8sync!
 
 (put 'mbody-receive 'scheme-indent-function 2)
+
+;;; Hacking on a particular project?  Hm hm!
+(defvar guile-projects
+  '((goblins "~/devel/guile-goblins")
+    (syrup "~/devel/syrup/impls/guile")
+    (spritely.institute-site "~/devel/spritely.institute-site")
+    ;; (guile "~/devel/guile")
+    ))
+
+(require 'cl-lib)
+
+(defun guile-projectify (project-name)
+  (interactive (list (completing-read "Project: "
+                                      (mapcar
+                                       (lambda (x) (symbol-name (car x)))
+                                       guile-projects))))
+  (let ((project-dir (cadr (assoc (intern project-name)
+                                  guile-projects))))
+    (cond
+     ((not project-dir)
+      (message "No such project...?"))
+     (t
+      (make-local-variable 'geiser-guile-load-path)
+      (cl-pushnew project-dir geiser-guile-load-path
+                  :test 'string-equal)))))
+

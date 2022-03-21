@@ -1,0 +1,2 @@
+(require 'vertico)
+(vertico-mode)

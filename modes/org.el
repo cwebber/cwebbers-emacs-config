@@ -276,10 +276,7 @@
          (file+headline "~/org/spritely.org" "Various Tasks")
          "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("rg" "Goblins Tasks" entry
-         (file+headline "~/org/spritely.org" "Goblins tasks")
-         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
-        ("rd" "Datashards Tasks" entry
-         (file+headline "~/org/spritely.org" "Datashards")
+         (file+headline "~/org/spritely/goblins.org" "Various tasks")
          "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
         ("g" "Guile/Guix tasks")
         ("gt" "Guile Todo" entry
