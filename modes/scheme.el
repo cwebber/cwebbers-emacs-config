@@ -3,7 +3,7 @@
 (put 'signal-let* 'scheme-indent-function 1)
 (put 'signal-let 'scheme-indent-function 1)
 (put 'let/cc 'scheme-indent-function 1)
-
+(put 'extend-methods 'scheme-indent-function 1)
 
 ;;; =============
 ;;; From Mark Weaver. See this thread on guix-devel:
