@@ -349,8 +349,7 @@ in X or in a terminal"
 ; Randomly choose mail signature
 (setq cwebber-mail-sigs
       '("The bottom line."
-        "http://dustycloud.org/"
-        "𝓒𝓱𝓻𝓲𝓼𝓽𝓸𝓹𝓱𝓮𝓻 𝓐𝓵𝓵𝓪𝓷 𝓦𝓮𝓫𝓫𝓮𝓻"))
+        "http://dustycloud.org/"))
 
 (defun cwebber-random-mail-sig ()
   (nth (random (length cwebber-mail-sigs))
