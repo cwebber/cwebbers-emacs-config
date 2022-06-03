@@ -38,7 +38,9 @@
         ("~/work/sinst-servers/"
          "~/devel/nonguix")
         ("~/devel/brainy"
-         "~/devel/guile-goblins")))
+         "~/devel/guile-goblins")
+        ("~/devel/spritely.institute")
+        ("~/devel/spritelyproject.org")))
 
 (defun cwebber/setup-guile-project-paths ()
   (catch 'done
@@ -53,3 +55,6 @@
         (throw 'done t)))))
 
 (add-hook 'geiser-mode-hook 'cwebber/setup-guile-project-paths)
+
+; (let ((geiser-guile-binary '("guix" "environment" "-l" "/home/cwebber/devel/guile-goblins/guix.scm" "--" "/home/cwebber/devel/guile-goblins/pre-inst-env" "guile")))
+;   (run-guile))
