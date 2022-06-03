@@ -1,4 +1,7 @@
 (require 'wisp-mode)
+(require 'scheme)
+(add-hook 'lisp-mode-hook 'rainbow-identifiers-mode)
+(add-hook 'scheme-mode-hook 'rainbow-identifiers-mode)
 
 (defun cwebber/wisp2lisp ()
   (interactive)
