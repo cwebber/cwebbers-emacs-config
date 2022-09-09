@@ -528,6 +528,8 @@ This uses DARK VOODOO MAGIC but it works"
 (setq org-confirm-babel-evaluate nil)
 
 (setq org-src-preserve-indentation nil)
+;; only indent the headers of an entry
+(setq org-adapt-indentation 'headline-data)
 
 ;; -----------
 ;; Other stuff

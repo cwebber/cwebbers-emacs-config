@@ -138,3 +138,9 @@ indentation."
       (cl-pushnew project-dir geiser-guile-load-path
                   :test 'string-equal)))))
 
+
+;; Some propagators stuff
+(put 'p:when 'scheme-indent-function 1)
+(put 'e:when 'scheme-indent-function 1)
+(put 'p:unless 'scheme-indent-function 1)
+(put 'e:unless 'scheme-indent-function 1)

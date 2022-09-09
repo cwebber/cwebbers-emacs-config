@@ -7,7 +7,7 @@
   (interactive)
   (let ((current-line (line-number-at-pos)))
     (save-excursion
-      (set-buffer "*wisp2lisp*")
+      (set-buffer (get-buffer-create "*wisp2lisp*"))
       (erase-buffer)
       (scheme-mode))
     (call-process "wisp2lisp" nil "*wisp2lisp*" nil (buffer-file-name))

@@ -35,12 +35,19 @@
          ;; "~/devel/guix"
          "~/devel/nonguix")
         ("~/devel/guix")
-        ("~/work/sinst-servers/"
-         "~/devel/nonguix")
+        ("~/work/guile-prescheme/")
+        ("~/devel/guix"
+         ;; "~/devel/nonguix"
+         )
         ("~/devel/brainy"
          "~/devel/guile-goblins")
         ("~/devel/spritely.institute")
-        ("~/devel/spritelyproject.org")))
+        ("~/devel/spritely-papers"
+         "~/devel/guile-goblins")
+        ("~/devel/spritelyproject.org")
+        ("~/devel/terminal-phase"
+         "~/devel/guile-goblins")
+        ("~/devel/dustycloud")))
 
 (defun cwebber/setup-guile-project-paths ()
   (catch 'done
@@ -58,3 +65,6 @@
 
 ; (let ((geiser-guile-binary '("guix" "environment" "-l" "/home/cwebber/devel/guile-goblins/guix.scm" "--" "/home/cwebber/devel/guile-goblins/pre-inst-env" "guile")))
 ;   (run-guile))
+
+;; One geiser per project
+(setq geiser-repl-per-project-p t)

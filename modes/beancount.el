@@ -1,3 +1,5 @@
+(require 'beancount)
+
 (add-to-list 'auto-mode-alist '("\\.bnct\\'" . beancount-mode))
 
 (defun beancount-indent-and-align (&optional arg)
