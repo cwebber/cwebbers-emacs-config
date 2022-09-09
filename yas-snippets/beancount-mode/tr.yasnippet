@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: transaction
+# key: tr
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+${1:YYYY-MM-DD} ${2:!} "${3:Payee}" "${4:Description}"
+  ${5:$$(yas-choose-value (sort (beancount-collect beancount-account-regexp 0) #'string<))}  ${6:0.00} ${7:USD}
+  ${8:$$(yas-choose-value (sort (beancount-collect beancount-account-regexp 0) #'string<))}
