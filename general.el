@@ -338,7 +338,7 @@ in X or in a terminal"
 
 ;; I also like my scrollbars on the left, thanks!
 
-(set-scroll-bar-mode 'left)
+(set-scroll-bar-mode 'right)
 
 ;; ----------
 ;; Mail stuff
@@ -502,3 +502,17 @@ in X or in a terminal"
           'font-lock-face 'font-lock-function-name-face))
 
 (setq kill-ring-max 256)
+
+;; Only generate line numbers as needed...
+(setq linum-format 'dynamic)
+
+(defun narrow-to-sentence ()
+  (interactive)
+  (backward-sentence)
+  (let ((original-point (point)))
+    (let ((start (point)))
+      (forward-sentence)
+      (narrow-to-region start (point)))
+    (goto-char original-point)))
+
+(global-set-key (kbd "C-x n S") 'narrow-to-sentence)
