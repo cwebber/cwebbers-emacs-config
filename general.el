@@ -516,3 +516,6 @@ in X or in a terminal"
     (goto-char original-point)))
 
 (global-set-key (kbd "C-x n S") 'narrow-to-sentence)
+
+;; How on earth did tabs start appearing in my code...
+(setq-default indent-tabs-mode nil)
