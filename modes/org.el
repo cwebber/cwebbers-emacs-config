@@ -384,9 +384,14 @@
 ; I am not confident this is the right option though.
 (setq org-agenda-repeating-timestamp-show-all nil)
 
-;; Start weekly view from... Monday.  Used to be present day but life
-;; has changed.
-(setq org-agenda-start-on-weekday 1)
+;; Commenting this out.  It's been pretty annoying, tbh.
+;;;; Start weekly view from... Monday.  Used to be present day but life
+;;;; has changed.
+;;
+;; (setq org-agenda-start-on-weekday 1)
+
+;; Show two weeks at a time.  TWO weeks!
+(setq org-agenda-span 'fortnight)
 
 ;; Useful functions
 
