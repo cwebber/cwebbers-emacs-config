@@ -53,9 +53,8 @@
 
        ;; '(:eval (when nyan-mode (list (nyan-create) " ")))
 
-       ;; '(:eval (when (and erc-track-mode cwebber/show-erc-in-mode-line)
-       ;;           (list erc-modified-channels-object)))
-       '(:eval (list erc-modified-channels-object))
+       '(:eval (when (and erc-track-mode cwebber/show-erc-in-mode-line)
+                 (list erc-modified-channels-object)))
 
        ;; i don't want to see minor-modes; but if you want, uncomment this:
        minor-mode-alist  ;; list of minor modes
