@@ -46,6 +46,10 @@
 
        " "
 
+       '(global-mode-string global-mode-string)
+
+       " "
+
        ;; revision control info
        '(vc-mode vc-mode)
 
