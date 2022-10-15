@@ -212,13 +212,6 @@
 ** TODO Record in [[file:~/org/finances.ldgr][ledger]] and [[~/org/finances.org][finances.org]]
 "
          :prepend t :empty-lines 1)
-
-  ;;       ("ml" "MediaGoblin Ledger" plain
-  ;;        (file "~/records/mgllc_accounts/mediagoblin.ldgr")
-  ;;        "%(org-read-date) %^{Payee}
-  ;;   Expenses:%^{Account}  %^{Amount}
-  ;;   Assets:Banking:Checking
-  ;; ")
         ("C" "Contact" entry
          (file+headline "~/org/contacts.org" "General")
          "* %(org-contacts-template-name)
@@ -227,13 +220,6 @@
   :CreationTime:  %U
   :END:
 %?")
-        ("l" "Libre Lounge")
-        ("lt" "Libre Lounge TODO" entry
-         (file+headline "~/org/librelounge.org" "Various Tasks")
-         "* TODO %?\n  %i\n  %a\n" :prepend t :empty-lines 1)
-        ("le" "Libre Lounge Event" entry
-         (file+headline "~/org/life.org" "Events")
-         "* %^{Event}\n   %^t\n  %i\n  %a\n\n%?" :prepend t :empty-lines 1)
         ;; ("l" "Ledger entries")
         ;;       ("le" "Expense (checking)" plain
         ;;        (file "~/org/finances.ldgr")
@@ -692,3 +678,4 @@ Otherwise, archive to an archive sibling."
 (require 'org-tree-slide)
 (define-key org-mode-map (kbd "<f6>") 'org-tree-slide-mode)
 (define-key org-mode-map (kbd "S-<f6>") 'org-tree-slide-skip-done-toggle)
+
