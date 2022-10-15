@@ -24,19 +24,11 @@
 (setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-include-diary nil)
 ; (setq org-hide-leading-stars t)
-(setq org-log-done 'time)
+(setq org-log-done nil)
 (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 
 (setq org-todo-keywords
-      '((sequence "TODO" "DONE")
-        (sequence "NEXT" "DONE")
-        (sequence "WAITING" "|" "DONE")
-        (sequence "|" "CANCELED")
-        ; We don't always want this... only if we don't mostly care to
-        ; pay attention to it.  Sometimes WAITING is better.
-        (sequence "|" "PASSED-OFF")
-        (sequence "|" "DONE-NOT-ME")
-        (sequence "BILL-THIS" "PAYMENT-WAITING" "RECORD-INCOME" "|" "PAID")))
+      '((sequence "TODO(t)" "WAIT(w@)" "NEXT(n!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
 (setq org-todo-keyword-faces
       '(("CANCELED" . (:foreground "orange" :weight bold))
@@ -45,6 +37,7 @@
         ("PASSED-OFF" . (:foreground "peru" :weight bold))
         ("CAL-CANCEL" . (:foreground "orange" :weight bold))
         ("WAITING" . (:foreground "dodger blue" :weight bold))
+        ("WAIT" . (:foreground "dodger blue" :weight bold))
         ("PAYMENT-WAITING" . (:foreground "orchid" :weight bold))
         ("PAID" . (:foreground "sea green" :weight bold))
         ("FOODLIST-OUT" . (:foreground "#4e9a06" :weight bold))
