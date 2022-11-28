@@ -551,7 +551,7 @@ This uses DARK VOODOO MAGIC but it works"
   (save-excursion
     (let ((org-diet-open-in-browser-after-export nil))
       (org-diet-expand-and-export-progress-template))
-    (shell-command "scp /tmp/org_diet_results.html /tmp/weight.png /tmp/weight_month.png /tmp/weight_year.png dustycloud:/srv/dustycloud/static/tmp/")
+    (shell-command "scp /tmp/org_diet_results.html /tmp/weight_month.png /tmp/weight_year.png dustycloud:/srv/dustycloud/static/tmp/")
     (browse-url "https://dustycloud.org/tmp/org_diet_results.html")
     (kill-buffer)
     (other-window -1)))
