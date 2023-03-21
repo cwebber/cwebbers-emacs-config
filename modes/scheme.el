@@ -144,3 +144,4 @@ indentation."
 (put 'e:when 'scheme-indent-function 1)
 (put 'p:unless 'scheme-indent-function 1)
 (put 'e:unless 'scheme-indent-function 1)
+(put 'with-vat 'scheme-indent-function 1)
