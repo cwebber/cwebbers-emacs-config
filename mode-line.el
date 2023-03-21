@@ -55,7 +55,7 @@
 
        " "
 
-       ;; '(:eval (when nyan-mode (list (nyan-create) " ")))
+       '(:eval (when nyan-mode (list (nyan-create) " ")))
 
        '(:eval (when (and erc-track-mode cwebber/show-erc-in-mode-line)
                  (list erc-modified-channels-object)))
