@@ -46,7 +46,8 @@
          "~/devel/guile-goblins")
         ("~/devel/spritelyproject.org")
         ("~/devel/terminal-phase"
-         "~/devel/guile-goblins")
+         ; "~/devel/guile-goblins"
+         )
         ("~/devel/dustycloud")))
 
 (defun cwebber/setup-guile-project-paths ()
@@ -67,4 +68,4 @@
 ;   (run-guile))
 
 ;; One geiser per project
-(setq geiser-repl-per-project-p t)
+;;; (setq geiser-repl-per-project-p t)
