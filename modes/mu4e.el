@@ -11,7 +11,7 @@
 ; (setq mu4e-mu-binary "/home/cwebber/programs/mu/mu/mu")
 
 (require 'mu4e)
-(require 'org-mu4e)
+; (require 'org-mu4e)
 (require 'mu4e-contrib)
 
 ; (setq mu4e-msg2pdf "/usr/bin/msg2pdf")
