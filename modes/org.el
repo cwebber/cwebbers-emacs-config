@@ -679,3 +679,16 @@ Otherwise, archive to an archive sibling."
 (define-key org-mode-map (kbd "<f6>") 'org-tree-slide-mode)
 (define-key org-mode-map (kbd "S-<f6>") 'org-tree-slide-skip-done-toggle)
 
+
+;; Upcase the org-mode export structures
+(setq org-structure-template-alist
+      '(("a" . "EXPORT ascii")
+        ("c" . "CENTER")
+        ("C" . "COMMENT")
+        ("e" . "EXAMPLE")
+        ("E" . "EXPORT")
+        ("h" . "EXPORT html")
+        ("l" . "EXPORT latex")
+        ("q" . "QUOTE")
+        ("s" . "SRC")
+        ("v" . "VERSE")))
