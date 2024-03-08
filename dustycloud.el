@@ -1,4 +1,4 @@
-(setq dustycloud-content-dir "~/devel/dustycloud/content/")
+(setq dustycloud-content-dir "~/devel/dustycloud/posts/")
 
 (setq dustycloud-rst-snippet "${1:$(make-string (string-width yas/text) ?\=)}
 ${1:Title}
@@ -10,24 +10,19 @@ ${1:$(make-string (string-width yas/text) ?\=)}
 
 $0")
 
-(setq dustycloud-md-snippet "Title: ${1:Title}
-Date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
-Author: Christine Lemmer-Webber
-Tags: $2
-
+(setq dustycloud-md-snippet "title: ${1:Title}
+date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
+author: Christine Lemmer-Webber
+tags: $2
+---
 $0")
 
-(setq dustycloud-html-snippet "<html>
-<head>
-  <title>$1</title>
-  <meta name=\"date\" contents=\"`(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`\" />
-  <meta name=\"author\" contents=\"Christine Lemmer-Webber\" />
-  <meta name=\"tags\" contents=\"$2\" />
-</head>
-<body>
+(setq dustycloud-html-snippet "title: ${1:Title}
+date: `(format-time-string \"\%Y-\%m-\%d \%H:\%M\")`
+author: Christine Lemmer-Webber
+tags: $2
+---
 $0
-</body>
-</html>
 ")
 
 
@@ -50,7 +45,7 @@ $0
            (setq-local web-mode-disable-auto-indentation t)
            (yas-expand-snippet dustycloud-html-snippet))
           (t
-           (error "File extension not .rst or .html")))))
+           (error "File extension not .md or .html")))))
 
 
 (defun mediagoblin-compose ()
