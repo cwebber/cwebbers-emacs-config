@@ -32,9 +32,6 @@
 (setq smtpmail-queue-mail  nil  ;; start in non-queuing mode
       smtpmail-queue-dir   "~/Maildir/queue/cur")
 
-(setq cwebber/mu4e-important-lists
-      "(maildir:/personal/Inbox.General OR maildir:/personal/Mediagoblin OR \"maildir:/personal/W3C Social WG\")")
-
 (load-file "~/devel/mu4e-uqueue/mu4e-uqueue.el")
 (load-file "~/devel/mu4e-uqueue/uqueue-advice.el")
 
