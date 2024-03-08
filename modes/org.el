@@ -4,7 +4,7 @@
 
 (require 'org)
 (require 'org-id)
-(require 'org-install)
+;; (require 'org-install)
 
 ; Load stuff from http://doc.norang.ca/org-mode.html
 (load-file "~/.config/emacs/modes/org-norang.el")
