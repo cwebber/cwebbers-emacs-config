@@ -42,13 +42,21 @@
         ("~/devel/brainy"
          "~/devel/guile-goblins")
         ("~/devel/spritely.institute")
+        ("~/devel/guile-hoot/module")
         ("~/devel/spritely-papers"
          "~/devel/guile-goblins")
         ("~/devel/spritelyproject.org")
         ("~/devel/terminal-phase"
          ; "~/devel/guile-goblins"
          )
-        ("~/devel/dustycloud")))
+        ("~/devel/dustycloud")
+        ("~/devel/fantasary"
+         "~/devel/guile-goblins")
+        ("~/devel/chickflix"
+         "~/devel/guile-goblins")
+        ("~/devel/wasm4-wireworld"
+         "~/devel/guile-hoot/module")
+        ("~/devel/guile-syrup")))
 
 (defun cwebber/setup-guile-project-paths ()
   (catch 'done
