@@ -47,7 +47,7 @@
          "~/devel/guile-goblins")
         ("~/devel/spritelyproject.org")
         ("~/devel/terminal-phase"
-         ; "~/devel/guile-goblins"
+         "~/devel/guile-goblins"
          )
         ("~/devel/dustycloud")
         ("~/devel/fantasary"
