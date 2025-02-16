@@ -517,3 +517,6 @@ in X or in a terminal"
 
 ;; How on earth did tabs start appearing in my code...
 (setq-default indent-tabs-mode nil)
+
+;; Avoid bug that kills org-diet
+(setq font-lock-reference-face font-lock-constant-face)
