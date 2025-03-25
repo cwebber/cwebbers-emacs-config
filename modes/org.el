@@ -540,7 +540,7 @@ This uses DARK VOODOO MAGIC but it works"
   "Really hacky function to jump to today based on the assumption
     that we can find the first Total line"
   (interactive)
-  (switch-to-buffer (get-file-buffer "~/org/diet.org"))
+  (find-file "~/org/diet.org")
   (beginning-of-buffer)
   (search-forward-regexp "^| Total")
   (beginning-of-line)
