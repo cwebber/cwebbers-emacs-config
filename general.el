@@ -126,6 +126,7 @@
 (when window-system
   (progn
     (global-unset-key (kbd "C-z"))
+    (global-unset-key (kbd "C-x C-z"))
     (setq scroll-bar-mode nil)
     (tool-bar-mode nil)
     (menu-bar-mode nil)))
@@ -520,3 +521,4 @@ in X or in a terminal"
 
 ;; Avoid bug that kills org-diet
 (setq font-lock-reference-face font-lock-constant-face)
+
